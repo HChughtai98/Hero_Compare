@@ -1,0 +1,25 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex: 1 auto;
+  padding: 10px;
+  background-color: #344bf1;
+}
+
+.navbar h1 {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: default;
+}
+
+.navbar h1:hover {
+  color: #f2ffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.75);
+}
