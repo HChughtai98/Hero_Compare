@@ -6,9 +6,22 @@ body {
   padding: 0;
 }
 .App {
-  padding-left: 0px;
-  background-color: #f8f8f8;
+  display: flex;
   min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.sidebar {
+  width: 250px;
+}
+
+.AppBody {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 15rem;
 }
 
 .charContainer {
@@ -16,18 +29,18 @@ body {
   flex-wrap: wrap;
   gap: 250px;
   row-gap: 100px;
-  padding: 6rem;
-  margin-left: 17rem;
+  padding: 2rem;
+  margin-left: 6rem;
 }
 
 .characters {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 10px;
 }
 .characters p {
   display: block;
+  font-weight: bold;
 }
 
 .character {
@@ -42,4 +55,14 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 10px;
+}
+
+.homePage {
+  background-image: url("/public/HomepageBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 88vw;
+  opacity: 1;
 }

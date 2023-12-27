@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // This is for routing
+import { Link } from "react-router-dom";
 import "../styling/Sidebar.css";
 
 function Sidebar() {
@@ -11,6 +11,9 @@ function Sidebar() {
         </li>
         <li>
           <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/characters">Characters</Link>
         </li>
       </ul>
     </aside>

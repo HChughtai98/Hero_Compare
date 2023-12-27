@@ -5,19 +5,24 @@ import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import Home from "../src/pages/Home";
 import About from "../src/pages/About";
-// Import other components as needed
+import Characters from "../src/pages/Characters";
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <Sidebar />
-        {/* Define your routes here */}
-        <Routes>
-          <Route path="/" element={<Home />} /> {/* Updated line */}
-          <Route path="/about" element={<About />} /> {/* Updated line */}
-        </Routes>
+        <div className="AppBody">
+          <Sidebar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/characters" element={<Characters />} />
+            </Routes>
+          </div>
+        </div>
         <Footer />
       </div>
     </Router>
