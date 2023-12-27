@@ -22,7 +22,7 @@ const Character = () => {
   return (
     <div className="characters">
       <h1>Characters</h1>
-      <div>
+      <div className="charContainer">
         {characters.map((character) => (
           // Update this part to display images
           <div key={character.id} className="character">
