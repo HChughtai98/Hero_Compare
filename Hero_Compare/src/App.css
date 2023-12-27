@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background-color: white;
+  overflow-x: hidden;
+  list-style-type: none;
+  padding: 0;
+}
+.App {
+  padding-left: 220px; /* Adjust based on sidebar width */
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}

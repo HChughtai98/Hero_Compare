@@ -1,0 +1,25 @@
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; /* Fixed position */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+body {
+  padding-top: 60px; /* Adjust based on the height of your navbar */
+}
+
+nav img {
+  width: 50px; /* Adjust as needed */
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 24px;
+}

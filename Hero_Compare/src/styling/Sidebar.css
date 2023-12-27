@@ -1,0 +1,25 @@
+aside {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 200px; /* Adjust as needed */
+  min-height: 100vh; /* Full height */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+aside ul li a:hover {
+  background-color: #ddd;
+}
