@@ -7,7 +7,7 @@ import Navbar from "./assets/components/Navbar";
 import Footer from "./assets/components/Footer";
 import Sidebar from "./assets/components/Sidebar";
 // Pages//
-
+import blabla
 import NotFoundPage from "./assets/pages/NotFound";
 import AboutPage from "./assets/pages/AboutPage";
 
