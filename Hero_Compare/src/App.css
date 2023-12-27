@@ -6,7 +6,30 @@ body {
   padding: 0;
 }
 .App {
-  padding-left: 220px; /* Adjust based on sidebar width */
+  padding-left: 0px; /* Adjust based on sidebar width */
   background-color: #f8f8f8;
   min-height: 100vh;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px; /* Adjust the space between items */
+  padding: 10px; /* Padding around the grid */
+  margin-left: 0px; /* Adjust as needed to account for the sidebar */
+}
+
+.character {
+  margin-left: 0px;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+
+.character img {
+  width: 150px; /* Make image fill the container */
+  height: 150px; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: rounds the corners */
 }

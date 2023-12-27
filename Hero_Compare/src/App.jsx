@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
@@ -15,8 +15,8 @@ function App() {
         <Sidebar />
         {/* Define your routes here */}
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
+          <Route path="/" element={<Home />} /> {/* Updated line */}
+          <Route path="/about" element={<About />} /> {/* Updated line */}
         </Routes>
         <Footer />
       </div>
