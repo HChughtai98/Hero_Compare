@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 /* import CharacterDetails from "./CharacterDetails"; */
 
@@ -24,10 +25,14 @@ const CharacterList = () => {
       <h1>Characters</h1>
       <div className="charContainer">
         {characters.map((character) => (
-          <div key={character.id} className="character">
+          <Link
+            to={`/characters/${character.id}`}
+            key={character.id}
+            className="character"
+          >
             <img src={character.image} alt={`Character ${character.name}`} />
-            <p>{character.name}</p>{" "}
-          </div>
+            <p>{character.name}</p>
+          </Link>
         ))}
       </div>
     </div>

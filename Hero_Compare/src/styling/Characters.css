@@ -35,3 +35,34 @@
   width: 250px;
   height: 282px;
 }
+
+/* Character Details Page */
+.character-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.character-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.character-details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.character-details p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.character-details strong {
+  font-weight: bold;
+}

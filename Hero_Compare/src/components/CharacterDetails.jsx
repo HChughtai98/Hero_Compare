@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const CharacterDetails = ({ character }) => {
+const CharacterDetails = () => {
+  let { characterId } = useParams();
+  const [character, setCharacter] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:5005/Characters/${characterId}`)
+      .then((response) => response.json())
+      .then((data) => setCharacter(data))
+      .catch((error) =>
+        console.error("Error fetching character details", error)
+      );
+  }, [characterId]);
+
+  if (!character) {
+    return <div>Loading...</div>;
+  }
+  // Render character details
   return (
     <div className="character-details">
       <img src={character.image} alt={character.name} />
