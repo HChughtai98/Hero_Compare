@@ -28,18 +28,25 @@ const CharacterDetails = () => {
       <img className="character-non-blur-overlay" src={character.background} />
       <div className="character-text-container">
         <h1 className="character-name">{character.name}</h1>
-        <p className="character-description">{character.description}</p>
-
-        {
-          <div className="character-information">
-            <p className="character-game">{character.game}</p>
-            <p className="character-attribute">{character.primary_attr}</p>
-            <p className="character-attack">{character.attack_type}</p>
-            <p className="character-role">{character.roles.join(", ")}</p>
-            <p className="character-complexity">{character.complexity}</p>
-          </div>
-        }
       </div>
+      <div className="description-container">
+        <h1 className="description-title">{character.name} Description:</h1>
+        <p className="character-description">{character.description}</p>
+        <div className="roleComplexity-info">
+          {" "}
+          <p className="character-role">Role: {character.roles.join(", ")}</p>
+          <p className="character-complexity">
+            Complexity: {character.complexity}
+          </p>{" "}
+        </div>
+      </div>
+      {
+        <div className="character-information">
+          <p className="character-game">{character.game}</p>
+          <p className="character-attribute">{character.primary_attr}</p>
+          <p className="character-attack">{character.attack_type}</p>
+        </div>
+      }
     </div>
   );
 };
