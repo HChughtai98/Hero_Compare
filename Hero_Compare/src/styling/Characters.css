@@ -39,13 +39,11 @@
 .character-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: calc(100% - 30px);
   width: 88vw;
   position: relative;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  height: 100vw;
 }
 .character-blur-overlay {
   position: absolute;
@@ -55,13 +53,14 @@
   left: 0;
   backdrop-filter: blur(20px);
   z-index: 1;
+  height: 100vw;
 }
 
 .character-non-blur-overlay {
   height: 500px;
   z-index: 2;
   position: relative;
-  top: 80px;
+  top: calc(0% + 80px);
   border: solid 2px black;
 }
 .character-text-container {
@@ -89,17 +88,13 @@
 }
 
 .description-title {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-  text-align: start;
-  position: relative;
   z-index: 2;
-  color: white;
-  font-size: 30px;
-  font-weight: 100;
+  color: rgba(147, 161, 165, 0.76);
+  font-size: 40px;
+  font-weight: 700;
   padding: 0;
-  margin: 0;
+  margin-right: 30rem;
+  margin-bottom: -2rem;
 }
 .character-description {
   color: white;

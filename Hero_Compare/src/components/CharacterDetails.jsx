@@ -30,11 +30,12 @@ const CharacterDetails = () => {
         <h1 className="character-name">{character.name}</h1>
       </div>
       <div className="description-container">
-        <h1 className="description-title">{character.name} Description:</h1>
+        <h1 className="description-title">Description:</h1>
         <p className="character-description">{character.description}</p>
         <div className="roleComplexity-info">
           {" "}
-          <p className="character-role">Role: {character.roles.join(", ")}</p>
+          <img src={character.roles_img} className="character-role" />
+          <p>{character.roles}</p>
           <p className="character-complexity">
             Complexity: {character.complexity}
           </p>{" "}
