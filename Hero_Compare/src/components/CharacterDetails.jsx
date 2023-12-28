@@ -30,15 +30,11 @@ const CharacterDetails = () => {
       <div
         className="character-non-blur-overlay"
         style={{ backgroundImage: `url(${character.background})` }}
-      >
-        <div>
-          <h1 className="character-name">{character.name}</h1>
-        </div>
-      </div>
+      ></div>
       <div className="character-text-container">
-        <div>
-          <p className="character-description">{character.description}</p>
-        </div>
+        <h1 className="character-name">{character.name}</h1>
+        <p className="character-description">{character.description}</p>
+
         {/*<div>
           <p className="character-game">{character.game}</p>
           <p className="character-attribute">{character.primary_attr}</p>

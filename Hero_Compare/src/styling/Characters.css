@@ -56,22 +56,38 @@
 }
 .character-non-blur-overlay {
   position: absolute;
-  top: 57%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-size: contain; /* Or 'cover' depending on your preference */
+  background-size: cover; /* Or 'contain' depending on your preference */
   background-repeat: no-repeat;
-  width: 70%; /* Adjust the size as needed */
+  width: 85%; /* Adjust the size as needed */
   height: 90%; /* Adjust the size as needed */
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  backdrop-filter: blur(
+    10px
+  ); /* Optional: if you want the edges to be blurred */
+  overflow: hidden;
 }
 .character-text-container {
+  position: relative;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 100%;
+  text-align: center;
 }
 .character-name {
-  margin-bottom: 100px;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  letter-spacing: 2px;
 }
 .character-description {
 }
