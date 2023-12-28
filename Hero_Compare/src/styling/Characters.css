@@ -1,11 +1,11 @@
 .charPage {
-  background-color: burlywood;
+  background-color: rgb(255, 255, 255);
 }
 
 .charContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 250px;
+  gap: 30px;
   row-gap: 100px;
   padding: 2rem;
   margin-left: 6rem;
@@ -27,10 +27,11 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border-radius: 2%;
+  background-color: rgb(154, 201, 253);
 }
 
 .character img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
+  width: 250px;
+  height: 282px;
 }
