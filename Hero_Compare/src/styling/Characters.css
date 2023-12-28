@@ -6,15 +6,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  row-gap: 100px;
+  row-gap: 30px;
   padding: 2rem;
   margin-left: 6rem;
 }
 
-.characters {
+.characters-title {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-top: 3rem;
 }
 .characters p {
   display: block;
@@ -51,9 +52,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px);
   z-index: 1;
   height: 100vw;
+  background-repeat: no-repeat;
 }
 
 .character-non-blur-overlay {
@@ -89,7 +91,7 @@
 
 .description-title {
   z-index: 2;
-  color: rgba(147, 161, 165, 0.76);
+  color: rgba(255, 255, 255, 0.452);
   font-size: 40px;
   font-weight: 700;
   padding: 0;

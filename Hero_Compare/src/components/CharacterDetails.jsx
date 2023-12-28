@@ -30,7 +30,7 @@ const CharacterDetails = () => {
         <h1 className="character-name">{character.name}</h1>
       </div>
       <div className="description-container">
-        <h1 className="description-title">Description:</h1>
+        <h1 className="description-title">DESCRIPTION</h1>
         <p className="character-description">{character.description}</p>
         <div className="roleComplexity-info">
           {" "}

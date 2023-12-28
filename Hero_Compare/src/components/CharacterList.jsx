@@ -20,7 +20,7 @@ const CharacterList = () => {
       });
   }, []);
   return (
-    <div className="characters">
+    <div className="characters-title">
       <h1>Characters</h1>
       <div className="charContainer">
         {characters.map((character) => (

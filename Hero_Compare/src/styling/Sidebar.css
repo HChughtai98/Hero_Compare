@@ -1,5 +1,5 @@
 aside {
-  background-color: #885050;
+  background-color: #000000ef;
   padding: 20px;
   width: 200px;
   min-height: 100vh;
@@ -10,12 +10,13 @@ aside {
 
 aside ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0px;
+  padding-top: 20px;
 }
 
 aside ul li a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   display: block;
   padding: 10px;
   transition: background-color 0.3s;

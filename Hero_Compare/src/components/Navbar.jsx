@@ -4,7 +4,7 @@ import "../styling/Navbar.css";
 function Navbar() {
   return (
     <nav>
-      <h1>App Name</h1>
+      <h1>Hero Compare</h1>
     </nav>
   );
 }
