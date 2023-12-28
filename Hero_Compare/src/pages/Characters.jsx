@@ -1,4 +1,5 @@
 import React from "react";
+import "../styling/Characters.css";
 import CharacterList from "../components/CharacterList";
 
 function Characters() {

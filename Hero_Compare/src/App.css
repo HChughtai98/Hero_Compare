@@ -24,39 +24,6 @@ body {
   margin-left: 15rem;
 }
 
-.charContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 250px;
-  row-gap: 100px;
-  padding: 2rem;
-  margin-left: 6rem;
-}
-
-.characters {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.characters p {
-  display: block;
-  font-weight: bold;
-}
-
-.character {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.character img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-}
-
 .homePage {
   background-image: url("/public/HomepageBackground.jpg");
   background-position: center;
