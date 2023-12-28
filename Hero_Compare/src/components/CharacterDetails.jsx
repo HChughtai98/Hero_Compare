@@ -20,7 +20,7 @@ const CharacterDetails = () => {
   // Render character details
   return (
     <div className="character-details">
-      <img src={character.image} alt={character.name} />
+      <img src={character.background} alt={character.name} />
       <h2>{character.name}</h2>
       <p>
         <strong>Game:</strong> {character.game}
