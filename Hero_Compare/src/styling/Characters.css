@@ -38,31 +38,50 @@
 
 /* Character Details Page */
 .character-details {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  /*overflow: hidden;*/
+}
+.character-blur-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+  z-index: 1;
+}
+.character-non-blur-overlay {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: contain; /* Or 'cover' depending on your preference */
+  background-repeat: no-repeat;
+  width: 70%; /* Adjust the size as needed */
+  height: 90%; /* Adjust the size as needed */
+  z-index: 2;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  color: #333;
-  max-width: 800px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
 }
-
-.character-details img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+.character-text-container {
 }
-.character-details h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.character-name {
+  margin-bottom: 100px;
 }
-.character-details p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
+.character-description {
 }
-.character-details strong {
-  font-weight: bold;
+.character-game {
+}
+.character-attribute {
+}
+.character-attack {
+}
+.character-role {
+}
+.character-complexity {
 }

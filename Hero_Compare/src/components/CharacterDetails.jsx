@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../styling/Characters.css";
 
 const CharacterDetails = () => {
   let { characterId } = useParams();
@@ -17,29 +18,35 @@ const CharacterDetails = () => {
   if (!character) {
     return <div>Loading...</div>;
   }
+
   // Render character details
   return (
-    <div className="character-details">
-      <img src={character.background} alt={character.name} />
-      <h2>{character.name}</h2>
-      <p>
-        <strong>Game:</strong> {character.game}
-      </p>
-      <p>
-        <strong>Description:</strong> {character.description}
-      </p>
-      <p>
-        <strong>Primary Attribute:</strong> {character.primary_attr}
-      </p>
-      <p>
-        <strong>Attack Type:</strong> {character.attack_type}
-      </p>
-      <p>
-        <strong>Roles:</strong> {character.roles.join(", ")}
-      </p>
-      <p>
-        <strong>Complexity:</strong> {character.complexity}
-      </p>
+    <div
+      className="character-details"
+      style={{ backgroundImage: `url(${character.background})` }}
+    >
+      <div className="character-blur-overlay"></div>{" "}
+      {/* This div creates the blur effect */}
+      <div
+        className="character-non-blur-overlay"
+        style={{ backgroundImage: `url(${character.background})` }}
+      >
+        <div>
+          <h1 className="character-name">{character.name}</h1>
+        </div>
+      </div>
+      <div className="character-text-container">
+        <div>
+          <p className="character-description">{character.description}</p>
+        </div>
+        {/*<div>
+          <p className="character-game">{character.game}</p>
+          <p className="character-attribute">{character.primary_attr}</p>
+          <p className="character-attack">{character.attack_type}</p>
+          <p className="character-role">{character.roles.join(", ")}</p>
+          <p className="character-complexity">{character.complexity}</p>
+  </div>*/}
+      </div>
     </div>
   );
 };
