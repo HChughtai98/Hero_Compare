@@ -36,14 +36,16 @@
   height: 282px;
 }
 
-/* Character Details Page */
 .character-details {
-  position: relative;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 30px);
   width: 100%;
+  position: relative;
   background-size: cover;
   background-position: center;
-  /*overflow: hidden;*/
 }
 .character-blur-overlay {
   position: absolute;
@@ -51,45 +53,31 @@
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+  backdrop-filter: blur(10px);
   z-index: 1;
 }
+
 .character-non-blur-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-size: cover; /* Or 'contain' depending on your preference */
-  background-repeat: no-repeat;
-  width: 85%; /* Adjust the size as needed */
-  height: 90%; /* Adjust the size as needed */
+  height: 500px;
   z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  backdrop-filter: blur(
-    10px
-  ); /* Optional: if you want the edges to be blurred */
-  overflow: hidden;
+  position: relative;
+  top: 80px;
 }
 .character-text-container {
-  position: relative;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 3;
-  width: 100%;
   text-align: center;
 }
 .character-name {
-  font-size: 4rem;
+  font-size: 7rem;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
   margin: 0;
   color: white;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
 }
 .character-description {
+  color: white;
+  text-align: start;
 }
 .character-game {
 }

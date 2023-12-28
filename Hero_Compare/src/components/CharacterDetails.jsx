@@ -19,29 +19,26 @@ const CharacterDetails = () => {
     return <div>Loading...</div>;
   }
 
-  // Render character details
   return (
     <div
       className="character-details"
       style={{ backgroundImage: `url(${character.background})` }}
     >
       <div className="character-blur-overlay"></div>{" "}
-      {/* This div creates the blur effect */}
-      <div
-        className="character-non-blur-overlay"
-        style={{ backgroundImage: `url(${character.background})` }}
-      ></div>
+      <img className="character-non-blur-overlay" src={character.background} />
       <div className="character-text-container">
         <h1 className="character-name">{character.name}</h1>
         <p className="character-description">{character.description}</p>
 
-        {/*<div>
-          <p className="character-game">{character.game}</p>
-          <p className="character-attribute">{character.primary_attr}</p>
-          <p className="character-attack">{character.attack_type}</p>
-          <p className="character-role">{character.roles.join(", ")}</p>
-          <p className="character-complexity">{character.complexity}</p>
-  </div>*/}
+        {
+          <div className="character-information">
+            <p className="character-game">{character.game}</p>
+            <p className="character-attribute">{character.primary_attr}</p>
+            <p className="character-attack">{character.attack_type}</p>
+            <p className="character-role">{character.roles.join(", ")}</p>
+            <p className="character-complexity">{character.complexity}</p>
+          </div>
+        }
       </div>
     </div>
   );
