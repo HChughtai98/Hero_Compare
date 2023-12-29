@@ -1,11 +1,11 @@
 aside {
-  background-color: #000000ef;
+  background-color: #000;
   padding: 20px;
   width: 200px;
   min-height: 100vh;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
-  z-index: 2;
+  z-index: 1000;
 }
 
 aside ul {
