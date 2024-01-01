@@ -28,7 +28,7 @@ const CharacterList = ({ game }) => {
   }, [game]);
   return (
     <div className="characters-title">
-      <h1>Heroes</h1>
+      <h1>Pick your Hero</h1>
       <div className="charContainer">
         {characters.map((character) => (
           <Link

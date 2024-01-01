@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styling/Navbar.css";
 import ironhackLogo from "../images/ironhackLogo.png";
 
@@ -7,32 +7,44 @@ function Navbar() {
   return (
     <nav className="header">
       <div className="header_contents">
-        <Link to="/">
+        <NavLink to="/">
           <img
             src={ironhackLogo}
             alt="Ironhack Logo"
             className="ironhackLogo"
           />
-        </Link>
-        <h1>Hero Compare</h1>
+        </NavLink>
+        <h1>Hero Database</h1>
         <div className="navItems">
           <div className="gameItems">
             Game
+            <img className="downArrow" />
             <div className="dropdown">
-              <Link to="/dota" className="dropdownItem">
+              <NavLink to="/dota" className="dropdownItem">
                 Dota
-              </Link>
-              <Link to="/lol" className="dropdownItem">
+              </NavLink>
+              <NavLink to="/lol" className="dropdownItem">
                 Lol
-              </Link>
+              </NavLink>
             </div>
           </div>
-          <div className="characterPage">
-            <Link to="/characters">Characters</Link>
-          </div>
-          <div className="aboutPage">
-            <Link to="/about">About</Link>
-          </div>
+          <NavLink
+            to="/characters"
+            className={({ isActive }) =>
+              isActive ? "characterPage characterPageActive" : "characterPage"
+            }
+          >
+            Heroes
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "aboutPage aboutPageActive" : "aboutPage"
+            }
+          >
+            About
+          </NavLink>
         </div>
       </div>
     </nav>

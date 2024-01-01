@@ -15,10 +15,6 @@ const CharacterDetails = () => {
       );
   }, [characterId]);
 
-  if (!character) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div
       className="character-details"
