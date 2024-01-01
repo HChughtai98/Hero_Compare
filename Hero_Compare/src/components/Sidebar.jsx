@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styling/Sidebar.css";
@@ -21,3 +22,4 @@ function Sidebar() {
 }
 
 export default Sidebar;
+*/

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import "../styling/Characters.css";
 
-const CharacterList = () => {
+const CharacterList = ({ game }) => {
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5005/Characters")
@@ -13,15 +14,21 @@ const CharacterList = () => {
         return response.json();
       })
       .then((data) => {
-        setCharacters(data);
+        let filteredCharacters = data;
+        if (game) {
+          filteredCharacters = data.filter(
+            (character) => character.game === game
+          );
+        }
+        setCharacters(filteredCharacters);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [game]);
   return (
     <div className="characters-title">
-      <h1>Characters</h1>
+      <h1>Heroes</h1>
       <div className="charContainer">
         {characters.map((character) => (
           <Link

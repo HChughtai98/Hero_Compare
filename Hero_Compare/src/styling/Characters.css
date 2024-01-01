@@ -1,5 +1,16 @@
 .charPage {
-  background-color: rgb(255, 255, 255);
+  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
+  padding: 50px 100px 0px 100px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .charContainer {
@@ -41,9 +52,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 88vw;
+  width: 100%;
   position: relative;
-  background-size: contain;
+  background-size: cover;
   height: 100vw;
 }
 .character-blur-overlay {
@@ -55,7 +66,12 @@
   backdrop-filter: blur(25px);
   z-index: 1;
   height: 100vw;
+  width: 100%;
   background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-attachment: fixed;
+  align-items: center;
 }
 
 .character-non-blur-overlay {
