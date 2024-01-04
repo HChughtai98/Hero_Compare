@@ -87,4 +87,15 @@ const CharacterList = ({ game, filters }) => {
   );
 };
 
+// Define default props for CharacterList
+CharacterList.defaultProps = {
+  game: "",
+  filters: {
+    attackType: "",
+    complexity: "",
+    primaryAttr: "",
+    role: "",
+  },
+};
+
 export default CharacterList;
