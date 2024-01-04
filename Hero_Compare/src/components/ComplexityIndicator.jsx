@@ -1,7 +1,7 @@
 import "../styling/ComplexityIndicator.css";
 
 const ComplexityIndicator = ({ complexity }) => {
-  const totalComplexity = 3; // Assuming the max complexity is 3
+  const totalComplexity = 3;
   const diamonds = [];
 
   for (let i = 1; i <= totalComplexity; i++) {

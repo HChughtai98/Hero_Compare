@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import CharacterList from "../components/CharacterList";
-import FilterComponent from "../components/FilterComponent";
+import FilterComponentDota from "../components/FilterComponentDota";
 import "../styling/Characters.css";
 import "../styling/Dota.css";
 
 const Dota = () => {
-  const [filters, setFilters] = useState({
+  const [dotaFilters, setFilters] = useState({
     attackType: "",
     complexity: "",
     primaryAttr: "",
@@ -17,8 +17,8 @@ const Dota = () => {
 
   return (
     <div className="dota">
-      <FilterComponent onFilterChange={handleFilterChange} />
-      <CharacterList game="Dota" filters={filters} />
+      <FilterComponentDota onFilterChange={handleFilterChange} />
+      <CharacterList game="Dota" filters={dotaFilters} />
     </div>
   );
 };
