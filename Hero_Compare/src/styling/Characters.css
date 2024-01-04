@@ -54,6 +54,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
   position: relative;
   background-size: cover;
@@ -80,7 +81,7 @@
   height: 500px;
   z-index: 2;
   position: relative;
-  top: calc(0% + 80px);
+  top: 80px;
   border: solid 2px black;
 }
 .character-text-container {
@@ -105,6 +106,7 @@
   padding: 50px;
   width: 50rem;
   font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .description-title {
@@ -131,27 +133,58 @@
 
 .roleComplexity-info {
   border: solid 1px rgba(255, 255, 255, 0.096);
-  padding-left: 20rem;
-  padding-right: 20rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  width: 15rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: auto;
   position: relative;
   z-index: 2;
   color: white;
   display: flex;
+  align-items: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
 }
-
-/* .character-game {
-}
-.character-attribute {
-}
-.character-attack {
-}
-.character-role {
+.character-role-icon {
+  width: 40px;
+  height: 40px;
 }
 .character-complexity {
+  margin-left: auto;
+  font-size: 1rem;
 }
- */
+.role-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.character-information {
+  border: solid 1px rgba(255, 255, 255, 0.096);
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 20rem;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+}
+.character-attack {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+.character-attack-icon {
+  width: 30px;
+  height: 30px;
+}
