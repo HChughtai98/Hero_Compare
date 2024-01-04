@@ -23,188 +23,183 @@
   row-gap: 30px;
   padding: 2rem;
 }
-/* Responsive design for larger screens */
-@media screen and (min-width: 1200px) {
-  .charContainer {
-    justify-content: center; /* This will center the items in the container */
-    padding: 2rem 10rem; /* Increase padding on larger screens */
-  }
-  .characters-title {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-top: 3rem;
-    text-transform: uppercase;
-    padding-top: 125px;
-  }
-  .characters-header {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 3rem;
-  }
-  .characters-noFilter {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-  }
 
-  .characters p {
-    display: block;
-    font-weight: bold;
-  }
+.characters-title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 3rem;
+  text-transform: uppercase;
+  padding-top: 125px;
+}
+.characters-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 3rem;
+}
+.characters-noFilter {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-  .character {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 2%;
-    background-color: rgb(154, 201, 253);
-  }
+.characters p {
+  display: block;
+  font-weight: bold;
+}
 
-  .character img {
-    width: 250px;
-    height: 282px;
-  }
+.character {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 2%;
+  background-color: rgb(154, 201, 253);
+}
 
-  .character-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    position: relative;
-    background-size: cover;
-    height: 100vw;
-  }
-  .character-blur-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(25px);
-    z-index: 1;
-    height: 100vw;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    background-attachment: fixed;
-    align-items: center;
-  }
+.character img {
+  width: 250px;
+  height: 282px;
+}
 
-  .character-non-blur-overlay {
-    height: 500px;
-    z-index: 2;
-    position: relative;
-    top: 80px;
-    border: solid 2px black;
-  }
-  .character-text-container {
-    z-index: 2;
-    text-align: center;
-  }
-  .character-name {
-    font-size: 7rem;
-    text-transform: uppercase;
-    font-weight: 900;
-    margin: 0;
-    color: white;
-    letter-spacing: 5px;
-  }
+.character-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  height: 100vw;
+}
+.character-blur-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(25px);
+  z-index: 1;
+  height: 100vw;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-attachment: fixed;
+  align-items: center;
+}
 
-  .description-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 150px;
-    padding: 50px;
-    width: 50rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-  }
+.character-non-blur-overlay {
+  height: 500px;
+  z-index: 2;
+  position: relative;
+  top: 80px;
+  border: solid 2px black;
+}
+.character-text-container {
+  z-index: 2;
+  text-align: center;
+}
+.character-name {
+  font-size: 7rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0;
+  color: white;
+  letter-spacing: 5px;
+}
 
-  .description-title {
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.452);
-    font-size: 40px;
-    font-weight: 700;
-    padding: 0;
-    margin-right: 30rem;
-    margin-bottom: -2rem;
-  }
-  .character-description {
-    color: white;
-    text-align: start;
-    position: relative;
-    z-index: 2;
-    border: solid 1px rgba(255, 255, 255, 0.096);
-    width: 45rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+.description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  padding: 50px;
+  width: 50rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
 
-  .roleComplexity-info {
-    border: solid 1px rgba(255, 255, 255, 0.096);
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    width: auto;
-    position: relative;
-    z-index: 2;
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 1rem;
-  }
-  .character-role-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .character-complexity {
-    margin-left: auto;
-    font-size: 1rem;
-  }
-  .role-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
+.description-title {
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.452);
+  font-size: 40px;
+  font-weight: 700;
+  padding: 0;
+  margin-right: 30rem;
+  margin-bottom: -2rem;
+}
+.character-description {
+  color: white;
+  text-align: start;
+  position: relative;
+  z-index: 2;
+  border: solid 1px rgba(255, 255, 255, 0.096);
+  width: 45rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 
-  .character-information {
-    border: solid 1px rgba(255, 255, 255, 0.096);
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    margin-top: 20rem;
-    width: auto;
-    position: relative;
-    z-index: 2;
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 1rem;
-  }
-  .character-attack {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-  }
-  .character-attack-icon {
-    width: 30px;
-    height: 30px;
-  }
+.roleComplexity-info {
+  border: solid 1px rgba(255, 255, 255, 0.096);
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+}
+.character-role-icon {
+  width: 40px;
+  height: 40px;
+}
+.character-complexity {
+  margin-left: auto;
+  font-size: 1rem;
+}
+.role-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.character-information {
+  border: solid 1px rgba(255, 255, 255, 0.096);
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 20rem;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+}
+.character-attack {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+.character-attack-icon {
+  width: 30px;
+  height: 30px;
+  background-color: white;
 }
