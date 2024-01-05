@@ -97,5 +97,4 @@ CharacterList.defaultProps = {
     role: "",
   },
 };
-
 export default CharacterList;

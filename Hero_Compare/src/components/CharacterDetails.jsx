@@ -58,7 +58,7 @@ const CharacterDetails = () => {
     return rolesArray.map((role, index) => (
       <span key={index} className="role-text">
         {role}
-        {index < rolesArray.length - 1 && ", "}
+        {index < rolesArray.length - 1 && " "}
       </span>
     ));
   };
