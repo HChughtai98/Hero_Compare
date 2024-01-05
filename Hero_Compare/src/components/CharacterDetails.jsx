@@ -46,6 +46,22 @@ const CharacterDetails = () => {
     Melee: meleeIcon,
     Ranged: rangedIcon,
   };
+  // Conditional rendering //
+  const isLolCharacter = character.game === "Lol";
+  const isDotaCharacter = character.game === "Dota";
+  // Check if it is a single role //
+  const renderRoles = (rolesArray) => {
+    if (rolesArray.length === 1) {
+      return <p className="role-text">{rolesArray[0]}</p>;
+    }
+    // Otherwise, return a span for each role //
+    return rolesArray.map((role, index) => (
+      <span key={index} className="role-text">
+        {role}
+        {index < rolesArray.length - 1 && ", "}
+      </span>
+    ));
+  };
 
   return (
     <div
@@ -61,15 +77,19 @@ const CharacterDetails = () => {
         <h1 className="description-title">DESCRIPTION</h1>
         <p className="character-description">{character.description}</p>
         <div className="roleComplexity-info">
-          <img
-            src={rolesImages[character.roles]}
-            className="character-role-icon"
-            alt="Role Icon"
-          />
-          <p className="role-text">{character.roles}</p>
+          {/* Conditional rendering for Lol roles */}
+          {isLolCharacter &&
+            character.roles.map((role) => (
+              <img
+                src={rolesImages[character.roles]}
+                className="character-role-icon"
+                alt="Role Icon"
+              />
+            ))}
+          <div className="roles-container">{renderRoles(character.roles)}</div>
+          {/* Complexity Indicator is shared between games */}
           <ComplexityIndicator complexity={character.complexity} />
         </div>
-
         <div className="character-information">
           {/*<p className="character-game">{character.game}</p>
           <p className="character-attribute">{character.primary_attr}</p>*/}
