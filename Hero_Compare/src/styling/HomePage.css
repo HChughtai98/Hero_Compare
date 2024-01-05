@@ -34,8 +34,8 @@
   transition: ease-in-out 0.6s;
 }
 .homePage:hover .homeImage:not(:hover) {
-  flex-grow: 1;
-  filter: grayscale(100%);
+  flex-grow: 2;
+  filter: grayscale(95%);
   transform: scale(1);
 }
 .homeImage:hover {
