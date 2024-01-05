@@ -31,7 +31,7 @@
 .homePage:hover .homeImage {
   filter: grayscale(0);
   transform: scale(1);
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.6s;
 }
 .homePage:hover .homeImage:not(:hover) {
   flex-grow: 1;
