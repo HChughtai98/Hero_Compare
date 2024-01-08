@@ -16,26 +16,29 @@ const CharacterList = ({ game, filters }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
 
-      // Additional filtering logic specific for "Lol"
       const matchesRole =
         game === "Lol"
           ? !filters.role || character.roles.includes(filters.role)
           : true;
 
-      // Additional filtering logic specific for "Dota" for primary attribute
       const matchesPrimaryAttr =
         game === "Dota"
           ? !filters.primaryAttr ||
             character.primary_attr === filters.primaryAttr
           : true;
 
+      // Search filter logic
+      const matchesSearchTerm =
+        !filters.search ||
+        character.name.toLowerCase().includes(filters.search.toLowerCase());
+
       // General filtering logic
       return (
-        (game ? character.game === game : true) &&
         matchesAttackType &&
         matchesComplexity &&
         matchesRole &&
-        matchesPrimaryAttr
+        matchesPrimaryAttr &&
+        matchesSearchTerm
       );
     });
   };
@@ -55,39 +58,32 @@ const CharacterList = ({ game, filters }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [game, filters]); // Rerun when game or filters change
+  }, [game, filters]);
 
   return (
     <div className="characters-title">
       {characters.length > 0 ? (
-        <>
-          <h1 className="characters-header">Pick your Hero</h1>
-          <div className="charContainer">
-            {characters.map((character) => (
-              <Link
-                to={`/characters/${character.id}`}
-                key={character.id}
-                className="character"
-              >
-                <img
-                  src={character.image}
-                  alt={`Character ${character.name}`}
-                />
-                <p>{character.name}</p>
-              </Link>
-            ))}
-          </div>
-        </>
+        <div className="charContainer">
+          {characters.map((character) => (
+            <Link
+              to={`/characters/${character.id}`}
+              key={character.id}
+              className="character"
+            >
+              <img src={character.image} alt={`Character ${character.name}`} />
+              <p>{character.name}</p>
+            </Link>
+          ))}
+        </div>
       ) : (
         <p className="characters-noFilter">
           No heroes match the selected filters.
-        </p> // Message when no characters match
+        </p>
       )}
     </div>
   );
 };
 
-// Define default props for CharacterList
 CharacterList.defaultProps = {
   game: "",
   filters: {
@@ -95,6 +91,8 @@ CharacterList.defaultProps = {
     complexity: "",
     primaryAttr: "",
     role: "",
+    search: "",
   },
 };
+
 export default CharacterList;
