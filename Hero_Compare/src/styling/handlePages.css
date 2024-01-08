@@ -1,0 +1,19 @@
+.BtnCtn {
+  z-index: 20;
+  color: "black";
+  position: absolute;
+  margin-top: 5rem;
+  display: flex;
+  width: 50rem;
+  justify-content: space-between;
+}
+
+.Btn {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 12rem;
+  font-weight: bold;
+}

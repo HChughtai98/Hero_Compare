@@ -105,6 +105,7 @@
   position: relative;
   top: 80px;
   border: solid 2px black;
+  margin-top: 7rem;
 }
 .character-text-container {
   z-index: 2;
