@@ -8,6 +8,7 @@ import CharacterDetails from "./components/CharacterDetails";
 // Pages
 import Home from "../src/pages/Home";
 import About from "../src/pages/About";
+import NotFoundPage from "./pages/NotFound";
 import Characters from "../src/pages/Characters";
 import Dota from "../src/pages/Dota";
 import Lol from "../src/pages/Lol";
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFoundPage />} />
             <Route path="/dota" element={<Dota />} />
             <Route path="/lol" element={<Lol />} />
             <Route path="/characters" element={<Characters />} />
