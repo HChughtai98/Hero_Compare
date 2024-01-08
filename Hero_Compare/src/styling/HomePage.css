@@ -21,6 +21,21 @@
   height: 100%;
   width: 50%;
   position: relative;
+  overflow: hidden;
+}
+.homeImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0); /* Initially transparent */
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+.homeImage:hover::after {
+  background: rgba(255, 255, 255, 0.2); /* White overlay with 30% opacity */
 }
 #dotaImage {
   background-image: url("../images/dotaHomePage.jpg");
@@ -46,12 +61,13 @@
 }
 .gameLogo {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
-  height: 200px;
+  height: 300px;
   transform: translate(-30%, -50%);
   width: auto;
   display: none;
+  transition: transform 0.3s ease;
   z-index: 3;
 }
 .homeImage:hover .gameLogo {
