@@ -14,6 +14,7 @@
 }
 .filter-searchbar-ctn {
   width: 100vw;
+
   position: relative;
   display: flex;
   align-items: flex-end;
