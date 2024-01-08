@@ -61,7 +61,6 @@ const CharacterList = ({ game, filters }) => {
     <div className="characters-title">
       {characters.length > 0 ? (
         <>
-          <h1 className="characters-header">Pick your Hero</h1>
           <div className="charContainer">
             {characters.map((character) => (
               <Link

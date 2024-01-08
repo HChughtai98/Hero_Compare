@@ -12,14 +12,23 @@
   width: 100%;
   height: 100%;
 }
+.filter-searchbar-ctn {
+  width: 100vw;
+  position: relative;
+  background-color: red;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6rem;
+}
 .filter-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  margin: 5rem 0 1rem 0;
+  padding: 0rem;
+  margin-top: 2rem;
   gap: 1rem;
+  border-radius: 1px;
 }
 .filter-container select {
   padding: 0.5rem;

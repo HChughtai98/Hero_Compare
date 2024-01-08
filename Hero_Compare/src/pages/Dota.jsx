@@ -3,6 +3,7 @@ import CharacterList from "../components/CharacterList";
 import FilterComponentDota from "../components/FilterComponentDota";
 import "../styling/Characters.css";
 import "../styling/Dota.css";
+import SearchBar from "./SearchBar";
 
 const Dota = () => {
   const [dotaFilters, setFilters] = useState({
@@ -15,10 +16,21 @@ const Dota = () => {
     setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
   };
 
+  const handleSearchChange = (searchTerm) => {
+    setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm }));
+  };
+
   return (
-    <div className="dota">
-      <FilterComponentDota onFilterChange={handleFilterChange} />
-      <CharacterList game="Dota" filters={dotaFilters} />
+    <div>
+      <h1 className="characters-header">SELECT YOUR HERO</h1>
+      <div>
+        <div className="filter-searchbar-ctn">
+          <FilterComponentDota onFilterChange={handleFilterChange} />{" "}
+          <SearchBar onSearchChange={handleSearchChange} />
+        </div>
+
+        <CharacterList game="Dota" filters={lolFilters} />
+      </div>
     </div>
   );
 };
