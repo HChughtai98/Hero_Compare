@@ -29,7 +29,7 @@ const Dota = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <CharacterList game="Dota" filters={lolFilters} />
+        <CharacterList game="Dota" filters={dotaFilters} />
       </div>
     </div>
   );

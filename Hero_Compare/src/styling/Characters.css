@@ -70,6 +70,7 @@
   flex-shrink: 0;
   width: 250px;
   height: 282px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .character-details {
@@ -245,4 +246,9 @@
   letter-spacing: 4px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.character.hide {
+  opacity: 0;
+  transform: translateY(-20px); /* Adjust as needed */
 }

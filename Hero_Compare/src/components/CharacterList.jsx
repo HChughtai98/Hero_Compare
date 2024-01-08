@@ -5,35 +5,32 @@ import "../styling/Characters.css";
 
 const CharacterList = ({ game, filters }) => {
   const [characters, setCharacters] = useState([]);
+  const [charactersToHide, setCharactersToHide] = useState([]);
 
-  // Function to handle filtering of characters based on the game and filters
   const filterCharacters = (data) => {
     return data.filter((character) => {
+      const matchesGame = character.game === game;
       const matchesAttackType =
         !filters.attackType ||
         character.attack_type.includes(filters.attackType);
       const matchesComplexity =
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
-
       const matchesRole =
         game === "Lol"
           ? !filters.role || character.roles.includes(filters.role)
           : true;
-
       const matchesPrimaryAttr =
         game === "Dota"
           ? !filters.primaryAttr ||
             character.primary_attr === filters.primaryAttr
           : true;
-
-      // Search filter logic
       const matchesSearchTerm =
         !filters.search ||
         character.name.toLowerCase().includes(filters.search.toLowerCase());
 
-      // General filtering logic
       return (
+        matchesGame &&
         matchesAttackType &&
         matchesComplexity &&
         matchesRole &&
@@ -45,19 +42,24 @@ const CharacterList = ({ game, filters }) => {
 
   useEffect(() => {
     fetch("http://localhost:5005/Characters")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        const filteredCharacters = filterCharacters(data);
-        setCharacters(filteredCharacters);
+        const newFilteredCharacters = filterCharacters(data);
+        const charactersToBeHidden = characters.filter(
+          (char) =>
+            !newFilteredCharacters.some((newChar) => newChar.id === char.id)
+        );
+
+        setCharactersToHide(charactersToBeHidden);
+
+        const timeoutId = setTimeout(() => {
+          setCharacters(newFilteredCharacters);
+          setCharactersToHide([]);
+        }, 500); // 500ms matches the CSS animation duration
+
+        return () => clearTimeout(timeoutId);
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+      .catch((error) => console.error("Error fetching data:", error));
   }, [game, filters]);
 
   return (
@@ -68,7 +70,11 @@ const CharacterList = ({ game, filters }) => {
             <Link
               to={`/characters/${character.id}`}
               key={character.id}
-              className="character"
+              className={`character ${
+                charactersToHide.some((char) => char.id === character.id)
+                  ? "hide"
+                  : ""
+              }`}
             >
               <img src={character.image} alt={`Character ${character.name}`} />
               <p>{character.name}</p>
