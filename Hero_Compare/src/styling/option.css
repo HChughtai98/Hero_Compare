@@ -1,0 +1,7 @@
+select {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 0;
+  font-size: 1.5rem;
+  padding: 1em, 1.5em;
+  background-color: green;
+}

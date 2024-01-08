@@ -15,7 +15,6 @@
 .filter-searchbar-ctn {
   width: 100vw;
   position: relative;
-  background-color: red;
   display: flex;
   align-items: flex-end;
   justify-content: center;
