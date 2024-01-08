@@ -1,38 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-// Role Icons for Lol //
+import { useParams, useNavigate } from "react-router-dom";
 import assassinIcon from "../images/rolesImages/assassinIcon.png";
 import fighterIcon from "../images/rolesImages/fighterIcon.webp";
 import mageIcon from "../images/rolesImages/mageIcon.webp";
 import marksmanIcon from "../images/rolesImages/marksmanIcon.webp";
 import supportIcon from "../images/rolesImages/supportIcon.webp";
 import tankIcon from "../images/rolesImages/tankIcon.webp";
-// Attack Type //
 import meleeIcon from "../images/rolesImages/swordIcon.png";
 import rangedIcon from "../images/rolesImages/rangedIcon.png";
-// Styling //
 import "../styling/Characters.css";
-// Components //
 import ComplexityIndicator from "./ComplexityIndicator";
+import PrevAndNextFunction from "./HandlePages";
 
 const CharacterDetails = () => {
   let { characterId } = useParams();
-  const [character, setCharacter] = useState(null);
+  const [characters, setCharacters] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5005/Characters/${characterId}`)
+    fetch("http://localhost:5005/Characters")
       .then((response) => response.json())
-      .then((data) => setCharacter(data))
-      .catch((error) =>
-        console.error("Error fetching character details", error)
-      );
-  }, [characterId]);
+      .then((data) => {
+        setCharacters(data);
+        const initialIndex = data.findIndex(
+          (c) => c.id === parseInt(characterId, 10)
+        );
+        setCurrentIndex(initialIndex >= 0 ? initialIndex : 0);
+      })
+      .catch((error) => console.error("Error fetching characters", error));
+  }, [characterId, navigate]);
 
-  if (!character) {
+  useEffect(() => {
+    if (characters[currentIndex]) {
+      const newCharacterId = characters[currentIndex].id;
+      navigate(`/characters/${newCharacterId}`, { replace: true });
+    }
+  }, [currentIndex, characters, navigate]);
+
+  if (characters.length === 0) {
     return <div>Loading...</div>;
   }
 
-  // Role Icons //
+  const character = characters[currentIndex];
+
   const rolesImages = {
     Assassin: assassinIcon,
     Fighter: fighterIcon,
@@ -41,27 +52,19 @@ const CharacterDetails = () => {
     Support: supportIcon,
     Tank: tankIcon,
   };
-  // Attack Types //
+
   const attackTypeImages = {
     Melee: meleeIcon,
     Ranged: rangedIcon,
   };
-  // Conditional rendering //
-  const isLolCharacter = character.game === "Lol";
-  const isDotaCharacter = character.game === "Dota";
-  // Check if it is a single role //
-  const renderRoles = (rolesArray) => {
-    if (rolesArray.length === 1) {
-      return <p className="role-text">{rolesArray[0]}</p>;
-    }
-    // Otherwise, return a span for each role //
-    return rolesArray.map((role, index) => (
+
+  const renderRoles = (rolesArray) =>
+    rolesArray.map((role, index) => (
       <span key={index} className="role-text">
         {role}
-        {index < rolesArray.length - 1 && " "}
+        {index < rolesArray.length - 1 ? " " : ""}
       </span>
     ));
-  };
 
   return (
     <div
@@ -69,38 +72,47 @@ const CharacterDetails = () => {
       style={{ backgroundImage: `url(${character.background})` }}
     >
       <div className="character-blur-overlay"></div>
-      <img className="character-non-blur-overlay" src={character.background} />
+      <img
+        className="character-non-blur-overlay"
+        src={character.background}
+        alt={`Background of ${character.name}`}
+      />
+      <button onClick={() => console.log("Button clicked")}>Test Button</button>
+
       <div className="character-text-container">
         <h1 className="character-name">{character.name}</h1>
-      </div>
-      <div className="description-container">
-        <h1 className="description-title">DESCRIPTION</h1>
-        <p className="character-description">{character.description}</p>
-        <div className="roleComplexity-info">
-          {/* Conditional rendering for Lol roles */}
-          {isLolCharacter &&
-            character.roles.map((role) => (
+        <div className="description-container">
+          <h1 className="description-title">DESCRIPTION</h1>
+          <p className="character-description">{character.description}</p>
+          <div className="roleComplexity-info">
+            {character.roles.map((role, index) => (
               <img
-                src={rolesImages[character.roles]}
+                key={index}
+                src={rolesImages[role]}
                 className="character-role-icon"
-                alt="Role Icon"
+                alt={`${role} Icon`}
               />
             ))}
-          <div className="roles-container">{renderRoles(character.roles)}</div>
-          {/* Complexity Indicator is shared between games */}
-          <ComplexityIndicator complexity={character.complexity} />
-        </div>
-        <div className="character-information">
-          {/*<p className="character-game">{character.game}</p>
-          <p className="character-attribute">{character.primary_attr}</p>*/}
-          <img
-            src={attackTypeImages[character.attack_type]}
-            className="character-attack-icon"
-            alt="Attack Type Icon"
-          />
-          <p className="character-attack">{character.attack_type}</p>
+            <div className="roles-container">
+              {renderRoles(character.roles)}
+            </div>
+            <ComplexityIndicator complexity={character.complexity} />
+          </div>
+          <div className="character-information">
+            <img
+              src={attackTypeImages[character.attack_type]}
+              className="character-attack-icon"
+              alt={`${character.attack_type} Icon`}
+            />
+            <p className="character-attack">{character.attack_type}</p>
+          </div>
         </div>
       </div>
+      <PrevAndNextFunction
+        charactersLength={characters.length}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
     </div>
   );
 };
