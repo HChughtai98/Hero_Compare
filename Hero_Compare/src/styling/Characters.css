@@ -175,6 +175,11 @@
   width: 40px;
   height: 40px;
 }
+.dota-icon {
+  position: relative;
+  display: inline-block;
+  background-color: #d2d2d2;
+}
 .character-complexity {
   margin-left: auto;
   font-size: 1rem;
@@ -189,6 +194,11 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-right: 0.5rem;
+}
+.role-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .character-information {
@@ -217,7 +227,9 @@
 .character-attack-icon {
   width: 30px;
   height: 30px;
-  background-color: white;
+  position: relative;
+  display: inline-block;
+  background-color: #d2d2d2;
 }
 
 .characters-header {
