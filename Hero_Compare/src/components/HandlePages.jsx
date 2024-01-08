@@ -19,8 +19,10 @@ const PrevAndNextFunction = ({
   };
 
   return (
-    <div className="Btn">
-      <button onClick={handlePrev}>Previous</button>
+    <div className="BtnCtn">
+      <button className="Btn" onClick={handlePrev}>
+        Previous
+      </button>
       <button className="Btn" onClick={handleNext}>
         Next
       </button>
