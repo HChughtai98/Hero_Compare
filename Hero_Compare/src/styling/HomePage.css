@@ -44,3 +44,16 @@
   transform: scale(1.05);
   z-index: 2;
 }
+.gameLogo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 200px;
+  transform: translate(-30%, -50%);
+  width: auto;
+  display: none;
+  z-index: 3;
+}
+.homeImage:hover .gameLogo {
+  display: block;
+}

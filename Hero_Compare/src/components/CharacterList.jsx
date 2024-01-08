@@ -9,7 +9,7 @@ const CharacterList = ({ game, filters }) => {
 
   const filterCharacters = (data) => {
     return data.filter((character) => {
-      const matchesGame = character.game === game;
+      const matchesGame = game ? character.game === game : true;
       const matchesAttackType =
         !filters.attackType ||
         character.attack_type.includes(filters.attackType);
