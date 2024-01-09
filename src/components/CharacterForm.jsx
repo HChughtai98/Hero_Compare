@@ -47,7 +47,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       })
       .then((data) => {
         onNewCharacter(data);
-        fetchCharacters();
         closeModal();
       })
       .catch((error) => {
@@ -65,7 +64,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       classes: "",
       roles: "",
       complexity: 1,
-      id: null,
     });
   };
 
@@ -73,6 +71,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
     <div className="modal">
       <div className="modal-content">
         <form onSubmit={handleSubmit} className="character-form">
+          {/* Name */}
           <div className="input-group">
             <label htmlFor="name">Name</label>
             <input
@@ -83,8 +82,17 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-          {/* ... other input fields ... */}
-
+          {/* Game */}
+          <div className="input-group">
+            <label htmlFor="game">Game</label>
+            <input
+              type="text"
+              id="game"
+              name="game"
+              value={character.game}
+              onChange={handleChange}
+            />
+          </div>
           {/* Image URL */}
           <div className="input-group">
             <label htmlFor="image">Image URL</label>
@@ -96,7 +104,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Background URL */}
           <div className="input-group">
             <label htmlFor="background">Background URL</label>
@@ -108,7 +115,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Description */}
           <div className="input-group">
             <label htmlFor="description">Description</label>
@@ -119,7 +125,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Primary Attribute */}
           <div className="input-group">
             <label htmlFor="primary_attr">Primary Attribute</label>
@@ -131,7 +136,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Attack Type */}
           <div className="input-group">
             <label htmlFor="attack_type">Attack Type (comma-separated)</label>
@@ -143,7 +147,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Classes */}
           <div className="input-group">
             <label htmlFor="classes">Classes (comma-separated)</label>
@@ -155,7 +158,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Roles */}
           <div className="input-group">
             <label htmlFor="roles">Roles (comma-separated)</label>
@@ -167,7 +169,6 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* Complexity */}
           <div className="input-group">
             <label htmlFor="complexity">Complexity</label>
@@ -181,9 +182,9 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               max="10"
             />
           </div>
-
+          {/* Submit and Close Buttons */}
           <div className="input-group full-width">
-            <button type="submit" id="submit-btn">
+            <button type="submit" className="submit-btn">
               Add Character
             </button>
             <button type="button" onClick={closeModal} className="close-btn">

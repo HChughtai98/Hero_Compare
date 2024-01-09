@@ -68,7 +68,7 @@ const CharacterList = ({ game, filters }) => {
     fetch("https://herocompare-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
-        // Apply sorting and filtering
+        console.log("Fetched characters:", data); // Debug: Log fetched data
         const sortedAndFilteredCharacters = sortAlphabetically(
           filterCharacters(data)
         );
