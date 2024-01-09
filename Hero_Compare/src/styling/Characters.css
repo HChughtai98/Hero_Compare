@@ -252,3 +252,59 @@
   opacity: 0;
   transform: translateY(-20px); /* Adjust as needed */
 }
+/* Filter UI Container */
+.filters-container {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Filter Dropdowns and Search Input */
+.filters-container select,
+.filters-container input {
+  padding: 0.5rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  font-size: 1rem;
+}
+
+.filters-container select {
+  cursor: pointer;
+}
+
+.filters-container select:hover {
+  border-color: #888;
+}
+
+/* Search Input Specific Styles */
+.filters-container input[type="text"] {
+  padding-left: 40px; /* Adjust for search icon */
+  background: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/search.svg")
+    no-repeat 10px center;
+  background-size: 20px;
+}
+
+/* Button Styling */
+.filters-container button {
+  padding: 10px 15px;
+  border-radius: 25px;
+  background-color: #d32f2f; /* Dota-themed color */
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filters-container button:hover {
+  background-color: #a72828; /* Darker shade for hover */
+}

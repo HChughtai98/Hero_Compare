@@ -1,11 +1,13 @@
 .search-bar {
-  padding: 10px;
+  padding: 10px 10px 10px 40px; /* Adjust left padding to make room for the icon */
   border: 1px solid #ffffff;
   margin-top: 50px;
   border-radius: 4px;
   height: 4rem;
   width: 30rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5)
+    url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/search.svg")
+    no-repeat 10px center; /* Adding the SVG as background */
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

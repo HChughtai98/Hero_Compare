@@ -9,8 +9,20 @@ const CharacterList = ({ game, filters }) => {
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
 
+  // Function to sort characters alphabetically
+  const sortAlphabetically = (characters) => {
+    if (filters.alphabetical === "asc") {
+      return characters.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (filters.alphabetical === "desc") {
+      return characters.sort((a, b) => b.name.localeCompare(a.name));
+    }
+    return characters; // No sorting if 'alphabetical' filter is not set
+  };
+
+  // Function to filter characters based on the provided filters
   const filterCharacters = (data) => {
-    return data.filter((character) => {
+    let filteredCharacters = data.filter((character) => {
+      // Filter logic for game, complexity, and other criteria
       const matchesGame = game ? character.game === game : true;
       const matchesAttackType =
         !filters.attackType ||
@@ -28,8 +40,7 @@ const CharacterList = ({ game, filters }) => {
             character.primary_attr === filters.primaryAttr
           : true;
       const matchesSearchTerm =
-        !filters.search ||
-        character.name.toLowerCase().includes(filters.search.toLowerCase());
+        !searchTerm || character.name.toLowerCase().includes(searchTerm);
 
       return (
         matchesGame &&
@@ -40,13 +51,19 @@ const CharacterList = ({ game, filters }) => {
         matchesSearchTerm
       );
     });
+
+    // Apply alphabetical sorting to the filtered characters
+    return sortAlphabetically(filteredCharacters);
   };
 
+  // Fetch characters data and apply filters
   useEffect(() => {
     fetch("http://localhost:5005/Characters")
       .then((response) => response.json())
       .then((data) => {
         const newFilteredCharacters = filterCharacters(data);
+
+        // Determine which characters to hide based on filtering
         const charactersToBeHidden = characters.filter(
           (char) =>
             !newFilteredCharacters.some((newChar) => newChar.id === char.id)
@@ -54,6 +71,7 @@ const CharacterList = ({ game, filters }) => {
 
         setCharactersToHide(charactersToBeHidden);
 
+        // Update characters state after applying filters and sorting
         const timeoutId = setTimeout(() => {
           setCharacters(newFilteredCharacters);
           setCharactersToHide([]);
@@ -64,9 +82,9 @@ const CharacterList = ({ game, filters }) => {
       .catch((error) => console.error("Error fetching data:", error));
   }, [game, filters]);
 
+  // Function to determine the CSS class for each character
   const getCharacterClass = (character) => {
     const isHidden = charactersToHide.some((char) => char.id === character.id);
-    // Use the already declared searchTerm variable
     const nameMatches = character.name.toLowerCase().includes(searchTerm);
 
     let className = "character";
@@ -80,6 +98,7 @@ const CharacterList = ({ game, filters }) => {
     return className;
   };
 
+  // Render the character list
   return (
     <div className="characters-title">
       {characters.length > 0 ? (
@@ -97,7 +116,7 @@ const CharacterList = ({ game, filters }) => {
         </div>
       ) : (
         <p className="characters-noFilter">
-          No heroes match the selected filters.
+          No characters match the selected filters.
         </p>
       )}
     </div>

@@ -12,9 +12,40 @@
   width: 100%;
   height: 100%;
 }
+.dota-summary {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 10rem;
+  margin-bottom: -100px;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 750px; /* Adjust as needed */
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dota-summary h2 {
+  color: #d32f2f; /* Dota-themed color for headers */
+  margin-bottom: 15px;
+}
+
+.dota-summary h3 {
+  margin-top: 15px;
+  color: #1976d2; /* Another Dota-themed color */
+}
+
+.dota-summary p {
+  font-size: 16px; /* Readable text size */
+  line-height: 1.6; /* Adequate line spacing */
+}
+
 .filter-searchbar-ctn {
   width: 100vw;
-
   position: relative;
   display: flex;
   align-items: flex-end;
