@@ -33,7 +33,7 @@ const CharacterDetails = () => {
   const [game, setGame] = useState(null); // State to hold the game context
 
   useEffect(() => {
-    fetch("http://localhost:5005/Characters")
+    fetch("https://herocompare-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data);

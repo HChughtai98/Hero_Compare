@@ -58,7 +58,7 @@ const CharacterList = ({ game, filters }) => {
 
   // Fetch characters data and apply filters
   useEffect(() => {
-    fetch("http://localhost:5005/Characters")
+    fetch("https://herocompare-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         const newFilteredCharacters = filterCharacters(data);
