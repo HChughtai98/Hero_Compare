@@ -7,7 +7,7 @@
   width: 30rem;
   background: rgba(0, 0, 0, 0.5)
     url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/search.svg")
-    no-repeat 10px center; /* Adding the SVG as background */
+    no-repeat 10px center; 
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

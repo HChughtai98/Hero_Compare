@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import CharacterForm from "./CharacterForm";
 import "../App.css";
 import "../styling/Characters.css";
 import "../styling/SearchBar.css";
+import "../styling/Modal.css";
 
 const CharacterList = ({ game, filters }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
+  const [showForm, setShowForm] = useState(false);
 
   // Function to sort characters alphabetically
   const sortAlphabetically = (characters) => {
@@ -16,13 +19,19 @@ const CharacterList = ({ game, filters }) => {
     } else if (filters.alphabetical === "desc") {
       return characters.sort((a, b) => b.name.localeCompare(a.name));
     }
-    return characters; // No sorting if 'alphabetical' filter is not set
+    return characters;
   };
 
-  // Function to filter characters based on the provided filters
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
+  const handleNewCharacter = (newCharacter) => {
+    setCharacters((prevCharacters) => [...prevCharacters, newCharacter]);
+  };
+
   const filterCharacters = (data) => {
     let filteredCharacters = data.filter((character) => {
-      // Filter logic for game, complexity, and other criteria
       const matchesGame = game ? character.game === game : true;
       const matchesAttackType =
         !filters.attackType ||
@@ -52,18 +61,32 @@ const CharacterList = ({ game, filters }) => {
       );
     });
 
-    // Apply alphabetical sorting to the filtered characters
     return sortAlphabetically(filteredCharacters);
   };
 
-  // Fetch characters data and apply filters
+  const fetchCharacters = () => {
+    fetch("https://herocompare-backend.adaptable.app/Characters")
+      .then((response) => response.json())
+      .then((data) => {
+        // Apply sorting and filtering
+        const sortedAndFilteredCharacters = sortAlphabetically(
+          filterCharacters(data)
+        );
+        setCharacters(sortedAndFilteredCharacters);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  };
+
+  useEffect(() => {
+    fetchCharacters();
+  }, [game, filters]);
+
   useEffect(() => {
     fetch("https://herocompare-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         const newFilteredCharacters = filterCharacters(data);
 
-        // Determine which characters to hide based on filtering
         const charactersToBeHidden = characters.filter(
           (char) =>
             !newFilteredCharacters.some((newChar) => newChar.id === char.id)
@@ -71,18 +94,16 @@ const CharacterList = ({ game, filters }) => {
 
         setCharactersToHide(charactersToBeHidden);
 
-        // Update characters state after applying filters and sorting
         const timeoutId = setTimeout(() => {
           setCharacters(newFilteredCharacters);
           setCharactersToHide([]);
-        }, 500); // 500ms matches the CSS animation duration
+        }, 500); // 500ms
 
         return () => clearTimeout(timeoutId);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, [game, filters]);
 
-  // Function to determine the CSS class for each character
   const getCharacterClass = (character) => {
     const isHidden = charactersToHide.some((char) => char.id === character.id);
     const nameMatches = character.name.toLowerCase().includes(searchTerm);
@@ -101,6 +122,20 @@ const CharacterList = ({ game, filters }) => {
   // Render the character list
   return (
     <div className="characters-title">
+      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
+        Add New Character
+      </button>
+
+      {showForm && (
+        <div className="modal">
+          <CharacterForm
+            onNewCharacter={handleNewCharacter}
+            closeModal={() => setShowForm(false)}
+            fetchCharacters={fetchCharacters}
+          />
+        </div>
+      )}
+
       {characters.length > 0 ? (
         <div className="charContainer">
           {characters.map((character) => (
