@@ -130,6 +130,31 @@
   font-weight: bold;
   border-bottom: 3px solid #ff6046;
 }
+.infoPage {
+  border: 2px solid rgba(0, 0, 0, 0);
+  padding: 12px 20px;
+  margin: 0px;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-transform: uppercase;
+}
+.infoPage:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: aliceblue;
+}
+.infoPageActive {
+  font-weight: bold;
+  border-bottom: 3px solid #ff6046;
+}
+
 .aboutPage {
   border: 2px solid rgba(0, 0, 0, 0);
   padding: 12px 20px;

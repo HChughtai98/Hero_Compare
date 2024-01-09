@@ -1,34 +1,73 @@
 .about {
-  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  width: 100%;
-  background-size: cover;
+  color: white;
+  padding: 50px 100px; /* Adjust as needed */
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 200px;
+  gap: 2rem;
+  margin-top: 5rem;
 }
-.aboutContent {
-  max-width: 800px;
-  text-align: center;
-  margin-bottom: 50px;
+.aboutContent h1,
+.aboutContent h2 {
   color: white;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.aboutContent p {
+  font-size: 16px; /* Consistent font size */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+.memberContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 .member {
+  background: rgba(255, 255, 255, 0.1); /* Slight background for member cards */
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.member .text-link-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
 }
-.member img {
+.member .image-box {
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+.member .image-box img {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  margin-bottom: 20px;
   object-fit: cover;
 }
-.member p {
-  max-width: 600px;
-  text-align: center;
-  color: white;
+.text-content {
+  color: #ccc;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.link-content {
+  color: #ccc;
+}
+.profile-link {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
 }
