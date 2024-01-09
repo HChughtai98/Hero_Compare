@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import CharacterDetails from "./components/CharacterDetails";
 // Pages
 import Home from "../src/pages/Home";
+import Info from "../src/pages/Info";
 import About from "../src/pages/About";
 import NotFoundPage from "./pages/NotFound";
 import Characters from "../src/pages/Characters";
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/info" element={<Info />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/dota" element={<Dota />} />
             <Route path="/lol" element={<Lol />} />

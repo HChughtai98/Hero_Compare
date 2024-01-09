@@ -36,7 +36,14 @@ function Navbar() {
           >
             Heroes
           </NavLink>
-
+          <NavLink
+            to="/info"
+            className={({ isActive }) =>
+              isActive ? "infoPage infoPageActive" : "infoPage"
+            }
+          >
+            Info
+          </NavLink>
           <NavLink
             to="/about"
             className={({ isActive }) =>
