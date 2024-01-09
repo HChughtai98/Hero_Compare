@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "../styling/Characters.css";
+import "../styling/SearchBar.css";
 
 const CharacterList = ({ game, filters }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
+  const searchTerm = filters.search?.toLowerCase() || "";
 
   const filterCharacters = (data) => {
     return data.filter((character) => {
@@ -62,6 +64,22 @@ const CharacterList = ({ game, filters }) => {
       .catch((error) => console.error("Error fetching data:", error));
   }, [game, filters]);
 
+  const getCharacterClass = (character) => {
+    const isHidden = charactersToHide.some((char) => char.id === character.id);
+    // Use the already declared searchTerm variable
+    const nameMatches = character.name.toLowerCase().includes(searchTerm);
+
+    let className = "character";
+    if (isHidden) {
+      className += " hide";
+    }
+    if (searchTerm && !nameMatches) {
+      className += " dropped-out";
+    }
+
+    return className;
+  };
+
   return (
     <div className="characters-title">
       {characters.length > 0 ? (
@@ -70,11 +88,7 @@ const CharacterList = ({ game, filters }) => {
             <Link
               to={`/characters/${character.id}`}
               key={character.id}
-              className={`character ${
-                charactersToHide.some((char) => char.id === character.id)
-                  ? "hide"
-                  : ""
-              }`}
+              className={getCharacterClass(character)}
             >
               <img src={character.image} alt={`Character ${character.name}`} />
               <p>{character.name}</p>
