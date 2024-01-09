@@ -48,6 +48,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       .then((data) => {
         onNewCharacter(data);
         closeModal();
+        fetch("https://herocompare-backend.adaptable.app/Characters");
       })
       .catch((error) => {
         console.error("Error:", error);
