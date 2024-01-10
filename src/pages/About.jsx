@@ -50,8 +50,9 @@ function About() {
           <div className="text-link-wrapper">
             <div className="text-content">
               <p>
-                <strong>Haris Chughtai</strong>
-                Hey, I'm a 25-year-old currently based in North
+                <strong>Haris Chughtai </strong>
+                <p></p>
+                Hey👋🏽, I'm a 25-year-old currently based in North
                 Rhine-Westphalia, Germany.
                 <p>
                   I've recently made the switch from Business Management &
@@ -60,10 +61,13 @@ function About() {
                   bit tricky. It's the challenge that keeps me hooked as a
                   developer.
                 </p>
+                <p></p>
                 <p>
                   Besides coding, I'm a big fan of gaming and esports. Exploring
                   new things and traveling are my go-to hobbies.{" "}
                 </p>{" "}
+                ''
+                <p></p>
                 <p>
                   My goals are simple: I want to be a successful and efficient
                   developer, working on projects that truly matter, and making
