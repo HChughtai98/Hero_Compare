@@ -12,7 +12,6 @@ const CharacterList = ({ game, filters }) => {
   const searchTerm = filters.search?.toLowerCase() || "";
   const [showForm, setShowForm] = useState(false);
 
-  // Function to sort characters alphabetically
   const sortAlphabetically = (characters) => {
     if (filters.alphabetical === "asc") {
       return characters.sort((a, b) => a.name.localeCompare(b.name));
@@ -20,10 +19,6 @@ const CharacterList = ({ game, filters }) => {
       return characters.sort((a, b) => b.name.localeCompare(a.name));
     }
     return characters;
-  };
-
-  const toggleForm = () => {
-    setShowForm(!showForm);
   };
 
   const handleNewCharacter = (newCharacter) => {
@@ -66,42 +61,29 @@ const CharacterList = ({ game, filters }) => {
 
   const fetchCharacters = () => {
     fetch("https://hero-database-backend.adaptable.app/Characters")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text(); // First get the text of the response
+      })
+      .then((text) => {
+        console.log("Received text:", text); // Log the text to see what was actually returned
+        return JSON.parse(text); // Then parse it as JSON manually
+      })
       .then((data) => {
-        console.log("Fetched characters:", data); // Debug: Log fetched data
         const sortedAndFilteredCharacters = sortAlphabetically(
           filterCharacters(data)
         );
         setCharacters(sortedAndFilteredCharacters);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
   };
 
   useEffect(() => {
     fetchCharacters();
-  }, [game, filters]);
-
-  useEffect(() => {
-    fetch("https://hero-database-backend.adaptable.app/Characters")
-      .then((response) => response.json())
-      .then((data) => {
-        const newFilteredCharacters = filterCharacters(data);
-
-        const charactersToBeHidden = characters.filter(
-          (char) =>
-            !newFilteredCharacters.some((newChar) => newChar.id === char.id)
-        );
-
-        setCharactersToHide(charactersToBeHidden);
-
-        const timeoutId = setTimeout(() => {
-          setCharacters(newFilteredCharacters);
-          setCharactersToHide([]);
-        }, 500); // 500ms
-
-        return () => clearTimeout(timeoutId);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
   }, [game, filters]);
 
   const getCharacterClass = (character) => {
@@ -119,7 +101,6 @@ const CharacterList = ({ game, filters }) => {
     return className;
   };
 
-  // Render the character list
   return (
     <div className="characters-title">
       <button className="Add-char-btn" onClick={() => setShowForm(true)}>

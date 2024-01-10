@@ -145,11 +145,17 @@
   font-size: 1rem;
 }
 
-/* #submit-btn {
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.5) no-repeat 10px center;
-  border-radius: 10px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-} */
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.form-control:focus {
+  border-color: #4caf50;
+}

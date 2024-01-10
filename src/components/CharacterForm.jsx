@@ -68,6 +68,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
     <div className="modal">
       <div className="modal-content">
         <form onSubmit={handleSubmit} className="character-form">
+          {/* Name */}
           <div className="input-group">
             <label htmlFor="name">Name</label>
             <input
@@ -76,8 +77,10 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="name"
               value={character.name}
               onChange={handleChange}
+              className="form-control"
             />
           </div>
+          {/* Game */}
           <div className="input-group">
             <label htmlFor="game">Game</label>
             <select
@@ -85,11 +88,48 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="game"
               value={character.game}
               onChange={handleChange}
+              className="form-control"
             >
               <option value="Lol">Lol</option>
               <option value="Dota">Dota</option>
             </select>
           </div>
+          {/* Image URL */}
+          <div className="input-group">
+            <label htmlFor="image">Image URL</label>
+            <input
+              type="text"
+              id="image"
+              name="image"
+              value={character.image}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          {/* Background URL */}
+          <div className="input-group">
+            <label htmlFor="background">Background URL</label>
+            <input
+              type="text"
+              id="background"
+              name="background"
+              value={character.background}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          {/* Description */}
+          <div className="input-group">
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              value={character.description}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          {/* Primary Attribute */}
           <div className="input-group">
             <label htmlFor="primary_attr">Primary Attribute</label>
             <select
@@ -97,6 +137,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="primary_attr"
               value={character.primary_attr}
               onChange={handleChange}
+              className="form-control"
             >
               {character.game === "Lol" ? (
                 <>
@@ -112,6 +153,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               )}
             </select>
           </div>
+          {/* Attack Type */}
           <div className="input-group">
             <label htmlFor="attack_type">Attack Type</label>
             <select
@@ -119,12 +161,14 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="attack_type"
               value={character.attack_type}
               onChange={handleChange}
+              className="form-control"
             >
               <option value="Melee">Melee</option>
               <option value="Ranged">Ranged</option>
               <option value="Melee & Ranged">Melee & Ranged</option>
             </select>
           </div>
+          {/* Classes */}
           <div className="input-group">
             <label htmlFor="classes">Classes</label>
             <select
@@ -132,12 +176,14 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="classes"
               value={character.classes}
               onChange={handleChange}
+              className="form-control"
             >
               <option value="Carry">Carry</option>
               <option value="Tank">Tank</option>
               <option value="Support">Support</option>
             </select>
           </div>
+          {/* Roles */}
           <div className="input-group">
             <label htmlFor="roles">Roles</label>
             <select
@@ -145,6 +191,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               name="roles"
               value={character.roles}
               onChange={handleChange}
+              className="form-control"
             >
               {character.game === "Lol"
                 ? lolRoles.map((role, index) => (
@@ -159,18 +206,24 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
                   ))}
             </select>
           </div>
+          {/* Complexity */}
           <div className="input-group">
             <label htmlFor="complexity">Complexity</label>
-            <input
-              type="number"
+            <select
               id="complexity"
               name="complexity"
               value={character.complexity}
               onChange={handleChange}
-              min="1"
-              max="3"
-            />
+              className="form-control"
+            >
+              {[...Array(3).keys()].map((n) => (
+                <option key={n + 1} value={n + 1}>
+                  {n + 1}
+                </option>
+              ))}
+            </select>
           </div>
+          {/* Submit and Close Buttons */}
           <div className="input-group full-width">
             <button type="submit" className="submit-btn">
               Add Character
