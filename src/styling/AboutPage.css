@@ -8,33 +8,49 @@
   gap: 2rem;
   margin-top: 5rem;
 }
+
+.aboutContent {
+  max-width: 960px; /* Adjust based on your layout */
+  margin: auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
 .aboutContent h1,
 .aboutContent h2 {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .aboutContent p {
-  font-size: 16px; /* Consistent font size */
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  color: #dddddd;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
 }
 .memberContainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
 }
 .member {
-  background: rgba(255, 255, 255, 0.1); /* Slight background for member cards */
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 20px;
+  align-items: center;
+  width: clamp(300px, 100%, 600px);
 }
 .member .text-link-wrapper {
   display: flex;
@@ -46,12 +62,60 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 20px;
+  position: relative;
+}
+.member .image-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.member .image-box:hover::before {
+  border-color: #007bff; /* Example color */
+  animation: trace-border 2s infinite linear;
+}
+@keyframes trace-border {
+  0% {
+    border-top-color: #007bff;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  25% {
+    border-top-color: #007bff;
+    border-right-color: #007bff;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  50% {
+    border-top-color: #007bff;
+    border-right-color: #007bff;
+    border-bottom-color: #007bff;
+    border-left-color: transparent;
+  }
+  75% {
+    border-top-color: #007bff;
+    border-right-color: #007bff;
+    border-bottom-color: #007bff;
+    border-left-color: #007bff;
+  }
+  100% {
+    border-color: #007bff;
+  }
 }
 .member .image-box img {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
+
   object-fit: cover;
 }
+
 .text-content {
   color: #ccc;
   margin: 0;
@@ -64,10 +128,87 @@
   color: #ccc;
 }
 .profile-link {
-  color: #1976d2;
-  text-decoration: none;
+  color: #ffffff;
+  background-color: #555; /* Neutral color for links */
+  padding: 0.5rem 1rem; /* Add some padding */
+  border-radius: 15px; /* Rounded borders for the links */
+  margin-top: 0.5rem; /* Space above the links */
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-link:hover {
+  background-color: #777; /* Darker background on hover */
+  color: #ddd; /* Slightly lighter text on hover */
+}
+/* Dota-themed styles for Josip */
+.dota-player .text-content,
+.dota-player .link-content {
+  background-color: rgba(194, 53, 45, 0.2); /* Dota 2 color */
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  color: white;
+}
+
+.dota-player .profile-link {
+  color: #c2352d; /* A deep red color for the links */
+}
+
+.dota-player .profile-link:hover {
   text-decoration: underline;
+  color: #a42c27; /* Darker shade of red for hover */
+}
+/* LoL-themed styles for Haris */
+.lol-player .text-content,
+.lol-player .link-content {
+  background-color: rgba(0, 123, 255, 0.2); /* LoL color */
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  color: white;
+}
+
+.lol-player .profile-link {
+  color: #007bff; /* Bright blue color for the links */
+}
+
+.lol-player .profile-link:hover {
+  text-decoration: underline;
+  color: #0056b3; /* Darker shade of blue for hover */
+}
+
+/* Responsive desing */
+@media screen and (max-width: 768px) {
+  .memberContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member .text-link-wrapper {
+    align-items: center;
+  }
+
+  .member .image-box {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aboutContent,
+  .member {
+    padding: 1rem;
+  }
+
+  .member .image-box img {
+    width: 120px;
+    height: 120px;
+  }
 }

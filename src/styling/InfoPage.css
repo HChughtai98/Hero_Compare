@@ -15,25 +15,93 @@
 }
 
 .info-page {
-  background: rgba(0, 0, 0, 0.8); /* Increase opacity for better readability */
-  padding: 40px; /* Increased padding for more space */
-  border-radius: 10px;
-  margin-top: 2rem; /* Adjusted top margin */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
-  max-width: 750px;
-  text-align: left; /* Align text to the left for better readability */
-  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the start */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 150px;
 }
-
-/* Style for all section headers */
-.info-page h2,
-.info-page h3 {
-  color: #d32f2f; /* Consistent color for headers */
+.game-info {
+  flex: 1 1 40%; /* Each column tries to take up 45%, allowing for some margin */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .game-info {
+    flex: 1 1 100%; /* Stack the columns on small screens */
+  }
+}
+/* LoL Header Styles */
+.lol-game-info h2,
+.lol-roles h3,
+.lol-range h3,
+.lol-complexity h3 {
+  color: #004aad; /* This is a blue that's often associated with LoL */
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+.lol-roles h4,
+.lol-range h4,
+.lol-complexity h5 {
+  color: #eabc00; /* A gold color that could match the LoL theme */
+}
+.lol-roles img,
+.lol-range img,
+.lol-complexity img {
+  box-shadow: 0px 0px 5px #eabc00; /* Border or shadow that matches the LoL theme color */
+}
+.lol-game-info p,
+.lol-roles p,
+.lol-range p,
+.lol-complexity p {
+  background-color: rgba(
+    0,
+    74,
+    173,
+    0.2
+  ); /* Light blue background with opacity */
+  color: white; /* Ensuring text readability */
+  padding: 10px; /* Adding some padding for aesthetic */
+  border-radius: 5px; /* Optional rounded corners */
+}
+/* Dota Header Styles */
+.dota-game-info h2,
+.dota-roles h3,
+.dota-range h3,
+.dota-complexity h3 {
+  color: #c2352d; /* A deep red color, often seen in Dota 2 branding */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.dota-roles h4,
+.dota-range h4,
+.dota-complexity h5 {
+  color: #a42c27; /* A slightly darker shade of red for sub-headers */
+}
+/* Icon styles for Dota to match the theme */
+.dota-roles img,
+.dota-range img,
+.dota-complexity img {
+  /* Add a border or shadow that matches the Dota theme color */
+  box-shadow: 0px 0px 5px #c2352d;
+}
+/* Paragraph and background styles for Dota sections */
+.dota-game-info p,
+.dota-roles p,
+.dota-range p,
+.dota-complexity p {
+  background-color: rgba(
+    194,
+    53,
+    45,
+    0.2
+  ); /* Light red background with opacity */
+  color: white; /* Ensuring text readability */
+  padding: 10px; /* Adding some padding for aesthetic */
+  border-radius: 5px; /* Optional rounded corners */
 }
 
 /* Style for all paragraphs */
@@ -50,11 +118,33 @@
   margin-bottom: 2rem; /* Space between game sections */
 }
 
-/* Optional: You can add specific styles for Dota and LoL sections if needed */
+.dota-roles img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #d2d2d2;
+}
+.dota-range img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #d2d2d2;
+}
+.lol-roles img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.lol-range img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #d2d2d2;
+}
 .dota-roles,
 .lol-roles,
 .dota-range,
-.lol-classes,
+.lol-range,
 .dota-complexity,
 .lol-complexity {
   padding-left: 20px; /* Indent content for better structure */
