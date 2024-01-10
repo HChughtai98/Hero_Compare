@@ -59,9 +59,30 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       attack_type: [character.attack_type],
       classes: [character.classes],
       roles: character.game === "Lol" ? [character.roles] : dotaRoles,
+      // Make sure to convert complexity to a number if it's coming as a string
+      complexity: Number(character.complexity),
     };
 
-    // API call here...
+    fetch("https://hero-database-backend.adaptable.app/Characters", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formattedCharacter),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        onNewCharacter(data);
+        closeModal();
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
   };
 
   return (
