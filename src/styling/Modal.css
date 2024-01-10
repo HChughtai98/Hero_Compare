@@ -119,17 +119,30 @@
 }
 
 .Add-char-btn {
-  padding: 10px 10px 10px 40px;
   border: 1px solid #ffffff;
   margin-top: 50px;
   border-radius: 4px;
   height: 4rem;
-  width: 30rem;
-  background: rgba(0, 0, 0, 0.5) no-repeat 10px center;
+  width: 20rem;
+  background: rgba(28, 214, 84, 0.5) no-repeat 10px center;
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.restore-button {
+  border: 1px solid #ffffff;
+  margin-top: 50px;
+  border-radius: 2px;
+  height: 3.5rem;
+  width: 15rem;
+  background: rgba(10, 255, 71, 0.5) no-repeat 10px center;
+  opacity: 90%;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
 }
 
 /* #submit-btn {
