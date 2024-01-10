@@ -185,7 +185,9 @@
 }
 .link-content {
   color: #ccc;
+  height: 180px;
 }
+
 .profile-link {
   color: #ffffff;
   background-color: #555; /* Neutral color for links */
@@ -263,4 +265,8 @@
     width: 120px;
     height: 120px;
   }
+}
+
+.divider {
+  margin-bottom: 10px;
 }

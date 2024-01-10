@@ -45,15 +45,18 @@ function About() {
         {/* LoL-themed member */}
         <div className="member lol-player" id="haris">
           <div className="image-box">
-            <img src={harisImage} alt="Haris" />
+            <img className="harisImg" src={harisImage} alt="Haris" />
           </div>
           <div className="text-link-wrapper">
             <div className="text-content">
               <p>
-                <strong>Haris Chughtai </strong>
+                <strong>
+                  <u>HARIS CHUGHTAI</u>
+                </strong>
                 <p></p>
                 Hey👋🏽, I'm a 25-year-old currently based in North
                 Rhine-Westphalia, Germany.
+                <p className="divider">_____________________________________</p>
                 <p>
                   I've recently made the switch from Business Management &
                   Marketing to the exciting world of Software Development. I'm
@@ -61,13 +64,12 @@ function About() {
                   bit tricky. It's the challenge that keeps me hooked as a
                   developer.
                 </p>
-                <p></p>
+                <p className="divider">_____________________________________</p>
                 <p>
                   Besides coding, I'm a big fan of gaming and esports. Exploring
                   new things and traveling are my go-to hobbies.{" "}
                 </p>{" "}
-                ''
-                <p></p>
+                <p className="divider">_____________________________________</p>
                 <p>
                   My goals are simple: I want to be a successful and efficient
                   developer, working on projects that truly matter, and making
@@ -86,7 +88,7 @@ function About() {
               >
                 GitHub profile{" "}
               </a>{" "}
-              , and my{" "}
+              and my{" "}
               <a
                 href="https://www.linkedin.com/in/haris-chughtai-b692ab183/"
                 target="_blank"
@@ -95,7 +97,6 @@ function About() {
               >
                 LinkedIn profile{" "}
               </a>
-              .
             </div>
           </div>
         </div>
@@ -107,12 +108,20 @@ function About() {
           <div className="text-link-wrapper">
             <div className="text-content">
               <p>
-                <strong>Josip Milan</strong> A 32-year-old Croatian currently
-                residing in the Netherlands, I have transitioned from a previous
-                career as a executive chef to embark on a new journey in the
-                field of IT. Embracing the challenges of this career switch, I
-                am thoroughly enjoying the learning process and the
-                opportunities it brings.
+                <strong>Josip Milan</strong>{" "}
+                <p className="divider">_____________________________________</p>
+                <p>
+                  {" "}
+                  A 32-year-old Croatian currently residing in the Netherlands,
+                  I have transitioned from a previous career as a executive chef
+                  to embark on a new journey in the field of IT.
+                </p>
+                <p className="divider">_____________________________________</p>
+                <p>
+                  Embracing the challenges of this career switch, I am
+                  thoroughly enjoying the learning process and the opportunities
+                  it brings.{" "}
+                </p>
               </p>
             </div>
             <div className="link-content">
@@ -126,7 +135,7 @@ function About() {
               >
                 GitHub profile{" "}
               </a>{" "}
-              , and my{" "}
+              and my{" "}
               <a
                 href="https://www.linkedin.com/in/josip-milan-4738a9183/"
                 target="_blank"
@@ -135,7 +144,6 @@ function About() {
               >
                 LinkedIn profile{" "}
               </a>
-              .
             </div>
           </div>
         </div>
