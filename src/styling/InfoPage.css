@@ -46,12 +46,12 @@
 .lol-roles h4,
 .lol-range h4,
 .lol-complexity h5 {
-  color: #eabc00; /* A gold color that could match the LoL theme */
+  color: #eabc00;
 }
 .lol-roles img,
 .lol-range img,
 .lol-complexity img {
-  box-shadow: 0px 0px 5px #eabc00; /* Border or shadow that matches the LoL theme color */
+  box-shadow: 0px 0px 5px #eabc00;
 }
 .lol-game-info p,
 .lol-roles p,
@@ -79,14 +79,13 @@
 .dota-roles h4,
 .dota-range h4,
 .dota-complexity h5 {
-  color: #a42c27; /* A slightly darker shade of red for sub-headers */
+  color: #eabc00;
 }
 /* Icon styles for Dota to match the theme */
 .dota-roles img,
 .dota-range img,
 .dota-complexity img {
-  /* Add a border or shadow that matches the Dota theme color */
-  box-shadow: 0px 0px 5px #c2352d;
+  box-shadow: 0px 0px 5px #eabc00;
 }
 /* Paragraph and background styles for Dota sections */
 .dota-game-info p,

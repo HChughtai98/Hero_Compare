@@ -13,21 +13,29 @@ function About() {
           <h2>Bringing Together Two Worlds of Strategy and Fantasy</h2>
           <p>
             Welcome to our dedicated space where the exhilarating universes of
-            <strong>Dota2</strong> and <strong>League of Legends</strong>{" "}
-            converge! Our unique platform celebrates the rich and diverse
-            rosters of two of the most iconic multiplayer online battle arena
-            (MOBA) games in the world: <strong>Dota2</strong> and{" "}
-            <strong>LoL</strong>.
+            <strong className="dota-color"> Dota2</strong> and{" "}
+            <strong className="lol-color">League of Legends</strong> converge!
+            Our unique platform celebrates the rich and diverse rosters of two
+            of the most iconic multiplayer online battle arena (MOBA) games in
+            the world: <strong className="dota-color">Dota2</strong> and{" "}
+            <strong strong className="lol-color">
+              LoL
+            </strong>
+            .
           </p>
         </section>
         <section>
           <h2>Join Us in Celebrating the Richness of MOBA Gaming</h2>
           <p>
             We are more than just a resource; we are a celebration of the art,
-            strategy, and storytelling that make Dota and LoL the titans of the
-            MOBA genre. Join us in exploring these fantastic realms, learn more
-            about your favorite heroes, and maybe even discover a few new ones
-            along the way!
+            strategy, and storytelling that make{" "}
+            <strong className="dota-color">Dota2</strong> and{" "}
+            <strong strong className="lol-color">
+              LoL
+            </strong>{" "}
+            the titans of the MOBA genre. Join us in exploring these fantastic
+            realms, learn more about your favorite heroes, and maybe even
+            discover a few new ones along the way!
           </p>
         </section>
       </article>
@@ -71,7 +79,7 @@ function About() {
         </div>
         {/* Dota-themed member */}
         <div className="member dota-player" id="josip">
-          <div className="image-box">
+          <div className="image-box dota-player">
             <img src={josipImage} alt="Josip" />
           </div>
           <div className="text-link-wrapper">

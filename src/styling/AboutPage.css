@@ -8,7 +8,6 @@
   gap: 2rem;
   margin-top: 5rem;
 }
-
 .aboutContent {
   max-width: 960px; /* Adjust based on your layout */
   margin: auto;
@@ -25,13 +24,20 @@
   font-size: 1.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 .aboutContent p {
   color: #dddddd;
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
+.dota-color {
+  color: #c2352d; /* Red-like color for Dota2 */
+}
+
+.lol-color {
+  color: #007bff; /* Blue color for League of Legends */
+}
+
 .memberContainer {
   display: flex;
   flex-direction: column;
@@ -57,12 +63,20 @@
   flex-direction: column;
   align-items: center;
 }
+.member .image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .member .image-box {
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 20px;
   position: relative;
+  width: 200px;
+  height: 200px;
 }
 .member .image-box::before {
   content: "";
@@ -108,12 +122,57 @@
     border-color: #007bff;
   }
 }
-.member .image-box img {
-  width: 200px;
-  height: 200px;
+/* Dota-themed styles for Josip */
+.dota-player .image-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
 
-  object-fit: cover;
+.dota-player .image-box:hover::before {
+  border-color: rgba(
+    194,
+    53,
+    45,
+    0.7
+  ); /* Dota-themed red color for the trace border */
+  animation: trace-border-dota 2s infinite linear;
+}
+
+@keyframes trace-border-dota {
+  0% {
+    border-top-color: rgba(194, 53, 45, 0.7);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  25% {
+    border-top-color: rgba(194, 53, 45, 0.7);
+    border-right-color: rgba(194, 53, 45, 0.7);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  50% {
+    border-top-color: rgba(194, 53, 45, 0.7);
+    border-right-color: rgba(194, 53, 45, 0.7);
+    border-bottom-color: rgba(194, 53, 45, 0.7);
+    border-left-color: transparent;
+  }
+  75% {
+    border-top-color: rgba(194, 53, 45, 0.7);
+    border-right-color: rgba(194, 53, 45, 0.7);
+    border-bottom-color: rgba(194, 53, 45, 0.7);
+    border-left-color: rgba(194, 53, 45, 0.7);
+  }
+  100% {
+    border-color: rgba(194, 53, 45, 0.7);
+  }
 }
 
 .text-content {
@@ -136,7 +195,6 @@
   display: inline-block;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .profile-link:hover {
   background-color: #777; /* Darker background on hover */
   color: #ddd; /* Slightly lighter text on hover */
@@ -150,11 +208,9 @@
   margin: 0.5rem 0;
   color: white;
 }
-
 .dota-player .profile-link {
   color: #c2352d; /* A deep red color for the links */
 }
-
 .dota-player .profile-link:hover {
   text-decoration: underline;
   color: #a42c27; /* Darker shade of red for hover */
@@ -168,16 +224,13 @@
   margin: 0.5rem 0;
   color: white;
 }
-
 .lol-player .profile-link {
   color: #007bff; /* Bright blue color for the links */
 }
-
 .lol-player .profile-link:hover {
   text-decoration: underline;
   color: #0056b3; /* Darker shade of blue for hover */
 }
-
 /* Responsive desing */
 @media screen and (max-width: 768px) {
   .memberContainer {
@@ -200,7 +253,6 @@
     margin-bottom: 1rem;
   }
 }
-
 @media screen and (max-width: 480px) {
   .aboutContent,
   .member {
