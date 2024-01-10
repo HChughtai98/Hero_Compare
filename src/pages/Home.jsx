@@ -6,6 +6,7 @@ import "../styling/HomePage.css";
 // Logo images
 import dotaLogo from "../images/dota2Logo.png";
 import lolLogo from "../images/lolLogo.png";
+import heroCompareLogo from "../images/heroCompare.png";
 
 function Home() {
   return (
@@ -14,6 +15,13 @@ function Home() {
         <img src={dotaLogo} alt="Dota Logo" className="gameLogo" />
 
         {/* ... */}
+      </Link>
+      <Link to="/characters" className="heroCompareLink">
+        <img
+          src={heroCompareLogo}
+          alt="HeroCompare Logo"
+          className="heroCompareLogo heroCompareLogoHome"
+        />
       </Link>
       <Link to="/lol" className="homeImage" id="lolImage">
         <img src={lolLogo} alt="LoL Logo" className="gameLogo" />

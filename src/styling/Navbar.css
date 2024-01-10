@@ -19,10 +19,20 @@
   align-items: center;
 }
 .ironhackLogo {
-  width: 50px;
-  min-width: 50px;
-  height: 50px;
-  min-height: 50px;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 40px;
+}
+.heroCompareLogo {
+  width: 80px;
+  min-width: 80px;
+  height: 80px;
+  min-height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

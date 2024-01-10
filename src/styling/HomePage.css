@@ -23,6 +23,23 @@
   position: relative;
   overflow: hidden;
 }
+.heroCompareLink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; /* Adjust z-index as needed */
+}
+
+.heroCompareLogo {
+  height: auto; /* Adjust the size as needed */
+  width: 70px; /* Adjust the size as needed */
+}
+.heroCompareLogoHome {
+  height: auto; /* Adjust the size as needed */
+  width: 200px; /* Adjust the size as needed */
+}
+
 .homeImage::after {
   content: "";
   position: absolute;

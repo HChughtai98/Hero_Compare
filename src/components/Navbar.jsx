@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+// Styling //
 import "../styling/Navbar.css";
+// Images //
 import ironhackLogo from "../images/ironhackLogo.png";
+import heroCompareLogo from "../images/heroCompare.png";
 
 function Navbar() {
   return (
     <nav className="header">
       <div className="header_contents">
-        <NavLink to="/">
+        <a
+          href="https://www.ironhack.com/nl-en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src={ironhackLogo}
             alt="Ironhack Logo"
             className="ironhackLogo"
           />
+        </a>
+        <NavLink to="/">
+          <img
+            src={heroCompareLogo}
+            alt="HeroCompare Logo"
+            className="heroCompareLogo"
+          />
         </NavLink>
-        <h1>Hero Database</h1>
         <div className="navItems">
           <div className="gameItems">
             Game

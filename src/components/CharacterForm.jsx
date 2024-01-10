@@ -23,11 +23,14 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
     "Assassin",
   ];
   const dotaRoles = [
-    "Placeholder1",
-    "Placeholder2",
-    "Placeholder3",
-    "Placeholder4",
-    "Placeholder5",
+    "Carry",
+    "Support",
+    "Nuker",
+    "Disabler",
+    "Durable",
+    "Escape",
+    "Pusher",
+    "Initiator",
   ];
 
   useEffect(() => {
@@ -40,8 +43,8 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
     } else {
       setCharacter({
         ...character,
-        primary_attr: "X",
-        roles: "Placeholder1",
+        primary_attr: "str",
+        roles: "Carry",
       });
     }
   }, [character.game]);
@@ -58,8 +61,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       ...character,
       attack_type: [character.attack_type],
       classes: [character.classes],
-      roles: character.game === "Lol" ? [character.roles] : dotaRoles,
-      // Make sure to convert complexity to a number if it's coming as a string
+      roles: [character.roles], //
       complexity: Number(character.complexity),
     };
 
@@ -167,9 +169,10 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
                 </>
               ) : (
                 <>
-                  <option value="X">X</option>
-                  <option value="Y">Y</option>
-                  <option value="Z">Z</option>
+                  <option value="str">Strength</option>
+                  <option value="int">Inteligence</option>
+                  <option value="agi">Agility</option>
+                  <option value="uni">Universal</option>
                 </>
               )}
             </select>
