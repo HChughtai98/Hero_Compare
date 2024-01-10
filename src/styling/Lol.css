@@ -38,3 +38,18 @@
   font-size: 16px; /* Readable text size */
   line-height: 1.6; /* Adequate line spacing */
 }
+@media (max-width: 768px) {
+  .lol-summary {
+    padding: 15px; /* Less padding */
+    margin-top: 5rem; /* Smaller margin */
+  }
+
+  .lol-summary h2,
+  .lol-summary h3 {
+    font-size: 1.2rem; /* Smaller font size */
+  }
+
+  .lol-summary p {
+    font-size: 14px; /* Smaller font size */
+  }
+}

@@ -49,3 +49,12 @@
   margin-right: auto;
   padding: 0 15px;
 }
+@media (max-width: 768px) {
+  .not-found-content h2 {
+    font-size: 1.5rem; /* Smaller font size */
+  }
+
+  .not-found-content p {
+    font-size: 1rem; /* Smaller font size */
+  }
+}

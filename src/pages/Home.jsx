@@ -7,8 +7,17 @@ import "../styling/HomePage.css";
 import dotaLogo from "../images/dota2Logo.png";
 import lolLogo from "../images/lolLogo.png";
 import heroCompareLogo from "../images/heroCompare.png";
+import hiddenImageSrc from "../images/heroCompareLogo.png";
 
 function Home() {
+  const handleLogoHover = (enter) => {
+    document.getElementById("dotaImage").style.transform = enter
+      ? "scale(1) translateX(-30%)"
+      : "scale(1)";
+    document.getElementById("lolImage").style.transform = enter
+      ? "scale(1) translateX(30%)"
+      : "scale(1)";
+  };
   return (
     <div className="homePage">
       <Link to="/dota" className="homeImage" id="dotaImage">
@@ -22,12 +31,18 @@ function Home() {
 
         {/* ... */}
       </Link>
-      <Link to="/characters" className="heroCompareLink">
+      <Link
+        to="/characters"
+        className="heroCompareLink"
+        onMouseEnter={() => handleLogoHover(true)}
+        onMouseLeave={() => handleLogoHover(false)}
+      >
         <img
           src={heroCompareLogo}
           alt="HeroCompare Logo"
           className="heroCompareLogo heroCompareLogoHome"
         />
+        <img src={hiddenImageSrc} alt="Hidden" className="imageUnderLogo" />
       </Link>
     </div>
   );

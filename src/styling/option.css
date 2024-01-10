@@ -12,3 +12,9 @@ option {
   color: black;
   font-size: 1.6em;
 }
+@media (max-width: 768px) {
+  #selectId {
+    width: 90%; /* Wider on small screens */
+    height: 3rem; /* Adjust height if needed */
+  }
+}

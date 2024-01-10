@@ -17,3 +17,17 @@
   width: 12rem;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .BtnCtn {
+    width: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    align-items: center;
+    gap: 15rem;
+  }
+  .Btn {
+    width: calc(100% - 40px); /* Full width minus padding */
+    margin-bottom: 1rem;
+    padding: 1.7rem;
+  }
+}
