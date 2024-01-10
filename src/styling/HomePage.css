@@ -7,10 +7,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100vh;
   width: 100%;
   opacity: 1;
+  position: relative;
 }
 .homeImage {
   flex: 1;
@@ -26,11 +27,20 @@
 .heroCompareLink {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 51.1%;
   transform: translate(-50%, -50%);
-  z-index: 3; /* Adjust z-index as needed */
+  transition: left 0.6s ease-in-out, transform 0.6s ease-in-out; /* Sync with image hover */
+  z-index: 3;
+}
+/* When the left image is hovered, move the logo to the right */
+#dotaImage:hover ~ .heroCompareLink {
+  left: calc(50% + 17.7%); /* Adjust value as needed */
 }
 
+/* When the right image is hovered, move the logo to the left */
+#lolImage:hover ~ .heroCompareLink {
+  left: calc(50% - 15.5%); /* Adjust value as needed */
+}
 .heroCompareLogo {
   height: auto; /* Adjust the size as needed */
   width: 70px; /* Adjust the size as needed */
