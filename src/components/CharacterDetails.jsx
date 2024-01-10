@@ -102,6 +102,25 @@ const CharacterDetails = () => {
       </div>
     ));
 
+  const handleDelete = () => {
+    fetch(
+      `https://herocompare-backend.adaptable.app/Characters/${characterId}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Redirect to character list or home page after deletion
+        navigate("/characters");
+      })
+      .catch((error) => {
+        console.error("Error deleting character:", error);
+      });
+  };
+
   return (
     <div
       className="character-details"
@@ -113,7 +132,6 @@ const CharacterDetails = () => {
         src={character.background}
         alt={`Background of ${character.name}`}
       />
-      <button onClick={() => console.log("Button clicked")}>Test Button</button>
 
       <div className="character-text-container">
         <h1 className="character-name">{character.name}</h1>
@@ -133,6 +151,9 @@ const CharacterDetails = () => {
               alt={`${character.attack_type} Icon`}
             />
             <p className="character-attack">{character.attack_type}</p>
+          </div>
+          <div>
+            <button onClick={handleDelete}>Delete Character</button>
           </div>
         </div>
       </div>
