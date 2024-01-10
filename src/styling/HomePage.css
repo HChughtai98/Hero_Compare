@@ -23,6 +23,7 @@
   width: 50%;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 .heroCompareLink {
   position: absolute;
@@ -36,7 +37,6 @@
 #dotaImage:hover ~ .heroCompareLink {
   left: calc(50% + 17.7%); /* Adjust value as needed */
 }
-
 /* When the right image is hovered, move the logo to the left */
 #lolImage:hover ~ .heroCompareLink {
   left: calc(50% - 15.5%); /* Adjust value as needed */
@@ -49,7 +49,21 @@
   height: auto; /* Adjust the size as needed */
   width: 200px; /* Adjust the size as needed */
 }
-
+.imageUnderLogo {
+  position: absolute;
+  top: 90%; /* Position it right below the logo */
+  left: 60%;
+  transform: translateX(-65%); /* Center it horizontally */
+  z-index: 1; /* Ensure it's under the logo if they overlap */
+  width: 300px;
+  height: auto; /* Keep the aspect ratio of the image */
+  transition: opacity 0.3s ease; /* Optional: for a fade-in effect */
+  opacity: 0;
+  border-radius: 50%;
+}
+.heroCompareLink:hover .imageUnderLogo {
+  opacity: 1; /* Make the image visible when the logo is hovered */
+}
 .homeImage::after {
   content: "";
   position: absolute;
@@ -99,4 +113,28 @@
 }
 .homeImage:hover .gameLogo {
   display: block;
+}
+@media screen and (max-width: 768px) {
+  .heroCompareLogo,
+  .heroCompareLogoHome {
+    width: 70px;
+    height: auto;
+  }
+  .heroCompareLogoHome {
+    transform: translate(-10%, 0%);
+  }
+  .imageUnderLogo {
+    top: 120%; /* Adjust position */
+    left: 50%; /* Center horizontally */
+    transform: translate(-56%, -40%);
+    width: 100px; /* Match the size of the heroCompareLogo */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Always visible */
+  }
+  .gameLogo {
+    top: 15%; /* Adjust position */
+    left: 50%; /* Center horizontally */
+    height: 70px; /* Adjust size */
+    transform: translate(-50%, -50%);
+  }
 }

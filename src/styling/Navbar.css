@@ -189,3 +189,31 @@
   font-weight: bold;
   border-bottom: 3px solid #ff6046;
 }
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 0 10px; /* Less padding */
+  }
+
+  .ironhackLogo,
+  .heroCompareLogo {
+    width: 50px; /* Smaller logos */
+    height: 50px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .gameItems,
+  .characterPage,
+  .infoPage,
+  .aboutPage {
+    font-size: 14px; /* Adjust font size */
+    padding: 0.5rem; /* Adjust padding */
+    margin: 0.5rem 0; /* Add margin between items */
+  }
+
+  .dropdownItem {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+}

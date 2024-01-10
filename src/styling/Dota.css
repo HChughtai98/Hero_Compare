@@ -74,3 +74,18 @@
 .filter-container select:hover {
   border-color: #888; /* Darker border on hover */
 }
+@media (max-width: 768px) {
+  .dota-summary {
+    padding: 15px; /* Less padding */
+    margin-top: 5rem; /* Smaller margin */
+  }
+
+  .dota-summary h2,
+  .dota-summary h3 {
+    font-size: 1.2rem; /* Smaller font size */
+  }
+
+  .dota-summary p {
+    font-size: 14px; /* Smaller font size */
+  }
+}

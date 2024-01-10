@@ -235,35 +235,74 @@
 }
 /* Responsive desing */
 @media screen and (max-width: 768px) {
+  .about {
+    padding: 20px; /* Smaller padding for mobile devices */
+    margin-top: 5rem;
+  }
+  .aboutContent {
+    padding: 1rem; /* Smaller padding for the content container */
+    border-radius: 5px; /* Optional: smaller border-radius for a subtler effect */
+  }
+  .aboutContent h1,
+  .aboutContent h2 {
+    font-size: 1.2rem; /* Smaller font size for headings */
+    margin-bottom: 0.5rem; /* Less margin between headings */
+  }
+  .aboutContent p {
+    font-size: 0.9rem; /* Smaller font size for paragraphs */
+    line-height: 1.6; /* Adjust line height for readability */
+    margin-bottom: 1rem; /* Less margin at the bottom of paragraphs */
+  }
   .memberContainer {
-    flex-direction: column;
-    align-items: stretch;
+    gap: 0.5rem; /* Smaller gap between members */
   }
-
   .member {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    grid-template-columns: 1fr; /* Stack image and content vertically */
+    padding: 1rem; /* Smaller padding */
+    margin: 0.5rem 0; /* Less margin around each member */
   }
-
-  .member .text-link-wrapper {
-    align-items: center;
-  }
-
   .member .image-box {
-    margin-right: 0;
-    margin-bottom: 1rem;
+    width: 100px; /* Smaller image size */
+    height: 100px; /* Keep aspect ratio */
+    margin-bottom: 0.5rem; /* Add margin to the bottom instead */
+  }
+  .member .image-box img {
+    width: 100%; /* Ensure image fills the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .member .text-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width */
+  }
+  .link-content {
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    width: 100%; /* Take up full width of the parent container */
+    margin-top: 1rem; /* Add some space above */
+  }
+
+  .profile-link {
+    padding: 0.5rem 1rem; /* Adjust padding if necessary */
+    width: auto; /* Allow the link to size according to its content */
+    text-align: center; /* Ensure text inside the link is centered */
   }
 }
-@media screen and (max-width: 480px) {
-  .aboutContent,
-  .member {
-    padding: 1rem;
-  }
 
-  .member .image-box img {
-    width: 120px;
-    height: 120px;
+@media screen and (max-width: 480px) {
+  .aboutContent {
+    max-width: 100%; /* Full width on very small screens */
+  }
+  .member .text-link-wrapper,
+  .member .profile-link {
+    width: 100%; /* Full width for text and links */
   }
 }
 
