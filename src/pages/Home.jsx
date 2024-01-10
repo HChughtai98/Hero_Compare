@@ -16,17 +16,18 @@ function Home() {
 
         {/* ... */}
       </Link>
+
+      <Link to="/lol" className="homeImage" id="lolImage">
+        <img src={lolLogo} alt="LoL Logo" className="gameLogo" />
+
+        {/* ... */}
+      </Link>
       <Link to="/characters" className="heroCompareLink">
         <img
           src={heroCompareLogo}
           alt="HeroCompare Logo"
           className="heroCompareLogo heroCompareLogoHome"
         />
-      </Link>
-      <Link to="/lol" className="homeImage" id="lolImage">
-        <img src={lolLogo} alt="LoL Logo" className="gameLogo" />
-
-        {/* ... */}
       </Link>
     </div>
   );
