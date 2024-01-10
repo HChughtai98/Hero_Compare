@@ -25,10 +25,10 @@ body {
   display: flex;
   flex-grow: 1;
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
-  background-size: cover;
   width: 100%;
 }
 
