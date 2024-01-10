@@ -65,7 +65,7 @@ const CharacterList = ({ game, filters }) => {
   };
 
   const fetchCharacters = () => {
-    fetch("https://herocompare-backend.adaptable.app/Characters")
+    fetch("https://hero-database-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched characters:", data); // Debug: Log fetched data
@@ -82,7 +82,7 @@ const CharacterList = ({ game, filters }) => {
   }, [game, filters]);
 
   useEffect(() => {
-    fetch("https://herocompare-backend.adaptable.app/Characters")
+    fetch("https://hero-database-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         const newFilteredCharacters = filterCharacters(data);

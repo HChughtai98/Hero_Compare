@@ -33,7 +33,7 @@ const CharacterDetails = () => {
   const [game, setGame] = useState(null); // State to hold the game context
 
   useEffect(() => {
-    fetch("https://herocompare-backend.adaptable.app/Characters")
+    fetch("https://hero-database-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data);
@@ -104,20 +104,19 @@ const CharacterDetails = () => {
 
   const handleDelete = () => {
     fetch(
-      `https://herocompare-backend.adaptable.app/Characters/${characterId}`,
+      `https://hero-database-backend.adaptable.app/Characters/${characterId}`,
       {
         method: "DELETE",
       }
     )
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          console.error("Network response was not ok");
         }
-        // Redirect to character list or home page after deletion
         navigate("/characters");
       })
       .catch((error) => {
-        console.error("Error deleting character:", error);
+        console.error(error);
       });
   };
 

@@ -30,7 +30,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
       complexity: parseInt(character.complexity, 10),
     };
 
-    fetch("https://herocompare-backend.adaptable.app/Characters", {
+    fetch("https://hero-database-backend.adaptable.app/Characters", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
