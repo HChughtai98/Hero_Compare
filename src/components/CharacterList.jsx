@@ -6,7 +6,7 @@ import "../styling/Characters.css";
 import "../styling/SearchBar.css";
 import "../styling/Modal.css";
 
-const CharacterList = ({ filters }) => {
+const CharacterList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
@@ -35,10 +35,7 @@ const CharacterList = ({ filters }) => {
         character.complexity === parseInt(filters.complexity, 10);
 
       const matchesClasses =
-        filters.classes.length === 0 ||
-        filters.classes.some((selectedClass) =>
-          character.classes.includes(selectedClass)
-        );
+        !classFilter || character.classes.includes(classFilter); // Check class filter
 
       const matchesSearchTerm =
         !searchTerm || character.name.toLowerCase().includes(searchTerm);

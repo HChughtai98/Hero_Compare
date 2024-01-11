@@ -3,39 +3,34 @@ import CharacterList from "./CharacterList";
 import "../styling/Characters.css";
 import "../styling/SearchBar.css";
 
+
 const FilteredCharacterList = () => {
   const [filters, setFilters] = useState({
-    roles: [],
-    alphabetical: "asc",
     complexity: "",
+    alphabetical: "asc",
     search: "",
-    classes: [],
   });
+
+  const [classFilter, setClassFilter] = useState(""); // Add class filter state
 
   const handleFilterChange = (filterType, value) => {
     setFilters((prev) => ({ ...prev, [filterType]: value }));
   };
 
-  const handleClassChange = (e) => {
-    const selectedClasses = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      classes: selectedClasses,
-    }));
+  const handleClassFilter = (value) => {
+    setClassFilter(value); // Set the class filter
   };
 
   return (
     <div className="charPage">
       <div className="filters-container">
-        {/* Class filter */}
-        <select onChange={(e) => handleFilterChange("classes", e.target.value)}>
+        {/* Complexity filter */}
+
+        <select onChange={(e) => setClassFilter(e.target.value)}>
           <option value="">All Classes</option>
-          <option value="1">Carry</option>
-          <option value="2">Tank</option>
-          <option value="3">Support</option>
+          <option value="Carry">Carry</option>
+          <option value="Tank">Tank</option>
+          <option value="Support">Support</option>
         </select>
 
         <select
@@ -47,6 +42,7 @@ const FilteredCharacterList = () => {
           <option value="3">High</option>
         </select>
 
+        {/* Alphabetical filter */}
         <select
           onChange={(e) => handleFilterChange("alphabetical", e.target.value)}
         >
@@ -54,14 +50,14 @@ const FilteredCharacterList = () => {
           <option value="desc">Z-A</option>
         </select>
 
+        {/* Search filter */}
         <input
           type="text"
           placeholder="Search characters..."
           onChange={(e) => handleFilterChange("search", e.target.value)}
         />
       </div>
-
-      <CharacterList filters={filters} />
+      <CharacterList filters={filters} classFilter={classFilter} />
     </div>
   );
 };
