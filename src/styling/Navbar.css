@@ -1,3 +1,4 @@
+/* Header Container */
 .header {
   top: 0;
   position: absolute;
@@ -11,6 +12,7 @@
   height: 80px;
   padding: 0px 30px;
 }
+/* Header Contents Container */
 .header_contents {
   width: 100%;
   height: 100%;
@@ -18,6 +20,7 @@
   flex-direction: row;
   align-items: center;
 }
+/* Ironhack Logo */
 .ironhackLogo {
   width: 60px;
   min-width: 60px;
@@ -28,6 +31,7 @@
   background-position: center center;
   margin-right: 40px;
 }
+/* HeroCompare Logo */
 .heroCompareLogo {
   width: 80px;
   min-width: 80px;
@@ -38,6 +42,7 @@
   background-position: center center;
   margin-right: 40px;
 }
+/* Navigation Items Container */
 .navItems {
   flex-grow: 1;
   height: 100%;
@@ -46,6 +51,7 @@
   align-items: center;
   position: relative;
 }
+/* Game Items */
 .gameItems {
   position: relative;
   border: 2px solid rgba(0, 0, 0, 0);
@@ -65,6 +71,7 @@
   align-items: center;
   text-transform: uppercase;
 }
+/* Down Arrow Icon */
 .downArrow {
   width: 10px;
   height: 6px;
@@ -72,7 +79,7 @@
   margin-left: 5px;
   background-image: url("../images/arrowDown.png");
 }
-
+/* Dropdown Container */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -80,7 +87,7 @@
   background-color: #fff;
   padding: 12px 20px;
   margin: 0px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   display: none;
   flex-direction: column;
@@ -88,9 +95,11 @@
   transition-duration: 0.2s;
   z-index: 1000;
 }
+/* Show Dropdown on Hover */
 .dropdown:hover {
   display: flex;
 }
+/* Dropdown Item */
 .dropdownItem {
   font-size: 14px;
   letter-spacing: 2px;
@@ -104,67 +113,22 @@
   color: white;
   display: block;
 }
+/* Highlight Dropdown Item on Hover and Add Glow */
 .dropdownItem:hover {
-  background-color: rgba(244, 244, 244, 0.2);
   color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 1); /* Add text glow */
 }
+/* Highlight Game Items on Hover */
 .gameItems:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
 }
+/* Active Character Page Style */
 .gameItems:hover .dropdown {
   display: flex;
 }
-.characterPage {
-  border: 2px solid rgba(0, 0, 0, 0);
-  padding: 12px 20px;
-  margin: 0px;
-  font-size: 18px;
-  font-family: sans-serif;
-  font-weight: 600;
-  letter-spacing: 3px;
-  opacity: 0.8;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.characterPage:hover {
-  opacity: 1;
-  cursor: pointer;
-  color: aliceblue;
-}
-.characterPageActive {
-  font-weight: bold;
-  border-bottom: 3px solid #ff6046;
-}
-.infoPage {
-  border: 2px solid rgba(0, 0, 0, 0);
-  padding: 12px 20px;
-  margin: 0px;
-  font-size: 18px;
-  font-family: sans-serif;
-  font-weight: 600;
-  letter-spacing: 3px;
-  opacity: 0.8;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-transform: uppercase;
-}
-.infoPage:hover {
-  opacity: 1;
-  cursor: pointer;
-  color: aliceblue;
-}
-.infoPageActive {
-  font-weight: bold;
-  border-bottom: 3px solid #ff6046;
-}
-
+/* Common Styles for Character, Info, and About Pages */
+.characterPage,
+.infoPage,
 .aboutPage {
   border: 2px solid rgba(0, 0, 0, 0);
   padding: 12px 20px;
@@ -179,39 +143,45 @@
   flex-direction: row;
   align-items: center;
   text-transform: uppercase;
+  text-decoration: none;
 }
+/* Highlight Navigation Items on Hover */
+.characterPage:hover,
+.infoPage:hover,
 .aboutPage:hover {
   opacity: 1;
   cursor: pointer;
   color: aliceblue;
 }
+/* Active Page Styles */
+.characterPageActive,
+.infoPageActive,
 .aboutPageActive {
   font-weight: bold;
   border-bottom: 3px solid #ff6046;
+  text-shadow: 0 0 10px #ff6046, 0 0 20px #ff6046, 0 0 30px #ff6046;
 }
+/* Media Query for Smaller Screens */
 @media (max-width: 768px) {
   .header {
     height: auto;
-    padding: 0 10px; /* Less padding */
+    padding: 0 10px;
   }
-
   .ironhackLogo,
   .heroCompareLogo {
-    width: 50px; /* Smaller logos */
+    width: 50px;
     height: 50px;
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
-
   .gameItems,
   .characterPage,
   .infoPage,
   .aboutPage {
-    font-size: 14px; /* Adjust font size */
-    padding: 0.5rem; /* Adjust padding */
-    margin: 0.5rem 0; /* Add margin between items */
+    font-size: 14px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
   }
-
   .dropdownItem {
     font-size: 14px;
     padding: 0.5rem;

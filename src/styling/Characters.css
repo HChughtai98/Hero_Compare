@@ -36,7 +36,10 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 3rem;
+  color: white;
+  margin-top: 7rem;
+  padding: 0;
+  font-size: 6rem;
 }
 .characters-noFilter {
   text-align: center;
@@ -55,15 +58,29 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 2%;
-  background-color: rgb(0, 0, 0);
+  border-radius: 10%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease; /* Adjusted transition for all properties */
 }
 
 .character:hover {
-  transform: scale(1.2);
+  transform: scale(1.2) rotate(5deg);
   z-index: 2;
-  transition: ease-in-out 0.3s;
   box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    55deg,
+    #171c22,
+    #78868f
+  ); /* Change background on hover */
+}
+.character p {
+  margin-left: 0%;
+  text-align: left;
+  transition: margin-left 0.3s ease; /* Add transition for margin-left */
+}
+
+.character:hover p {
+  margin-left: +20%; /* Move the text to the middle on hover */
 }
 
 .character img {
@@ -236,13 +253,6 @@
   position: relative;
   display: inline-block;
   background-color: #d2d2d2;
-}
-
-.characters-header {
-  color: white;
-  margin-top: 7rem;
-  padding: 0;
-  font-size: 6rem;
 }
 
 .character p {

@@ -342,9 +342,7 @@ function Info() {
             </section>
           </article>
         </article>
-
         {/* LoL Information */}
-
         <article className="game-info lol-info lol-game-info">
           <h2>LoL</h2>
           <p>
@@ -371,7 +369,6 @@ function Info() {
             millions of viewers, making it one of the most watched and followed
             esports globally.
           </p>
-
           <article className="lol-roles">
             <section>
               <h3>Official Roles in LoL</h3>

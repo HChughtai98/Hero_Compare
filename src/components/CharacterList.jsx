@@ -65,11 +65,11 @@ const CharacterList = ({ game, filters }) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.text(); 
+        return response.text();
       })
       .then((text) => {
-        console.log("Received text:", text); 
-        return JSON.parse(text); 
+        console.log("Received text:", text);
+        return JSON.parse(text);
       })
       .then((data) => {
         const sortedAndFilteredCharacters = sortAlphabetically(

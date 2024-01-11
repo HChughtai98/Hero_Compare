@@ -1,3 +1,4 @@
+/* Styles for the not-found-page container */
 .not-found-page {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
   width: 100%;
@@ -7,6 +8,7 @@
   align-items: center;
   padding-top: 200px;
 }
+/* Styles for the content container */
 .not-found-content {
   max-width: 800px;
   text-align: center;
@@ -14,31 +16,39 @@
   color: white;
   font-weight: 600;
 }
+/* Styles for the h2 header (moonlight effect) */
 .not-found-content h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   color: #0062ac;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+    0px 0px 20px rgba(255, 255, 255, 0.7); /* Moonlight effect */
   transition: color 0.3s ease, text-shadow 0.3s ease;
   cursor: default;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 45px;
+  animation: moonlight 3s infinite alternate; /* Moonlight animation */
 }
+/* Moonlight animation keyframes */
+@keyframes moonlight {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.7);
+  }
+}
+/* Styles for the h2 header on hover */
 .not-found-content h2:hover {
   color: #579cfa;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.75);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.75),
+    0px 0px 20px rgba(255, 255, 255, 0.7); /* Highlight on hover */
   cursor: default;
 }
-
-.not-found-content img {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 100%;
-  height: auto;
-  margin: 0px 0px;
-}
-
+/* Styles for the paragraph (campfire effect) */
 .not-found-content p {
   font-size: 1.5rem;
   color: white;
@@ -48,13 +58,35 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
+  animation: campfire 3s infinite alternate; /* Campfire animation */
 }
+/* Campfire animation keyframes */
+@keyframes campfire {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 100, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 100, 0, 0.8),
+      0 0 20px rgba(255, 100, 0, 0.8);
+  }
+}
+/* Styles for images in the content */
+.not-found-content img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0px;
+  border-radius: 15px;
+}
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .not-found-content h2 {
-    font-size: 1.5rem; /* Smaller font size */
+    font-size: 1.5rem; /* Smaller font size for h2 on small screens */
   }
 
   .not-found-content p {
-    font-size: 1rem; /* Smaller font size */
+    font-size: 1rem; /* Smaller font size for paragraphs on small screens */
   }
 }

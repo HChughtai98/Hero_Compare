@@ -59,14 +59,14 @@
   margin-top: 5px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #6c757d;
   color: white;
   cursor: pointer;
 }
 
 .modal-content button[type="submit"]:hover,
 .modal-content button.close-btn:hover {
-  background-color: #0056b3;
+  background-color: #5a6268;
 }
 
 .modal-content button.close-btn {
@@ -128,9 +128,10 @@
   border-radius: 4px;
   height: 4rem;
   width: 20rem;
-  background: rgba(28, 214, 84, 0.5) no-repeat 10px center;
+  background: rgba(0, 0, 0, 0.5) no-repeat 10px center;
   border-radius: 10px;
   color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: 1.3rem;
 }

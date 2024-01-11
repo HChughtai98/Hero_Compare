@@ -9,16 +9,19 @@ import "../styling/Lol.css";
 import "../styling/SearchBar.css";
 
 const Lol = () => {
+  // State for LoL filters
   const [lolFilters, setFilters] = useState({
     attackType: "",
     complexity: "",
     role: "",
   });
 
+  // Handle filter change
   const handleFilterChange = (filterType, value) => {
     setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
   };
 
+  // Handle search term change
   const handleSearchChange = (searchTerm) => {
     setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm }));
   };
@@ -26,29 +29,34 @@ const Lol = () => {
   return (
     <div className="lol">
       <div className="lol-summary">
-        <h2>League of Legends Overview</h2>
+        <h2>League of Legends</h2>
         <p>
-          League of Legends (LoL) is a fast-paced, competitive online game that
-          blends the speed and intensity of an RTS with RPG elements. Two teams
-          of powerful champions, each with a unique design and playstyle, battle
-          head-to-head across multiple battlefields and game modes.
+          <strong>League of Legends (LoL)</strong> is a fast-paced, competitive
+          online game that blends the speed and intensity of an RTS with RPG
+          elements. Two teams of powerful champions, each with a unique design
+          and playstyle, battle head-to-head across multiple battlefields and
+          game modes.
         </p>
         <h3>Champions</h3>
         <p>
           With an ever-expanding roster of champions, frequent updates, and a
-          thriving tournament scene, League of Legends offers endless
-          replayability for players of every skill level. Master one, or master
-          them all.
+          thriving tournament scene, <strong>League of Legends (LoL)</strong>{" "}
+          offers endless replayability for players of every skill level. Master
+          one, or master them all.
         </p>
       </div>
 
-      <h1 className="characters-header">PICK YOUR CHAMPION</h1>
+      {/* LoL header */}
+      <h1 className="characters-header lol-style">PICK YOUR CHAMPION</h1>
       <div>
         <div className="filter-searchbar-ctn">
-          <FilterComponentLol onFilterChange={handleFilterChange} />{" "}
+          {/* Filter component */}
+          <FilterComponentLol onFilterChange={handleFilterChange} />
+          {/* Search bar */}
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
+        {/* Character list */}
         <CharacterList game="Lol" filters={lolFilters} />
       </div>
     </div>

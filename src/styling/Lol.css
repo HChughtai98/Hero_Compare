@@ -1,3 +1,4 @@
+/* Background styling for LoL page */
 .lol {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
   padding: 50px 100px 0px 100px;
@@ -12,6 +13,7 @@
   width: 100%;
   height: 100%;
 }
+/* Styling for LoL summary section */
 .lol-summary {
   background: rgba(0, 0, 0, 0.5);
   color: white;
@@ -23,32 +25,62 @@
   max-width: 750px; /* Adjust as needed */
   text-align: center;
 }
-
+/* Glowing effect for LoL-themed h2 headers */
 .lol-summary h2 {
   color: #007bff; /* LoL-themed color for headers */
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
+  animation: glow-lol 2s infinite alternate;
 }
-
+/* Glowing animation for LoL-themed h2 headers */
+@keyframes glow-lol {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff; /* Glowing effect */
+  }
+}
+/* Glowing effect for LoL-themed h3 headers */
 .lol-summary h3 {
   margin-top: 15px;
   color: #6f42c1; /* Another LoL-themed color */
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: glowing-lol 2s infinite alternate;
 }
-
+/* Glowing animation for LoL-themed h3 headers */
+@keyframes glowing-lol {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px #6f42c1, 0 0 20px #6f42c1, 0 0 30px #6f42c1; /* Glowing effect */
+  }
+}
+/* Styling for paragraphs in LoL summary section */
 .lol-summary p {
   font-size: 16px; /* Readable text size */
   line-height: 1.6; /* Adequate line spacing */
 }
+/* LoL style */
+.lol-style {
+  color: #004aad; /* LoL-themed color for text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(215, 234, 76, 0.5); /* Text shadow for 3D effect */
+}
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .lol-summary {
     padding: 15px; /* Less padding */
     margin-top: 5rem; /* Smaller margin */
   }
-
   .lol-summary h2,
   .lol-summary h3 {
     font-size: 1.2rem; /* Smaller font size */
   }
-
   .lol-summary p {
     font-size: 14px; /* Smaller font size */
   }

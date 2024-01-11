@@ -10,6 +10,7 @@ function Navbar() {
   return (
     <nav className="header">
       <div className="header_contents">
+        {/* Ironhack Logo */}
         <a
           href="https://www.ironhack.com/nl-en"
           target="_blank"
@@ -21,18 +22,21 @@ function Navbar() {
             className="ironhackLogo"
           />
         </a>
+        {/* HeroCompare Logo with Link to Home */}
         <NavLink to="/">
           <img
             src={heroCompareLogo}
             alt="HeroCompare Logo"
             className="heroCompareLogo"
           />
+          {/* Navigation Items */}
         </NavLink>
         <div className="navItems">
           <div className="gameItems">
             Game
             <img className="downArrow" />
             <div className="dropdown">
+              {/* Links to Dota and Lol Pages */}
               <NavLink to="/dota" className="dropdownItem">
                 Dota
               </NavLink>
@@ -41,6 +45,7 @@ function Navbar() {
               </NavLink>
             </div>
           </div>
+          {/* Link to Characters Page */}
           <NavLink
             to="/characters"
             className={({ isActive }) =>
@@ -49,6 +54,7 @@ function Navbar() {
           >
             Heroes
           </NavLink>
+          {/* Link to Info Page */}
           <NavLink
             to="/info"
             className={({ isActive }) =>
@@ -57,6 +63,7 @@ function Navbar() {
           >
             Info
           </NavLink>
+          {/* Link to About Page */}
           <NavLink
             to="/about"
             className={({ isActive }) =>

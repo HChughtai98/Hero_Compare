@@ -1,3 +1,4 @@
+/* Styling for the home page container */
 .homePage {
   background-image: url("../images/greyfadeBackground.jpg");
   background-position: center;
@@ -13,6 +14,7 @@
   opacity: 1;
   position: relative;
 }
+/* Styling for the images on the home page */
 .homeImage {
   flex: 1;
   background-position: center;
@@ -25,30 +27,34 @@
   overflow: hidden;
   z-index: 2;
 }
+/* Styling for the "Pick Your Game" link */
 .heroCompareLink {
   position: absolute;
   top: 50%;
-  left: 51.1%;
+  left: 51%;
   transform: translate(-50%, -50%);
   transition: left 0.6s ease-in-out, transform 0.6s ease-in-out; /* Sync with image hover */
   z-index: 3;
 }
-/* When the left image is hovered, move the logo to the right */
+/* Move the logo to the right when the left image is hovered */
 #dotaImage:hover ~ .heroCompareLink {
   left: calc(50% + 17.7%); /* Adjust value as needed */
 }
-/* When the right image is hovered, move the logo to the left */
+/* Move the logo to the left when the right image is hovered */
 #lolImage:hover ~ .heroCompareLink {
-  left: calc(50% - 15.5%); /* Adjust value as needed */
+  left: calc(50% - 15.7%); /* Adjust value as needed */
 }
+/* Styling for the game logos */
 .heroCompareLogo {
   height: auto; /* Adjust the size as needed */
   width: 70px; /* Adjust the size as needed */
 }
+/* Styling for the home page game logo THE BIG LOGO */
 .heroCompareLogoHome {
   height: auto; /* Adjust the size as needed */
   width: 200px; /* Adjust the size as needed */
 }
+/* Styling for the image under the logo */
 .imageUnderLogo {
   position: absolute;
   top: 90%; /* Position it right below the logo */
@@ -61,9 +67,11 @@
   opacity: 0;
   border-radius: 50%;
 }
+/* Make the image visible when the logo is hovered */
 .heroCompareLink:hover .imageUnderLogo {
   opacity: 1; /* Make the image visible when the logo is hovered */
 }
+/* White overlay on image hover */
 .homeImage::after {
   content: "";
   position: absolute;
@@ -75,6 +83,7 @@
   transition: background 0.3s ease;
   z-index: 2;
 }
+/* Show white overlay on image hover */
 .homeImage:hover::after {
   background: rgba(255, 255, 255, 0.2); /* White overlay with 30% opacity */
 }
@@ -84,22 +93,26 @@
 #lolImage {
   background-image: url("../images/lolHomePage.jpg");
 }
+/* Image hover effect */
 .homePage:hover .homeImage {
   filter: grayscale(0);
   transform: scale(1);
   transition: ease-in-out 0.6s;
 }
+/* Image effect for non-hovered images */
 .homePage:hover .homeImage:not(:hover) {
   flex-grow: 2;
   filter: grayscale(95%);
   transform: scale(1);
 }
+/* Image hover effect for hovered image */
 .homeImage:hover {
   flex-grow: 4;
   filter: grayscale(0);
   transform: scale(1.05);
   z-index: 2;
 }
+/* Styling for game logo on the home page */
 .gameLogo {
   position: absolute;
   top: 30%;
@@ -111,9 +124,11 @@
   transition: transform 0.3s ease;
   z-index: 3;
 }
+/* Show game logo on image hover */
 .homeImage:hover .gameLogo {
   display: block;
 }
+/* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   .heroCompareLogo,
   .heroCompareLogoHome {

@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import notFoundImage from "../images/404_page.png";
+// Styling //
 import "../styling/NotFoundPage.css";
+// Image //
+import notFoundImage from "../images/404_page.png";
 
 function NotFound() {
   return (
+    // Container for the not-found page
     <div className="not-found-page">
       <div className="not-found-content">
         <h2>Oops...</h2>
         <img src={notFoundImage} alt="Page Not Found" />
         <p>
-          Sorry, the Heroes are taking a rest. Try a different{" "}
+          Sorry, it seems the Heroes are taking a break. Please try a different{" "}
           <Link to="/">page</Link>.
         </p>
       </div>
