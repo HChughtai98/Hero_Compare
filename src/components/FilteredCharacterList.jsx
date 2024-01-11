@@ -3,13 +3,14 @@ import CharacterList from "./CharacterList";
 import "../styling/Characters.css";
 import "../styling/SearchBar.css";
 
-
 const FilteredCharacterList = () => {
   const [filters, setFilters] = useState({
+    classes: [],
     complexity: "",
     alphabetical: "asc",
     search: "",
   });
+
 
   const [classFilter, setClassFilter] = useState(""); // Add class filter state
 
@@ -24,15 +25,15 @@ const FilteredCharacterList = () => {
   return (
     <div className="charPage">
       <div className="filters-container">
-        {/* Complexity filter */}
-
-        <select onChange={(e) => setClassFilter(e.target.value)}>
+        {/* Classes filter */}
+        <select onChange={(e) => handleClassFilter(e.target.value)}>
           <option value="">All Classes</option>
           <option value="Carry">Carry</option>
           <option value="Tank">Tank</option>
           <option value="Support">Support</option>
         </select>
 
+        {/* Complexity filter */}
         <select
           onChange={(e) => handleFilterChange("complexity", e.target.value)}
         >

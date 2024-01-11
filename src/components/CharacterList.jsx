@@ -34,16 +34,18 @@ const CharacterList = ({ filters, classFilter }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
 
-      const matchesClasses =
-        !classFilter || character.classes.includes(classFilter); // Check class filter
+      // Add class filter logic
+      const matchesClassFilter =
+        !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !searchTerm || character.name.toLowerCase().includes(searchTerm);
+        !filters.search ||
+        character.name.toLowerCase().includes(filters.search);
 
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesClasses &&
+        matchesClassFilter && // Include class filter in the filter logic
         matchesSearchTerm
       );
     });
@@ -65,7 +67,7 @@ const CharacterList = ({ filters, classFilter }) => {
 
   useEffect(() => {
     fetchCharacters();
-  }, [filters]);
+  }, [filters, classFilter]);
 
   const getCharacterClass = (character) => {
     const isHidden = charactersToHide.some((char) => char.id === character.id);
