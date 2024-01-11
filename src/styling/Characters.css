@@ -282,11 +282,12 @@
 }
 /* Filter UI Container */
 .filters-container {
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 1px;
+  padding: 45px;
   margin-top: 3rem;
   margin-bottom: 2rem;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 1rem;
   align-items: center;
@@ -296,11 +297,11 @@
 /* Filter Dropdowns and Search Input */
 .filters-container select,
 .filters-container input {
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border-radius: 25px;
   border: 1px solid #ccc;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   font-size: 1rem;
   width: 15rem;
@@ -309,16 +310,19 @@
 
 .filters-container select {
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
 }
 
 .filters-container select:hover {
-  border-color: #888;
+  border-color: #888; /* Darker border on hover */
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Search Input Specific Styles */
 .filters-container input[type="text"] {
   padding: 10px 10px 10px 40px;
-  background: rgba(0, 0, 0, 0.5)
+  background: rgba(0, 0, 0, 0.6)
     url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/search.svg")
     no-repeat 10px center;
   background-size: 20px;
