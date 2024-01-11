@@ -1,7 +1,7 @@
 .dota,
 .lol {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  padding: 0px 100px 30px 100px;
+  padding: 50px 100px 0px 100px;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center top;
@@ -15,11 +15,11 @@
 }
 .dota-summary,
 .lol-summary {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 20px;
   border-radius: 10px;
-  margin-top: 7rem;
+  margin-top: 10rem;
   margin-bottom: -100px;
   box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 750px; /* Adjust as needed */
@@ -32,16 +32,40 @@
 }
 
 .dota-summary h2 {
-  color: #d32f2f; /* Dota-themed color for headers */
+  color: #d32f2f;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
 }
-
+@keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px #d32f2f, 0 0 20px #d32f2f, 0 0 30px #d32f2f; /* Glowing effect */
+  }
+}
 .lol-summary h2 {
   color: #3a7efd; /* Dota-themed color for headers */
   margin-bottom: 15px;
 }
 
-.dota-summary h3,
+.dota-summary h3 {
+  margin-top: 15px;
+  color: #1976d2; /* Dota-themed color for h3 headers */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: glowing 2s infinite alternate;
+}
+@keyframes glowing {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px #1976d2, 0 0 20px #1976d2, 0 0 30px #1976d2; /* Glowing effect */
+  }
+}
 .lol-summary h3 {
   margin-top: 15px;
   color: #f5e509; /* Another Dota-themed color */
@@ -52,7 +76,13 @@
   font-size: 16px; /* Readable text size */
   line-height: 1.6; /* Adequate line spacing */
 }
-
+.dota-style {
+  /* Dota 2 style */
+  color: #c2352d; /* Dota-themed color for text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(194, 53, 45, 0.5);
+  /* Text shadow for 3D effect */
+}
+/* Styles for the filter search bar container */
 .filter-searchbar-ctn {
   width: 100vw;
   position: relative;
@@ -61,6 +91,7 @@
   justify-content: center;
   gap: 3rem;
 }
+/* Styles for the filter container */
 .filter-container {
   display: flex;
   flex-direction: row;
@@ -74,32 +105,42 @@
   padding: 0.5rem;
   border-radius: 25px;
   border: 1px solid #ccc; /* Light grey border */
-  background-color: white;
   cursor: pointer;
   font-size: 1rem;
-  color: #333; /* Dark grey text */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Styles for the filter select dropdown */
+.filter-container select option {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+/* Hover effect for the filter select dropdown */
 .filter-container select:hover {
   border-color: #888; /* Darker border on hover */
+  background-color: rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 768px) {
-  .dota-summary,
-  .lol-summary {
+  .dota-summary {
     padding: 15px; /* Less padding */
     margin-top: 5rem; /* Smaller margin */
   }
-
   .dota-summary h2,
-  .dota-summary h3,
-  .lol-summary h2,
-  .lol-summary h3 {
+  .dota-summary h3 {
     font-size: 1.2rem; /* Smaller font size */
   }
-
-  .dota-summary p,
-  .lol-summary p {
+  .dota-summary p {
     font-size: 14px; /* Smaller font size */
+  }
+  /* Apply flex column layout to filter container on small screens */
+  .filter-container,
+  .filter-searchbar-ctn {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 300px;
+    margin-bottom: -50px;
   }
 }
 
