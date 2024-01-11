@@ -6,7 +6,7 @@ import "../styling/Characters.css";
 import "../styling/SearchBar.css";
 import "../styling/Modal.css";
 
-const CharacterList = ({ game, filters }) => {
+const CharacterList = ({ filters }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
@@ -27,26 +27,22 @@ const CharacterList = ({ game, filters }) => {
 
   const filterCharacters = (data) => {
     let filteredCharacters = data.filter((character) => {
-      const matchesGame = game ? character.game === game : true;
       const matchesAttackType =
         !filters.attackType ||
         character.attack_type.includes(filters.attackType);
       const matchesComplexity =
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
-      const matchesRole =
-        !filters.role || character.roles.includes(filters.role);
-      const matchesPrimaryAttr =
-        !filters.primaryAttr || character.primary_attr === filters.primaryAttr;
+      const matchesRoles =
+        !filters.roles.length ||
+        filters.roles.some((role) => character.roles.includes(role));
       const matchesSearchTerm =
         !searchTerm || character.name.toLowerCase().includes(searchTerm);
 
       return (
-        matchesGame &&
         matchesAttackType &&
         matchesComplexity &&
-        matchesRole &&
-        matchesPrimaryAttr &&
+        matchesRoles &&
         matchesSearchTerm
       );
     });
@@ -65,11 +61,10 @@ const CharacterList = ({ game, filters }) => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   };
-  
 
   useEffect(() => {
     fetchCharacters();
-  }, [game, filters]);
+  }, [filters]);
 
   const getCharacterClass = (character) => {
     const isHidden = charactersToHide.some((char) => char.id === character.id);
@@ -86,13 +81,16 @@ const CharacterList = ({ game, filters }) => {
     return className;
   };
 
+  // Split characters by game
   const dotaCharacters = characters.filter((char) => char.game === "Dota");
   const lolCharacters = characters.filter((char) => char.game === "Lol");
 
   return (
     <div className="characters-title">
       <div className="games-container">
+        {/* Display Dota characters */}
         <div className="game-characters dota-characters">
+          <h2>Dota Characters</h2>
           {dotaCharacters.map((character) => (
             <Link
               to={`/characters/${character.id}`}
@@ -104,7 +102,9 @@ const CharacterList = ({ game, filters }) => {
             </Link>
           ))}
         </div>
+        {/* Display LoL characters */}
         <div className="game-characters lol-characters">
+          <h2>LoL Characters</h2>
           {lolCharacters.map((character) => (
             <Link
               to={`/characters/${character.id}`}
@@ -134,12 +134,11 @@ const CharacterList = ({ game, filters }) => {
 };
 
 CharacterList.defaultProps = {
-  game: "",
   filters: {
     attackType: "",
     complexity: "",
     primaryAttr: "",
-    role: "",
+    roles: [],
     search: "",
   },
 };
