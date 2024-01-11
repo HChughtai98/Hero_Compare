@@ -1,17 +1,35 @@
 import React from "react";
 import "../styling/option.css";
 
-const FilterComponent = ({ onFilterChange }) => {
+const FilterComponentDota = ({ onFilterChange }) => {
+  const roles = ["Carry", "Support", "Nuker", "Initiator"];
+  const attackTypes = ["Melee", "Ranged"];
+  const classes = ["Carry", "Tank", "Support"];
+
   return (
     <div className="filter-container">
-      {/* You can use select elements or buttons for filters, here's an example with selects */}
       <select
         id="selectId"
         onChange={(e) => onFilterChange("attackType", e.target.value)}
       >
-        <option value="">Attack Types</option>
-        <option value="Melee">Melee</option>
-        <option value="Ranged">Ranged</option>
+        <option value="">Attack Type</option>
+        {attackTypes.map((type) => (
+          <option key={type} value={type}>
+            {type}
+          </option>
+        ))}
+      </select>
+
+      <select
+        id="selectId"
+        onChange={(e) => onFilterChange("classes", e.target.value)}
+      >
+        <option value="">Class</option>
+        {roles.map((role) => (
+          <option key={role} value={role}>
+            {role}
+          </option>
+        ))}
       </select>
 
       <select
@@ -23,19 +41,8 @@ const FilterComponent = ({ onFilterChange }) => {
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
-
-      <select
-        id="selectId"
-        onChange={(e) => onFilterChange("primaryAttr", e.target.value)}
-      >
-        <option value="">Attribute</option>
-        <option value="str">Strength</option>
-        <option value="agi">Agility</option>
-        <option value="int">Intelligence</option>
-        <option value="uni">Universal</option>
-      </select>
     </div>
   );
 };
 
-export default FilterComponent;
+export default FilterComponentDota;

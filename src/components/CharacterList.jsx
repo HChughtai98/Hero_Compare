@@ -36,8 +36,8 @@ const CharacterList = ({ filters }) => {
 
       const matchesClasses =
         filters.classes.length === 0 ||
-        character.classes.some((charClass) =>
-          filters.classes.includes(charClass)
+        filters.classes.some((selectedClass) =>
+          character.classes.includes(selectedClass)
         );
 
       const matchesSearchTerm =

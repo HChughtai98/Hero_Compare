@@ -21,9 +21,9 @@ const FilterComponentLol = ({ onFilterChange }) => {
         onChange={(e) => onFilterChange("classes", e.target.value)}
       >
         <option value="">Class</option>
-        {classes.map((classes) => (
-          <option key={classes} value={classes}>
-            {classes}
+        {classes.map((cls) => (
+          <option key={cls} value={cls}>
+            {cls}
           </option>
         ))}
       </select>

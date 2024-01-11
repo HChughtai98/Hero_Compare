@@ -9,7 +9,7 @@ const FilteredCharacterList = () => {
     alphabetical: "asc",
     complexity: "",
     search: "",
-    classes: [], 
+    classes: [],
   });
 
   const handleFilterChange = (filterType, value) => {
@@ -31,16 +31,11 @@ const FilteredCharacterList = () => {
     <div className="charPage">
       <div className="filters-container">
         {/* Class filter */}
-        <label htmlFor="classes-select">Classes:</label>
-        <select
-          multiple={true}
-          id="classes-select"
-          value={filters.classes}
-          onChange={(e) => handleFilterChange("classes", e.target.value)}
-        >
-          <option value="Carry">Carry</option>
-          <option value="Tank">Tank</option>
-          <option value="Support">Support</option>
+        <select onChange={(e) => handleFilterChange("classes", e.target.value)}>
+          <option value="">All Classes</option>
+          <option value="1">Carry</option>
+          <option value="2">Tank</option>
+          <option value="3">Support</option>
         </select>
 
         <select
