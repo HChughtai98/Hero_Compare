@@ -20,7 +20,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: transform 0.3s ease, filter 0.3s ease, flex-grow 0.3 ease;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out,
+    flex-grow 0.3s ease-in-out;
   height: 100%;
   width: 50%;
   position: relative;
@@ -33,7 +34,8 @@
   top: 50%;
   left: 51%;
   transform: translate(-50%, -50%);
-  transition: left 0.6s ease-in-out, transform 0.6s ease-in-out; /* Sync with image hover */
+  transition: left 0.6s ease-in-out, transform 0.6s ease-in-out,
+    left 0.6s ease-in-out; /* Sync with image hover */
   z-index: 3;
 }
 /* Move the logo to the right when the left image is hovered */
