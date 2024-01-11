@@ -37,17 +37,18 @@ const DotaList = ({ filters, classFilter }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
 
+      // Add class filter logic
       const matchesClassFilter =
         !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !searchTerm ||
-        character.name.toLowerCase().includes(searchTerm.toLowerCase()); // Use searchTerm for filtering
+        !filters.search ||
+        character.name.toLowerCase().includes(filters.search);
 
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesClassFilter &&
+        matchesClassFilter && // Include class filter in the filter logic
         matchesSearchTerm
       );
     });
