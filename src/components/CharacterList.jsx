@@ -65,6 +65,7 @@ const CharacterList = ({ game, filters }) => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   };
+  
 
   useEffect(() => {
     fetchCharacters();

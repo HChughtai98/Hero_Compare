@@ -124,7 +124,6 @@
 
 .Add-char-btn {
   border: 1px solid #ffffff;
-  margin-top: 50px;
   border-radius: 4px;
   height: 4rem;
   width: 20rem;
@@ -133,6 +132,8 @@
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: 1.3rem;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .restore-button {

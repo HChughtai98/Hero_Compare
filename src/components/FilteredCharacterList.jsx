@@ -5,9 +5,9 @@ import "../styling/SearchBar.css";
 
 const FilteredCharacterList = () => {
   const [filters, setFilters] = useState({
-    game: "", // For filtering by game
-    alphabetical: "asc", // For alphabetical order, 'asc' or 'desc'
-    complexity: "", // For filtering by complexity
+    roles: [],
+    alphabetical: "asc",
+    complexity: "",
     search: "",
   });
 
@@ -15,23 +15,31 @@ const FilteredCharacterList = () => {
     setFilters((prev) => ({ ...prev, [filterType]: value }));
   };
 
-  const sortAlphabetically = (a, b) => {
-    if (filters.alphabetical === "asc") {
-      return a.name.localeCompare(b.name);
-    } else {
-      return b.name.localeCompare(a.name);
-    }
+  const handleRoleChange = (e) => {
+    const selectedRoles = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      roles: selectedRoles,
+    }));
   };
 
   return (
     <div className="charPage">
-      {/* Filters UI */}
       <div className="filters-container">
-        <select onChange={(e) => handleFilterChange("game", e.target.value)}>
-          <option value="">All Games</option>
-          <option value="Dota">Dota</option>
-          <option value="Lol">LoL</option>
+        <label htmlFor="roles-select">Roles:</label>
+        <select
+          multiple={true}
+          value={filters.roles}
+          onChange={handleRoleChange}
+        >
+          <option value="Carry">Carry</option>
+          <option value="Tank">Tank</option>
+          <option value="Support">Support</option>
         </select>
+
         <select
           onChange={(e) => handleFilterChange("complexity", e.target.value)}
         >
@@ -40,14 +48,14 @@ const FilteredCharacterList = () => {
           <option value="2">Medium</option>
           <option value="3">High</option>
         </select>
+
         <select
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, alphabetical: e.target.value }))
-          }
+          onChange={(e) => handleFilterChange("alphabetical", e.target.value)}
         >
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select>
+
         <input
           type="text"
           placeholder="Search characters..."
@@ -55,7 +63,7 @@ const FilteredCharacterList = () => {
         />
       </div>
 
-      <CharacterList game={filters.game} filters={filters} />
+      <CharacterList filters={filters} />
     </div>
   );
 };

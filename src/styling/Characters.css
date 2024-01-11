@@ -372,3 +372,30 @@
 .lol-characters::before {
   display: none;
 }
+
+@media (min-width: 1024px) {
+  .games-container {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .games-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .game-characters {
+    grid-template-columns: repeat(1, 1fr); /* 1 character per row on mobile */
+  }
+}
+
+@media (max-width: 767px) {
+  .dota-characters,
+  .lol-characters {
+    height: auto;
+  }
+}
