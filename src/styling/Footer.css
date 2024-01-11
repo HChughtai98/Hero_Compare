@@ -1,3 +1,4 @@
+/* Footer styling */
 footer {
   background-color: #000;
   color: white;
@@ -6,8 +7,28 @@ footer {
   z-index: 5;
   width: 100%;
 }
-
-footer a {
+/* Common styling for links and the Back to Top button */
+footer a,
+.back-to-top-button {
   color: lightblue;
   text-decoration: none;
+  margin-right: 10px; /* Add margin to the right of the link */
+  background-color: rgba(0, 0, 0, 0.5); /* Common background color */
+  color: white; /* Common text color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px; /* Adjust margin as needed */
+  transition: background-color 0.3s, transform 0.3s; /* Add smooth transitions */
+}
+/* Hover effect for both links and the Back to Top button */
+footer a:hover,
+.back-to-top-button:hover {
+  background-color: #67747d; /* Background color on hover */
+  transform: scale(1.05); /* Scale effect on hover */
+}
+/* Prevent GitHub link text from turning blue on hover */
+footer a:not(.back-to-top-button):hover {
+  color: white; /* Set the color to lightblue on hover */
 }

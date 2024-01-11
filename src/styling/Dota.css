@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
 }
-
+/* Header styles within .dota-summary */
 .dota-summary h2 {
   color: #d32f2f;
   font-size: 24px;
@@ -50,8 +50,18 @@
 .lol-summary h2 {
   color: #3a7efd; /* Dota-themed color for headers */
   margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
 }
-
+/* Glowing animation */
+@keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px #d32f2f, 0 0 20px #d32f2f, 0 0 30px #d32f2f; /* Glowing effect */
+  }
+}
+/* Sub-header styles within .dota-summary */
 .dota-summary h3 {
   margin-top: 15px;
   color: #1976d2; /* Dota-themed color for h3 headers */
@@ -101,6 +111,7 @@
   gap: 1rem;
   border-radius: 1px;
 }
+/* Styles for the filter select dropdown */
 .filter-container select {
   padding: 0.5rem;
   border-radius: 25px;
@@ -110,7 +121,6 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
 }
-
 /* Styles for the filter select dropdown */
 .filter-container select option {
   background: rgba(0, 0, 0, 0.6);
@@ -121,6 +131,7 @@
   border-color: #888; /* Darker border on hover */
   background-color: rgba(0, 0, 0, 0.6);
 }
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .dota-summary {
     padding: 15px; /* Less padding */

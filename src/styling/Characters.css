@@ -1,7 +1,7 @@
 .charPage {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  padding: 50px 100px 0px 100px;
-  background-size: 100% auto;
+  padding: 50px 20px 0px 20px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
@@ -10,7 +10,20 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vw;
+}
+.character-details.character-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+  position: relative;
+  background-size: cover;
+  height: 900px;
+  margin-top: 150px;
+  border-radius: 10%;
+  padding: 50px;
 }
 
 .charContainer {
@@ -23,7 +36,31 @@
   row-gap: 30px;
   padding: 2rem;
 }
+.character-blur-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(25px);
+  z-index: 1;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-attachment: fixed;
+  align-items: center;
+  border-radius: 10%;
+}
 
+.character-non-blur-overlay {
+  height: 500px;
+  z-index: 2;
+  position: relative;
+  top: 80px;
+  border: solid 2px black;
+  margin-top: 7rem;
+}
 .characters-title {
   display: flex;
   flex-direction: column;
@@ -36,7 +73,10 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 3rem;
+  color: white;
+  margin-top: 7rem;
+  padding: 0;
+  font-size: 6rem;
 }
 .characters-noFilter {
   text-align: center;
@@ -59,10 +99,23 @@
 }
 
 .character:hover {
-  transform: scale(1.2);
+  transform: scale(1.2) rotate(5deg);
   z-index: 2;
-  transition: ease-in-out 0.3s;
   box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    55deg,
+    #171c22,
+    #78868f
+  ); /* Change background on hover */
+}
+.character p {
+  margin-left: 0%;
+  text-align: left;
+  transition: margin-left 0.3s ease; /* Add transition for margin-left */
+}
+
+.character:hover p {
+  margin-left: +20%; /* Move the text to the middle on hover */
 }
 
 .character img {
@@ -72,41 +125,6 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.character-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  position: relative;
-  background-size: cover;
-  height: 100vw;
-}
-.character-blur-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  backdrop-filter: blur(25px);
-  z-index: 1;
-  height: 100vw;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-  background-attachment: fixed;
-  align-items: center;
-}
-
-.character-non-blur-overlay {
-  height: 500px;
-  z-index: 2;
-  position: relative;
-  top: 80px;
-  border: solid 2px black;
-  margin-top: 7rem;
-}
 .character-text-container {
   z-index: 2;
   display: flex;
