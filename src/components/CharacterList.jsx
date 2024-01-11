@@ -12,13 +12,13 @@ const CharacterList = ({ game, filters }) => {
   const searchTerm = filters.search?.toLowerCase() || "";
   const [showForm, setShowForm] = useState(false);
 
-  const sortAlphabetically = (characters) => {
+  const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
-      return characters.sort((a, b) => a.name.localeCompare(b.name));
+      return chars.sort((a, b) => a.name.localeCompare(b.name));
     } else if (filters.alphabetical === "desc") {
-      return characters.sort((a, b) => b.name.localeCompare(a.name));
+      return chars.sort((a, b) => b.name.localeCompare(a.name));
     }
-    return characters;
+    return chars;
   };
 
   const handleNewCharacter = (newCharacter) => {
@@ -35,14 +35,9 @@ const CharacterList = ({ game, filters }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
       const matchesRole =
-        game === "Lol"
-          ? !filters.role || character.roles.includes(filters.role)
-          : true;
+        !filters.role || character.roles.includes(filters.role);
       const matchesPrimaryAttr =
-        game === "Dota"
-          ? !filters.primaryAttr ||
-            character.primary_attr === filters.primaryAttr
-          : true;
+        !filters.primaryAttr || character.primary_attr === filters.primaryAttr;
       const matchesSearchTerm =
         !searchTerm || character.name.toLowerCase().includes(searchTerm);
 
@@ -61,25 +56,14 @@ const CharacterList = ({ game, filters }) => {
 
   const fetchCharacters = () => {
     fetch("https://hero-database-backend.adaptable.app/Characters")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.text(); 
-      })
-      .then((text) => {
-        console.log("Received text:", text); 
-        return JSON.parse(text); 
-      })
+      .then((response) => response.json())
       .then((data) => {
         const sortedAndFilteredCharacters = sortAlphabetically(
           filterCharacters(data)
         );
         setCharacters(sortedAndFilteredCharacters);
       })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
+      .catch((error) => console.error("Error fetching data:", error));
   };
 
   useEffect(() => {
@@ -94,32 +78,21 @@ const CharacterList = ({ game, filters }) => {
     if (isHidden) {
       className += " hide";
     }
-    if (searchTerm && !nameMatches) {
-      className += " dropped-out";
+    if (searchTerm && nameMatches) {
+      className += " highlight";
     }
 
     return className;
   };
 
+  const dotaCharacters = characters.filter((char) => char.game === "Dota");
+  const lolCharacters = characters.filter((char) => char.game === "Lol");
+
   return (
     <div className="characters-title">
-      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
-        Add New Character
-      </button>
-
-      {showForm && (
-        <div className="modal">
-          <CharacterForm
-            onNewCharacter={handleNewCharacter}
-            closeModal={() => setShowForm(false)}
-            fetchCharacters={fetchCharacters}
-          />
-        </div>
-      )}
-
-      {characters.length > 0 ? (
-        <div className="charContainer">
-          {characters.map((character) => (
+      <div className="games-container">
+        <div className="game-characters dota-characters">
+          {dotaCharacters.map((character) => (
             <Link
               to={`/characters/${character.id}`}
               key={character.id}
@@ -130,10 +103,30 @@ const CharacterList = ({ game, filters }) => {
             </Link>
           ))}
         </div>
-      ) : (
-        <p className="characters-noFilter">
-          No characters match the selected filters.
-        </p>
+        <div className="game-characters lol-characters">
+          {lolCharacters.map((character) => (
+            <Link
+              to={`/characters/${character.id}`}
+              key={character.id}
+              className={getCharacterClass(character)}
+            >
+              <img src={character.image} alt={`Character ${character.name}`} />
+              <p>{character.name}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
+        Add New Character
+      </button>
+      {showForm && (
+        <div className="modal">
+          <CharacterForm
+            onNewCharacter={handleNewCharacter}
+            closeModal={() => setShowForm(false)}
+            fetchCharacters={fetchCharacters}
+          />
+        </div>
       )}
     </div>
   );
