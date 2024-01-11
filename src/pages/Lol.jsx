@@ -4,7 +4,7 @@ import LolCharacterList from "../components/LolCharacterList";
 import FilterComponentLol from "../components/FilterComponentLol";
 import SearchBar from "./SearchBar";
 // Styling
-import "../styling/Characters.css";
+import "../styling/Dota.css";
 import "../styling/Lol.css";
 import "../styling/SearchBar.css";
 
