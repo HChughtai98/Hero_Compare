@@ -95,7 +95,7 @@ const LolCharacterList = ({ filters, classFilter }) => {
           );
         })}
       </div>
-      <button className="Add-char-btn-" onClick={() => setShowForm(true)}>
+      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
         Add New Character
       </button>
       {showForm && (
