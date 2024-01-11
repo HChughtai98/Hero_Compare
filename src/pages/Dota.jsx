@@ -25,7 +25,7 @@ const Dota = () => {
   };
 
   const handleSearchChange = (searchTerm) => {
-    setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm }));
+    setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm })); // Update search term in filters
   };
 
   return (

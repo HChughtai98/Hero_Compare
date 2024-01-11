@@ -9,13 +9,15 @@ import "../styling/Modal.css";
 const DotaList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
-  const searchTerm = filters.search?.toLowerCase() || "";
+  const [searchTerm, setSearchTerm] = useState(""); // Add searchTerm state
   const [showForm, setShowForm] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
 
   const handleSearchChange = (searchTerm) => {
-    setSearchInput(searchTerm); // Update the search input state
+    setSearchTerm(searchTerm); // Update the searchTerm state
   };
+  const matchesSearchTerm =
+    !searchTerm ||
+    characters.name.toLowerCase().includes(searchTerm.toLowerCase());
 
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
@@ -39,13 +41,12 @@ const DotaList = ({ filters, classFilter }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
 
-      // Add class filter logic
       const matchesClassFilter =
         !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !searchInput ||
-        character.name.toLowerCase().includes(searchInput.toLowerCase());
+        !searchTerm ||
+        character.name.toLowerCase().includes(searchTerm.toLowerCase()); // Use searchTerm for filtering
 
       return (
         matchesAttackType &&
@@ -97,16 +98,21 @@ const DotaList = ({ filters, classFilter }) => {
       <div className="games-container-dota">
         {/* Display LoL characters */}
 
-        {DotaCharacters.map((character) => (
-          <Link
-            to={`/characters/${character.id}`}
-            key={character.id}
-            className="dotaChar"
-          >
-            <img src={character.image} alt={`Character ${character.name}`} />
-            <p>{character.name}</p>
-          </Link>
-        ))}
+        {DotaCharacters.map((character) => {
+          const matchesSearchTerm =
+            !searchTerm ||
+            character.name.toLowerCase().includes(searchTerm.toLowerCase()); // Move this inside the map function
+          return (
+            <Link
+              to={`/characters/${character.id}`}
+              key={character.id}
+              className={`dotaChar${matchesSearchTerm ? "" : " hide"}`}
+            >
+              <img src={character.image} alt={`Character ${character.name}`} />
+              <p>{character.name}</p>
+            </Link>
+          );
+        })}
       </div>
       <button className="Add-char-btn-" onClick={() => setShowForm(true)}>
         Add New Character

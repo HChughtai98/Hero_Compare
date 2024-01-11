@@ -9,8 +9,12 @@ import "../styling/Modal.css";
 const CharacterList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
-  const searchTerm = filters.search?.toLowerCase() || "";
+  const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
+
+  const handleSearchChange = (searchTerm) => {
+    setSearchTerm(searchTerm); // Update the search term state
+  };
 
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {

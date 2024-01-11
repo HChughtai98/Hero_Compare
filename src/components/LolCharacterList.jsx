@@ -9,8 +9,12 @@ import "../styling/Modal.css";
 const LolCharacterList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
-  const searchTerm = filters.search?.toLowerCase() || "";
+  const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
+
+  const handleSearchChange = (searchTerm) => {
+    setSearchTerm(searchTerm); // Update the search term state
+  };
 
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
@@ -39,13 +43,13 @@ const LolCharacterList = ({ filters, classFilter }) => {
         !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !filters.search ||
-        character.name.toLowerCase().includes(filters.search);
+        !searchTerm ||
+        character.name.toLowerCase().includes(searchTerm.toLowerCase());
 
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesClassFilter && // Include class filter in the filter logic
+        matchesClassFilter &&
         matchesSearchTerm
       );
     });
