@@ -89,3 +89,48 @@
     font-size: 14px; /* Smaller font size */
   }
 }
+
+.games-container-dota {
+  display: flex;
+  width: 100%;
+  gap: 10%;
+  flex-wrap: wrap;
+}
+
+.dotaChar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease; /* Adjusted transition for all properties */
+}
+.dotaChar:hover {
+  transform: scale(0.95) rotate(2deg);
+  z-index: 2;
+  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    55deg,
+    #171c22,
+    #78868f
+  ); /* Change background on hover */
+}
+.dotaChar p {
+  margin-left: 0%;
+  text-align: left;
+  transition: margin-left 0.3s ease; /* Add transition for margin-left */
+}
+.dotaChar:hover p {
+  margin-left: +20%; /* Move the text to the middle on hover */
+}
+.dotaChar img {
+  flex-shrink: 0;
+  width: auto;
+  height: 250px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.games-container-dota {
+}

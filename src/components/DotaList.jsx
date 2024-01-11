@@ -88,22 +88,22 @@ const DotaList = ({ filters, classFilter }) => {
   const DotaCharacters = characters.filter((char) => char.game === "Dota");
 
   return (
-    <div className="characters-title">
-      <div className="games-container">
+    <div className="characters-title-dota">
+      <div className="games-container-dota">
         {/* Display LoL characters */}
 
         {DotaCharacters.map((character) => (
           <Link
             to={`/characters/${character.id}`}
             key={character.id}
-            className={getCharacterClass(character)}
+            className="dotaChar"
           >
             <img src={character.image} alt={`Character ${character.name}`} />
             <p>{character.name}</p>
           </Link>
         ))}
       </div>
-      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
+      <button className="Add-char-btn-" onClick={() => setShowForm(true)}>
         Add New Character
       </button>
       {showForm && (
