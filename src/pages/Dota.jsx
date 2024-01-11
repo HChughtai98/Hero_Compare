@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// Components //
-import DotaCharacterList from "../components/DotaList";
+import DotaList from "../components/DotaList";
 import FilterComponentDota from "../components/FilterComponentDota";
 import SearchBar from "./SearchBar";
-// Styling //
 import "../styling/Dota.css";
 
 const Dota = () => {
@@ -27,7 +25,7 @@ const Dota = () => {
   };
 
   const handleSearchChange = (searchTerm) => {
-    setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm })); // Update search term in filters
+    setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm }));
   };
 
   return (
@@ -58,7 +56,7 @@ const Dota = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <DotaCharacterList
+        <DotaList
           game="Dota"
           filters={dotaFilters}
           classFilter={classFilter}
