@@ -11,6 +11,11 @@ const DotaList = ({ filters, classFilter }) => {
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
   const [showForm, setShowForm] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearchChange = (searchTerm) => {
+    setSearchInput(searchTerm); // Update the search input state
+  };
 
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
@@ -39,13 +44,13 @@ const DotaList = ({ filters, classFilter }) => {
         !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !filters.search ||
-        character.name.toLowerCase().includes(filters.search);
+        !searchInput ||
+        character.name.toLowerCase().includes(searchInput.toLowerCase());
 
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesClassFilter && // Include class filter in the filter logic
+        matchesClassFilter &&
         matchesSearchTerm
       );
     });
