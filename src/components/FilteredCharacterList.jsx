@@ -9,31 +9,34 @@ const FilteredCharacterList = () => {
     alphabetical: "asc",
     complexity: "",
     search: "",
+    classes: [], 
   });
 
   const handleFilterChange = (filterType, value) => {
     setFilters((prev) => ({ ...prev, [filterType]: value }));
   };
 
-  const handleRoleChange = (e) => {
-    const selectedRoles = Array.from(
+  const handleClassChange = (e) => {
+    const selectedClasses = Array.from(
       e.target.selectedOptions,
       (option) => option.value
     );
     setFilters((prevFilters) => ({
       ...prevFilters,
-      roles: selectedRoles,
+      classes: selectedClasses,
     }));
   };
 
   return (
     <div className="charPage">
       <div className="filters-container">
-        <label htmlFor="roles-select">Roles:</label>
+        {/* Class filter */}
+        <label htmlFor="classes-select">Classes:</label>
         <select
           multiple={true}
-          value={filters.roles}
-          onChange={handleRoleChange}
+          id="classes-select"
+          value={filters.classes}
+          onChange={(e) => handleFilterChange("classes", e.target.value)}
         >
           <option value="Carry">Carry</option>
           <option value="Tank">Tank</option>

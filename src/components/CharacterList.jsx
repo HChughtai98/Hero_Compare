@@ -34,10 +34,11 @@ const CharacterList = ({ filters }) => {
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
 
-      // Adjusting role filtering logic
-      const matchesRoles =
-        filters.roles.length === 0 ||
-        filters.roles.some((role) => character.roles.includes(role));
+      const matchesClasses =
+        filters.classes.length === 0 ||
+        character.classes.some((charClass) =>
+          filters.classes.includes(charClass)
+        );
 
       const matchesSearchTerm =
         !searchTerm || character.name.toLowerCase().includes(searchTerm);
@@ -45,7 +46,7 @@ const CharacterList = ({ filters }) => {
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesRoles &&
+        matchesClasses &&
         matchesSearchTerm
       );
     });
@@ -77,8 +78,8 @@ const CharacterList = ({ filters }) => {
     if (isHidden) {
       className += " hide";
     }
-    if (searchTerm && nameMatches) {
-      className += " highlight";
+    if (searchTerm && !nameMatches) {
+      className += " dropped-out";
     }
 
     return className;
@@ -142,6 +143,7 @@ CharacterList.defaultProps = {
     complexity: "",
     primaryAttr: "",
     roles: [],
+    classes: [],
     search: "",
   },
 };

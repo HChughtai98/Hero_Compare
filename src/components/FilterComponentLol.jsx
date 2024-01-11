@@ -2,8 +2,8 @@ import React from "react";
 import "../styling/option.css";
 
 const FilterComponentLol = ({ onFilterChange }) => {
-  // Add more options based on the possible roles in your JSON data
   const roles = ["Fighter", "Mage", "Assassin", "Tank", "Marksman", "Support"];
+  const classes = ["Carry", "Tank", "Support"];
 
   return (
     <div className="filter-container">
@@ -14,6 +14,18 @@ const FilterComponentLol = ({ onFilterChange }) => {
         <option value="">Attack Type</option>
         <option value="Melee">Melee</option>
         <option value="Ranged">Ranged</option>
+      </select>
+
+      <select
+        id="selectId"
+        onChange={(e) => onFilterChange("classes", e.target.value)}
+      >
+        <option value="">Class</option>
+        {classes.map((classes) => (
+          <option key={classes} value={classes}>
+            {classes}
+          </option>
+        ))}
       </select>
 
       <select
