@@ -1,6 +1,7 @@
-.dota {
+.dota,
+.lol {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  padding: 50px 100px 0px 100px;
+  padding: 0px 100px 30px 100px;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center top;
@@ -12,7 +13,8 @@
   width: 100%;
   height: 100%;
 }
-.dota-summary {
+.dota-summary,
+.lol-summary {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 20px;
@@ -34,12 +36,19 @@
   margin-bottom: 15px;
 }
 
-.dota-summary h3 {
-  margin-top: 15px;
-  color: #1976d2; /* Another Dota-themed color */
+.lol-summary h2 {
+  color: #3a7efd; /* Dota-themed color for headers */
+  margin-bottom: 15px;
 }
 
-.dota-summary p {
+.dota-summary h3,
+.lol-summary h3 {
+  margin-top: 15px;
+  color: #f5e509; /* Another Dota-themed color */
+}
+
+.dota-summary p,
+.lol-summary p {
   font-size: 16px; /* Readable text size */
   line-height: 1.6; /* Adequate line spacing */
 }
@@ -75,17 +84,21 @@
   border-color: #888; /* Darker border on hover */
 }
 @media (max-width: 768px) {
-  .dota-summary {
+  .dota-summary,
+  .lol-summary {
     padding: 15px; /* Less padding */
     margin-top: 5rem; /* Smaller margin */
   }
 
   .dota-summary h2,
-  .dota-summary h3 {
+  .dota-summary h3,
+  .lol-summary h2,
+  .lol-summary h3 {
     font-size: 1.2rem; /* Smaller font size */
   }
 
-  .dota-summary p {
+  .dota-summary p,
+  .lol-summary p {
     font-size: 14px; /* Smaller font size */
   }
 }
