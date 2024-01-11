@@ -36,6 +36,7 @@
   row-gap: 30px;
   padding: 2rem;
 }
+
 .character-blur-overlay {
   position: absolute;
   top: 0;
@@ -61,6 +62,7 @@
   border: solid 2px black;
   margin-top: 7rem;
 }
+
 .characters-title {
   display: flex;
   flex-direction: column;
@@ -78,6 +80,7 @@
   padding: 0;
   font-size: 6rem;
 }
+
 .characters-noFilter {
   text-align: center;
   font-size: 2rem;
