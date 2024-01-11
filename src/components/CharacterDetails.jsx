@@ -121,46 +121,48 @@ const CharacterDetails = () => {
   };
 
   return (
-    <div
-      className="character-details"
-      style={{ backgroundImage: `url(${character.background})` }}
-    >
-      <div className="character-blur-overlay"></div>
-      <img
-        className="character-non-blur-overlay"
-        src={character.background}
-        alt={`Background of ${character.name}`}
-      />
+    <div className="charPage">
+      <div
+        className="character-details character-background"
+        style={{ backgroundImage: `url(${character.background})` }}
+      >
+        <div className="character-blur-overlay"></div>
+        <img
+          className="character-non-blur-overlay"
+          src={character.background}
+          alt={`Background of ${character.name}`}
+        />
 
-      <div className="character-text-container">
-        <h1 className="character-name">{character.name}</h1>
-        <div className="description-container">
-          <h1 className="description-title">DESCRIPTION</h1>
-          <p className="character-description">{character.description}</p>
-          <div className="roleComplexity-info">
-            <div className="roles-container">
-              {renderRoles(character.roles)}
+        <div className="character-text-container">
+          <h1 className="character-name">{character.name}</h1>
+          <div className="description-container">
+            <h1 className="description-title">DESCRIPTION</h1>
+            <p className="character-description">{character.description}</p>
+            <div className="roleComplexity-info">
+              <div className="roles-container">
+                {renderRoles(character.roles)}
+              </div>
+              <ComplexityIndicator complexity={character.complexity} />
             </div>
-            <ComplexityIndicator complexity={character.complexity} />
-          </div>
-          <div className="character-information">
-            <img
-              src={attackTypeImages[character.attack_type]}
-              className="character-attack-icon"
-              alt={`${character.attack_type} Icon`}
-            />
-            <p className="character-attack">{character.attack_type}</p>
-          </div>
-          <div>
-            <button onClick={handleDelete}>Delete Character</button>
+            <div className="character-information">
+              <img
+                src={attackTypeImages[character.attack_type]}
+                className="character-attack-icon"
+                alt={`${character.attack_type} Icon`}
+              />
+              <p className="character-attack">{character.attack_type}</p>
+            </div>
+            <div>
+              <button onClick={handleDelete}>Delete Character</button>
+            </div>
           </div>
         </div>
+        <PrevAndNextFunction
+          charactersLength={characters.length}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
       </div>
-      <PrevAndNextFunction
-        charactersLength={characters.length}
-        currentIndex={currentIndex}
-        setCurrentIndex={setCurrentIndex}
-      />
     </div>
   );
 };
