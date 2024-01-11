@@ -93,35 +93,25 @@
 }
 
 .character {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
   overflow: hidden;
-  border-radius: 2%;
 }
 
-.character:hover {
-  transform: scale(1.2);
+.character img:hover {
+  transform: scale(0.95);
   z-index: 2;
-  transition: ease-in-out 0.3s;
-  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
+  transition: ease-in-out 0.25s;
 }
 .character p {
-  margin-left: 0%;
-  text-align: left;
-  transition: margin-left 0.3s ease; /* Add transition for margin-left */
-  color: white;
+  text-align: center;
+  transition: margin-top 0.4s ease; /* Add transition for margin-left */
   text-transform: uppercase;
-  font-weight: bold;
-  padding: 15px;
-  letter-spacing: 1px;
-
-  max-width: 100%; /* Ensure the text doesn't exceed the width of its container */
+  padding: 5px;
 }
 
 .character:hover p {
-  margin-left: +20%; /* Move the text to the middle on hover */
+  margin-top: -5%; /* Move the text to the middle on hover */
+  color: rgb(255, 189, 113);
 }
 
 .character img {
@@ -336,8 +326,7 @@
 }
 
 .game-characters {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
   display: grid;
@@ -349,6 +338,7 @@
   max-width: calc(50% - 50px);
   height: 800px;
   overflow-y: scroll;
+  overflow-x: hidden;
   align-content: flex-start;
   padding-bottom: 20px;
 }
@@ -357,6 +347,11 @@
   text-align: center;
   color: white;
   margin-bottom: 20px;
+}
+
+.game-characters dota-characters,
+.game-characters lol-characters {
+  width: 100%;
 }
 
 .game-characters:first-child,
@@ -368,32 +363,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  height: auto;
   margin-bottom: 220px;
 }
 
 .character img {
   width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  height: 180px;
   object-fit: cover;
   margin-top: 20px;
 }
 
 .character p {
   color: white;
-  margin-top: 5px;
+  width: 100%;
+  height: 4rem;
 }
 
 .dota-characters,
 .lol-characters {
   min-height: 800px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-content: start;
-  width: 650px;
-  max-width: 1000px;
-  padding: 0;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: flex-start;
+  width: 45%;
+  padding: 1%;
+  max-width: 44%;
 }
 
 .dota-characters::before,
