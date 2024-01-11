@@ -31,7 +31,8 @@ const Dota = () => {
   return (
     <div className="dota">
       <div className="dota-summary">
-        <h2>Dota 2</h2>
+        <h2 className="dota-style">Dota 2</h2>
+
         <p>
           <strong>Dota 2</strong> is a multiplayer online battle arena (MOBA)
           game that pits two teams of five players against each other. Each

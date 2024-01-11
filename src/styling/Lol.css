@@ -69,7 +69,6 @@
 /* LoL style */
 .lol-style {
   color: #004aad; /* LoL-themed color for text */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(215, 234, 76, 0.5); /* Text shadow for 3D effect */
 }
 /* Media query for smaller screens */
 @media (max-width: 768px) {

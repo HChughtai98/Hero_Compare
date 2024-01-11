@@ -32,15 +32,15 @@
 }
 /* Header styles within .dota-summary */
 .dota-summary h2 {
-  color: #d32f2f;
+  color: #d32f2f; /* Red color for the text */
   font-size: 24px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
-  animation: glow 2s infinite alternate;
+  animation: glow-red 2s infinite alternate; /* Apply the "glow-red" animation */
 }
 /* Glowing animation */
-@keyframes glow {
+@keyframes glow-red {
   0% {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
   }
@@ -70,6 +70,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   animation: glowing 2s infinite alternate;
 }
+
 @keyframes glowing {
   0% {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Initial text shadow */
@@ -108,10 +109,11 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(194, 53, 45, 0.5);
   /* Text shadow for 3D effect */
 }
+
 /* LoL style */
 .lol-style {
   color: #004aad; /* LoL-themed color for text */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(215, 234, 76, 0.5); /* Text shadow for 3D effect */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(12, 158, 255, 0.5); /* Text shadow for 3D effect */
 }
 /* Styles for the filter search bar container */
 .filter-searchbar-ctn {
@@ -201,39 +203,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  overflow: hidden;
-  border-radius: 10%;
+  border-radius: 0%;
   margin-bottom: 5%;
   background: rgba(0, 0, 0, 0.6);
   transition: all 0.5s ease; /* Adjusted transition for all properties */
 }
 .dotaChar:hover {
-  transform: scale(0.95);
+  transform: scale(0.93);
   z-index: 2;
-  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 35px 0px rgba(252, 251, 251, 0.2);
   background: linear-gradient(
     65deg,
     #171c22,
-    #78868f
+    #a5a0a0
   ); /* Change background on hover */
 }
 .dotaChar p {
   margin-left: 0%;
   text-align: left;
-  transition: margin-left 0.3s ease; /* Add transition for margin-left */
+  transition: margin-left 0.5s ease; /* Add transition for margin-left */
   color: white;
   text-transform: uppercase;
   font-weight: bold;
   padding: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 .dotaChar:hover p {
   margin-left: +20%; /* Move the text to the middle on hover */
 }
 .dotaChar img {
   flex-shrink: 0;
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 300px;
   object-fit: cover;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
