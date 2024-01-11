@@ -96,23 +96,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow: hidden;
-  border-radius: 1%;
-  margin-bottom: 5%;
-  background: rgba(0, 0, 0, 0.6);
-  transition: all 0.5s ease; /* Adjusted transition for all properties */
+  border-radius: 2%;
 }
 
 .character:hover {
-  transform: scale(0.95);
+  transform: scale(1.2);
   z-index: 2;
+  transition: ease-in-out 0.3s;
   box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    65deg,
-    #171c22,
-    #78868f
-  ); /* Change background on hover */
 }
 .character p {
   margin-left: 0%;
@@ -134,8 +127,7 @@
 .character img {
   flex-shrink: 0;
   width: 250px;
-  height: 250px;
-  object-fit: cover;
+  height: 282px;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
