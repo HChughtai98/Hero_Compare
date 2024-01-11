@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-// Components
 import LolCharacterList from "../components/LolCharacterList";
 import FilterComponentLol from "../components/FilterComponentLol";
 import SearchBar from "./SearchBar";
-// Styling
 import "../styling/Dota.css";
-import "../styling/Lol.css";
 import "../styling/SearchBar.css";
 
 const Lol = () => {
@@ -15,8 +12,17 @@ const Lol = () => {
     role: "",
   });
 
+  const [classFilter, setClassFilter] = useState(""); // Declare classFilter here
+  const [roleFilter, setRoleFilter] = useState(""); // Declare roleFilter here
+
   const handleFilterChange = (filterType, value) => {
-    setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
+    if (filterType === "classes") {
+      setClassFilter(value);
+    } else if (filterType === "role") {
+      setRoleFilter(value);
+    } else {
+      setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
+    }
   };
 
   const handleSearchChange = (searchTerm) => {
@@ -49,7 +55,12 @@ const Lol = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <LolCharacterList game="Lol" filters={lolFilters} />
+        <LolCharacterList
+          game="Lol"
+          filters={lolFilters}
+          classFilter={classFilter}
+          roleFilter={roleFilter}
+        />
       </div>
     </div>
   );

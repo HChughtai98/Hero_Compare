@@ -37,18 +37,6 @@ const FilterComponentLol = ({ onFilterChange }) => {
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
-
-      <select
-        id="selectId"
-        onChange={(e) => onFilterChange("role", e.target.value)}
-      >
-        <option value="">Role</option>
-        {roles.map((role) => (
-          <option key={role} value={role}>
-            {role}
-          </option>
-        ))}
-      </select>
     </div>
   );
 };

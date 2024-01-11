@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import DotaList from "../components/DotaList";
+import DotaCharacterList from "../components/DotaList";
 import FilterComponentDota from "../components/FilterComponentDota";
 import "../styling/Dota.css";
 import SearchBar from "./SearchBar";
@@ -12,8 +11,17 @@ const Dota = () => {
     primaryAttr: "",
   });
 
+  const [classFilter, setClassFilter] = useState(""); // Declare classFilter here
+  const [roleFilter, setRoleFilter] = useState(""); // Declare roleFilter here
+
   const handleFilterChange = (filterType, value) => {
-    setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
+    if (filterType === "classes") {
+      setClassFilter(value);
+    } else if (filterType === "role") {
+      setRoleFilter(value);
+    } else {
+      setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
+    }
   };
 
   const handleSearchChange = (searchTerm) => {
@@ -47,7 +55,12 @@ const Dota = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <DotaList game="Dota" filters={dotaFilters} />
+        <DotaCharacterList
+          game="Dota"
+          filters={dotaFilters}
+          classFilter={classFilter}
+          roleFilter={roleFilter}
+        />
       </div>
     </div>
   );
