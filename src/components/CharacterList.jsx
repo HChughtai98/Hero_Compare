@@ -33,9 +33,12 @@ const CharacterList = ({ filters }) => {
       const matchesComplexity =
         !filters.complexity ||
         character.complexity === parseInt(filters.complexity, 10);
+
+      // Adjusting role filtering logic
       const matchesRoles =
-        !filters.roles.length ||
+        filters.roles.length === 0 ||
         filters.roles.some((role) => character.roles.includes(role));
+
       const matchesSearchTerm =
         !searchTerm || character.name.toLowerCase().includes(searchTerm);
 
