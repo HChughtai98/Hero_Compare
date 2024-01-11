@@ -34,7 +34,7 @@
 }
 @media (max-width: 768px) {
   .search-bar {
-    width: 90%; /* Adjust based on preference */
-    margin-top: 20px; /* Smaller margin */
+    width: 90%;
+    margin-top: 20px;
   }
 }

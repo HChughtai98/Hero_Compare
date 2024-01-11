@@ -73,8 +73,8 @@
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .lol-summary {
-    padding: 15px; /* Less padding */
-    margin-top: 5rem; /* Smaller margin */
+    padding: 15px;
+    margin-top: 5rem;
   }
   .lol-summary h2,
   .lol-summary h3 {

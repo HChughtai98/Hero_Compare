@@ -14,7 +14,7 @@ option {
 }
 @media (max-width: 768px) {
   #selectId {
-    width: 90%; /* Wider on small screens */
-    height: 3rem; /* Adjust height if needed */
+    width: 90%;
+    height: 3rem;
   }
 }

@@ -167,13 +167,13 @@
 }
 @media (max-width: 768px) {
   .modal-content {
-    width: 90%; /* Wider on small screens */
-    padding: 10px; /* Less padding */
+    width: 90%;
+    padding: 10px;
     margin-top: 200px;
   }
 
   .input-group {
-    flex-basis: 100%; /* Full width for smaller screens */
+    flex-basis: 100%;
     margin-bottom: 15px;
   }
 }
