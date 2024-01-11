@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CharacterList from "../components/CharacterList";
+
+import DotaList from "../components/DotaList";
 import FilterComponentDota from "../components/FilterComponentDota";
-import "../styling/Characters.css";
 import "../styling/Dota.css";
 import SearchBar from "./SearchBar";
 
@@ -47,7 +47,7 @@ const Dota = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <CharacterList game="Dota" filters={dotaFilters} />
+        <DotaList game="Dota" filters={dotaFilters} />
       </div>
     </div>
   );

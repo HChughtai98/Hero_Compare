@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // Components
-import CharacterList from "../components/CharacterList";
+import LolCharacterList from "../components/LolCharacterList";
 import FilterComponentLol from "../components/FilterComponentLol";
 import SearchBar from "./SearchBar";
 // Styling
@@ -49,7 +49,7 @@ const Lol = () => {
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
-        <CharacterList game="Lol" filters={lolFilters} />
+        <LolCharacterList game="Lol" filters={lolFilters} />
       </div>
     </div>
   );

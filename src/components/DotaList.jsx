@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CharacterForm from "./CharacterForm";
 import "../App.css";
-import "../styling/Characters.css";
+import "../styling/Dota.css";
 import "../styling/SearchBar.css";
 import "../styling/Modal.css";
 
-const CharacterList = ({ filters, classFilter }) => {
+const DotaList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
   const searchTerm = filters.search?.toLowerCase() || "";
@@ -85,38 +85,23 @@ const CharacterList = ({ filters, classFilter }) => {
   };
 
   // Split characters by game
-  const dotaCharacters = characters.filter((char) => char.game === "Dota");
-  const lolCharacters = characters.filter((char) => char.game === "Lol");
+  const DotaCharacters = characters.filter((char) => char.game === "Dota");
 
   return (
     <div className="characters-title">
       <div className="games-container">
-        {/* Display Dota characters */}
-        <div className="game-characters dota-characters">
-          {dotaCharacters.map((character) => (
-            <Link
-              to={`/characters/${character.id}`}
-              key={character.id}
-              className={getCharacterClass(character)}
-            >
-              <img src={character.image} alt={`Character ${character.name}`} />
-              <p>{character.name}</p>
-            </Link>
-          ))}
-        </div>
         {/* Display LoL characters */}
-        <div className="game-characters lol-characters">
-          {lolCharacters.map((character) => (
-            <Link
-              to={`/characters/${character.id}`}
-              key={character.id}
-              className={getCharacterClass(character)}
-            >
-              <img src={character.image} alt={`Character ${character.name}`} />
-              <p>{character.name}</p>
-            </Link>
-          ))}
-        </div>
+
+        {DotaCharacters.map((character) => (
+          <Link
+            to={`/characters/${character.id}`}
+            key={character.id}
+            className={getCharacterClass(character)}
+          >
+            <img src={character.image} alt={`Character ${character.name}`} />
+            <p>{character.name}</p>
+          </Link>
+        ))}
       </div>
       <button className="Add-char-btn" onClick={() => setShowForm(true)}>
         Add New Character
@@ -134,7 +119,7 @@ const CharacterList = ({ filters, classFilter }) => {
   );
 };
 
-CharacterList.defaultProps = {
+DotaList.defaultProps = {
   filters: {
     attackType: "",
     complexity: "",
@@ -145,4 +130,4 @@ CharacterList.defaultProps = {
   },
 };
 
-export default CharacterList;
+export default DotaList;

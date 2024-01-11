@@ -85,25 +85,11 @@ const CharacterList = ({ filters, classFilter }) => {
   };
 
   // Split characters by game
-  const dotaCharacters = characters.filter((char) => char.game === "Dota");
   const lolCharacters = characters.filter((char) => char.game === "Lol");
 
   return (
     <div className="characters-title">
       <div className="games-container">
-        {/* Display Dota characters */}
-        <div className="game-characters dota-characters">
-          {dotaCharacters.map((character) => (
-            <Link
-              to={`/characters/${character.id}`}
-              key={character.id}
-              className={getCharacterClass(character)}
-            >
-              <img src={character.image} alt={`Character ${character.name}`} />
-              <p>{character.name}</p>
-            </Link>
-          ))}
-        </div>
         {/* Display LoL characters */}
         <div className="game-characters lol-characters">
           {lolCharacters.map((character) => (
