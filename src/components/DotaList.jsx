@@ -8,16 +8,12 @@ import "../styling/Modal.css";
 
 const DotaList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
-  const [charactersToHide, setCharactersToHide] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // Add searchTerm state
+  const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
 
   const handleSearchChange = (searchTerm) => {
-    setSearchTerm(searchTerm); // Update the searchTerm state
+    setSearchTerm(searchTerm);
   };
-  const matchesSearchTerm =
-    !searchTerm ||
-    characters.name.toLowerCase().includes(searchTerm.toLowerCase());
 
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
@@ -75,33 +71,17 @@ const DotaList = ({ filters, classFilter }) => {
     fetchCharacters();
   }, [filters, classFilter]);
 
-  const getCharacterClass = (character) => {
-    const isHidden = charactersToHide.some((char) => char.id === character.id);
-    const nameMatches = character.name.toLowerCase().includes(searchTerm);
-
-    let className = "character";
-    if (isHidden) {
-      className += " hide";
-    }
-    if (searchTerm && !nameMatches) {
-      className += " dropped-out";
-    }
-
-    return className;
-  };
-
   // Split characters by game
   const DotaCharacters = characters.filter((char) => char.game === "Dota");
 
   return (
     <div className="characters-title-dota">
       <div className="games-container-dota">
-        {/* Display LoL characters */}
-
+        {/* Display Dota characters */}
         {DotaCharacters.map((character) => {
           const matchesSearchTerm =
             !searchTerm ||
-            character.name.toLowerCase().includes(searchTerm.toLowerCase()); // Move this inside the map function
+            character.name.toLowerCase().includes(searchTerm.toLowerCase());
           return (
             <Link
               to={`/characters/${character.id}`}

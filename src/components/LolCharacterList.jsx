@@ -8,12 +8,11 @@ import "../styling/Modal.css";
 
 const LolCharacterList = ({ filters, classFilter }) => {
   const [characters, setCharacters] = useState([]);
-  const [charactersToHide, setCharactersToHide] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
 
   const handleSearchChange = (searchTerm) => {
-    setSearchTerm(searchTerm); // Update the search term state
+    setSearchTerm(searchTerm);
   };
 
   const sortAlphabetically = (chars) => {
@@ -43,13 +42,13 @@ const LolCharacterList = ({ filters, classFilter }) => {
         !classFilter || character.classes.includes(classFilter);
 
       const matchesSearchTerm =
-        !searchTerm ||
-        character.name.toLowerCase().includes(searchTerm.toLowerCase());
+        !filters.search ||
+        character.name.toLowerCase().includes(filters.search);
 
       return (
         matchesAttackType &&
         matchesComplexity &&
-        matchesClassFilter &&
+        matchesClassFilter && // Include class filter in the filter logic
         matchesSearchTerm
       );
     });
@@ -79,18 +78,22 @@ const LolCharacterList = ({ filters, classFilter }) => {
   return (
     <div className="characters-title-dota">
       <div className="games-container-dota">
-        {/* Display LoL characters */}
-
-        {LolCharacters.map((character) => (
-          <Link
-            to={`/characters/${character.id}`}
-            key={character.id}
-            className="dotaChar"
-          >
-            <img src={character.image} alt={`Character ${character.name}`} />
-            <p>{character.name}</p>
-          </Link>
-        ))}
+        {/* Display Dota characters */}
+        {LolCharacters.map((character) => {
+          const matchesSearchTerm =
+            !searchTerm ||
+            character.name.toLowerCase().includes(searchTerm.toLowerCase());
+          return (
+            <Link
+              to={`/characters/${character.id}`}
+              key={character.id}
+              className={`dotaChar${matchesSearchTerm ? "" : " hide"}`}
+            >
+              <img src={character.image} alt={`Character ${character.name}`} />
+              <p>{character.name}</p>
+            </Link>
+          );
+        })}
       </div>
       <button className="Add-char-btn-" onClick={() => setShowForm(true)}>
         Add New Character

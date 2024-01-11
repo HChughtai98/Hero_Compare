@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DotaCharacterList from "../components/DotaList";
 import FilterComponentDota from "../components/FilterComponentDota";
-import "../styling/Dota.css";
 import SearchBar from "./SearchBar";
+import "../styling/Dota.css";
 
 const Dota = () => {
   const [dotaFilters, setFilters] = useState({
