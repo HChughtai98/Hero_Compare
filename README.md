@@ -155,7 +155,7 @@ Our HERO_COMPARE application is meticulously organized for optimal development w
 - `README.md`: A markdown file providing detailed information about the project.
 - `vite.config.js`: Configuration file for Vite, our frontend build tool.
 
-This structure highlights our dedication to a clean and organized codebase, making it straightforward for developers to locate and familiarize themselves with the various aspects of our application, which supports efficient development and easy upkeep.
+This structure highlights our dedication to a clean and organized codebase, making it straightforward for developers to locate and familiarize themselves with the various aspects of our application, which supports efficient development and easy upkeep..
 
 ## Links
 
