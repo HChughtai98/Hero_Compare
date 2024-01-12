@@ -1,3 +1,4 @@
+// Styling //
 import "../styling/ComplexityIndicator.css";
 
 const ComplexityIndicator = ({ complexity }) => {

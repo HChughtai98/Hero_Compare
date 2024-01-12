@@ -1,25 +1,29 @@
+/* Styling for the complexity indicator container */
 .complexity-indicator {
   display: flex;
   align-items: center;
   color: white;
 }
 
+/* Styling for the text within the complexity indicator */
 .complexity-text {
   font-size: 1.2rem;
   margin-right: 8px;
   font-weight: bold;
 }
 
+/* Styling for the diamond shape */
 .diamond {
   width: 20px; /* Diamond size */
   height: 20px;
-  margin: 0 4px;
+  margin: 0 4px; /* Spacing around the diamond */
   background-color: #023342; /* Inactive diamond color */
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond shape */
 }
 
+/* Styling for the active (highlighted) diamond */
 .diamond.active {
   background-color: #08d7f7; /* Active diamond color */
   /* You can add an animation or transition if you like */
-  transition: background-color 0.3s;
+  transition: background-color 0.3s; /* Smooth color transition on activation */
 }

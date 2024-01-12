@@ -1,20 +1,30 @@
+/* Styles for the select element with the ID "selectId" */
 #selectId {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 5px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 12rem;
-  height: 3.9rem;
+  background: rgba(0, 0, 0, 0.6); /* Background color with some transparency */
+  border-radius: 5px; /* Rounded corners for the select element */
+  color: white; /* Text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle depth effect */
+  width: 12rem; /* Width of the select element */
+  height: 3.9rem; /* Height of the select element */
 }
 
+/* Styles for the options within the select element */
 option {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-size: 1.6em;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Background color with some transparency */
+  color: white; /* Text color for options */
+  font-size: 1.6em; /* Font size for options */
 }
+
+/* Media query for smaller screens (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Adjustments for the select element on smaller screens */
   #selectId {
-    width: 90%;
-    height: 3rem;
+    width: 90%; /* Make the select element wider */
+    height: 3rem; /* Reduce the height of the select element */
   }
 }

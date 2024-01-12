@@ -1,13 +1,16 @@
+/* Styles for the button container */
 .BtnCtn {
   z-index: 20;
-  color: "black";
+  color: black;
   position: absolute;
   margin-top: 5rem;
   display: flex;
   width: 50rem;
   justify-content: space-between;
+  align-items: center;
 }
 
+/* Styles for the buttons */
 .Btn {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -16,8 +19,16 @@
   padding: 2rem;
   width: 12rem;
   font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Media query for smaller screens (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Adjustments for smaller screens within .BtnCtn */
   .BtnCtn {
     width: auto;
     margin-top: 5rem;
@@ -25,6 +36,8 @@
     align-items: center;
     gap: 15rem;
   }
+
+  /* Adjustments for buttons on smaller screens */
   .Btn {
     width: calc(100% - 40px); /* Full width minus padding */
     margin-bottom: 1rem;
