@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+// Components //
 import LolCharacterList from "../components/LolCharacterList";
 import FilterComponentLol from "../components/FilterComponentLol";
 import SearchBar from "./SearchBar";
+// Styling //
 import "../styling/Dota.css";
 import "../styling/SearchBar.css";
 

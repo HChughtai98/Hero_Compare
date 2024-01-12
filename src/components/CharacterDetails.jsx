@@ -26,22 +26,33 @@ import ComplexityIndicator from "./ComplexityIndicator";
 import PrevAndNextFunction from "./HandlePages";
 
 const CharacterDetails = () => {
+  // Get the characterId from the URL parameters
   let { characterId } = useParams();
+
+  // State to hold the list of characters and current index
   const [characters, setCharacters] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Hook for navigation
   const navigate = useNavigate();
-  const [game, setGame] = useState(null); // State to hold the game context
+
+  // State to hold the game context
+  const [game, setGame] = useState(null);
 
   useEffect(() => {
+    // Fetch character data from the API based on characterId
     fetch("https://hero-database-backend.adaptable.app/Characters")
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data);
+
+        // Find the initial index of the characterId in the data
         const initialIndex = data.findIndex(
           (c) => c.id === parseInt(characterId, 10)
         );
+
+        // Set the currentIndex and game context based on the character
         setCurrentIndex(initialIndex >= 0 ? initialIndex : 0);
-        // Set the game context based on the current character
         if (initialIndex >= 0) {
           setGame(data[initialIndex].game);
         }
@@ -50,6 +61,7 @@ const CharacterDetails = () => {
   }, [characterId, navigate]);
 
   useEffect(() => {
+    // When the currentIndex changes, update the URL with the new characterId
     if (characters[currentIndex]) {
       const newCharacterId = characters[currentIndex].id;
       navigate(`/characters/${newCharacterId}`, { replace: true });
@@ -60,8 +72,10 @@ const CharacterDetails = () => {
     return <div>Loading...</div>;
   }
 
+  // Get the current character
   const character = characters[currentIndex];
 
+  // Define objects to map role and attack type to their respective icons
   const rolesImages = {
     Lol: {
       Assassin: assassinIcon,
@@ -88,6 +102,7 @@ const CharacterDetails = () => {
     Ranged: rangedIcon,
   };
 
+  // Render roles as icons and text
   const renderRoles = (rolesArray) =>
     rolesArray.map((role, index) => (
       <div key={index} className="role-with-icon">
@@ -102,6 +117,7 @@ const CharacterDetails = () => {
       </div>
     ));
 
+  // Function to handle character deletion
   const handleDelete = () => {
     fetch(
       `https://hero-database-backend.adaptable.app/Characters/${characterId}`,

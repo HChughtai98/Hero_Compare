@@ -159,8 +159,16 @@
   padding-left: 20px; /* Indent content for better structure */
 }
 /* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .game-info {
+    flex: 1 1 100%; /* Stack the columns on small screens */
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .game-info {
     flex: 1 1 100%; /* Stack the columns on small screens */
+    margin-bottom: 20px;
   }
 }

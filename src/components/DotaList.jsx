@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// Components //
 import CharacterForm from "./CharacterForm";
+// Styling //
 import "../App.css";
 import "../styling/Dota.css";
 import "../styling/SearchBar.css";
@@ -77,6 +79,18 @@ const DotaList = ({ filters, classFilter }) => {
 
   return (
     <div className="characters-title-dota">
+      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
+        Add New Character
+      </button>
+      {showForm && (
+        <div className="modal">
+          <CharacterForm
+            onNewCharacter={handleNewCharacter}
+            closeModal={() => setShowForm(false)}
+            fetchCharacters={fetchCharacters}
+          />
+        </div>
+      )}
       <div className="games-container-dota">
         {/* Display Dota characters */}
         {DotaCharacters.map((character) => {
@@ -95,18 +109,6 @@ const DotaList = ({ filters, classFilter }) => {
           );
         })}
       </div>
-      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
-        Add New Character
-      </button>
-      {showForm && (
-        <div className="modal">
-          <CharacterForm
-            onNewCharacter={handleNewCharacter}
-            closeModal={() => setShowForm(false)}
-            fetchCharacters={fetchCharacters}
-          />
-        </div>
-      )}
     </div>
   );
 };

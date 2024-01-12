@@ -117,6 +117,7 @@
 }
 /* Styles for the filter search bar container */
 .filter-searchbar-ctn {
+  margin-bottom: 200px;
   width: 100vw;
   position: relative;
   display: flex;

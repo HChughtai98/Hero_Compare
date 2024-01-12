@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const CharacterForm = ({ onNewCharacter, closeModal }) => {
+  // Initialize character state with default values
   const [character, setCharacter] = useState({
     name: "",
     game: "Lol",
@@ -14,6 +15,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
     complexity: 1,
   });
 
+  // Define roles for Lol and Dota
   const lolRoles = [
     "Marksman",
     "Fighter",
@@ -34,6 +36,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
   ];
 
   useEffect(() => {
+    // Update primary attribute and roles based on the selected game
     if (character.game === "Lol") {
       setCharacter({
         ...character,
@@ -57,14 +60,16 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Format character data before sending it to the API
     const formattedCharacter = {
       ...character,
       attack_type: [character.attack_type],
       classes: [character.classes],
-      roles: [character.roles], //
+      roles: [character.roles],
       complexity: Number(character.complexity),
     };
 
+    // Send a POST request to the API to create a new character
     fetch("https://hero-database-backend.adaptable.app/Characters", {
       method: "POST",
       headers: {
@@ -79,6 +84,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
         return response.json();
       })
       .then((data) => {
+        // Call the onNewCharacter function and close the modal
         onNewCharacter(data);
         closeModal();
       })
@@ -170,7 +176,7 @@ const CharacterForm = ({ onNewCharacter, closeModal }) => {
               ) : (
                 <>
                   <option value="str">Strength</option>
-                  <option value="int">Inteligence</option>
+                  <option value="int">Intelligence</option>
                   <option value="agi">Agility</option>
                   <option value="uni">Universal</option>
                 </>

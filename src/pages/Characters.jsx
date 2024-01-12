@@ -1,6 +1,8 @@
 import React from "react";
-import "../styling/Characters.css";
+// Components //
 import CharacterList from "../components/FilteredCharacterList";
+// Styling //
+import "../styling/Characters.css";
 
 function Characters() {
   return (
@@ -9,7 +11,5 @@ function Characters() {
     </div>
   );
 }
-
-
 
 export default Characters;

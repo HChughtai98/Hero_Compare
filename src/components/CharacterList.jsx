@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// Components //
 import CharacterForm from "./CharacterForm";
+// Styling //
 import "../App.css";
 import "../styling/Characters.css";
 import "../styling/SearchBar.css";
 import "../styling/Modal.css";
 
 const CharacterList = ({ filters, classFilter }) => {
+  // State to manage characters
   const [characters, setCharacters] = useState([]);
   const [charactersToHide, setCharactersToHide] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
 
+  // Function to handle search input change
   const handleSearchChange = (searchTerm) => {
     setSearchTerm(searchTerm); // Update the search term state
   };
 
+  // Function to sort characters alphabetically
   const sortAlphabetically = (chars) => {
     if (filters.alphabetical === "asc") {
       return chars.sort((a, b) => a.name.localeCompare(b.name));
@@ -25,10 +30,12 @@ const CharacterList = ({ filters, classFilter }) => {
     return chars;
   };
 
+  // Function to handle adding a new character
   const handleNewCharacter = (newCharacter) => {
     setCharacters((prevCharacters) => [...prevCharacters, newCharacter]);
   };
 
+  // Function to filter characters based on various criteria
   const filterCharacters = (data) => {
     let filteredCharacters = data.filter((character) => {
       const matchesAttackType =
@@ -57,6 +64,7 @@ const CharacterList = ({ filters, classFilter }) => {
     return sortAlphabetically(filteredCharacters);
   };
 
+  // Function to fetch characters from the API
   const fetchCharacters = () => {
     fetch("https://hero-database-backend.adaptable.app/Characters")
       .then((response) => response.json())
@@ -73,6 +81,7 @@ const CharacterList = ({ filters, classFilter }) => {
     fetchCharacters();
   }, [filters, classFilter]);
 
+  // Function to determine the CSS class for a character
   const getCharacterClass = (character) => {
     const isHidden = charactersToHide.some((char) => char.id === character.id);
     const nameMatches = character.name.toLowerCase().includes(searchTerm);
@@ -94,6 +103,18 @@ const CharacterList = ({ filters, classFilter }) => {
 
   return (
     <div className="characters-title">
+      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
+        Add New Character
+      </button>
+      {showForm && (
+        <div className="modal">
+          <CharacterForm
+            onNewCharacter={handleNewCharacter}
+            closeModal={() => setShowForm(false)}
+            fetchCharacters={fetchCharacters}
+          />
+        </div>
+      )}
       <div className="games-container">
         {/* Display Dota characters */}
         <div className="game-characters dota-characters">
@@ -122,18 +143,6 @@ const CharacterList = ({ filters, classFilter }) => {
           ))}
         </div>
       </div>
-      <button className="Add-char-btn" onClick={() => setShowForm(true)}>
-        Add New Character
-      </button>
-      {showForm && (
-        <div className="modal">
-          <CharacterForm
-            onNewCharacter={handleNewCharacter}
-            closeModal={() => setShowForm(false)}
-            fetchCharacters={fetchCharacters}
-          />
-        </div>
-      )}
     </div>
   );
 };

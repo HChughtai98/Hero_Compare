@@ -1,30 +1,42 @@
 import React, { useState } from "react";
+// Components //
 import DotaList from "../components/DotaList";
 import FilterComponentDota from "../components/FilterComponentDota";
 import SearchBar from "./SearchBar";
+// Styling //
 import "../styling/Dota.css";
 
 const Dota = () => {
+  // State for Dota hero filters
   const [dotaFilters, setFilters] = useState({
     attackType: "",
     complexity: "",
     primaryAttr: "",
   });
 
-  const [classFilter, setClassFilter] = useState(""); // Declare classFilter here
-  const [roleFilter, setRoleFilter] = useState(""); // Declare roleFilter here
+  // State for class filter
+  const [classFilter, setClassFilter] = useState("");
 
+  // State for role filter
+  const [roleFilter, setRoleFilter] = useState("");
+
+  // Function to handle filter changes
   const handleFilterChange = (filterType, value) => {
     if (filterType === "classes") {
+      // Update class filter
       setClassFilter(value);
     } else if (filterType === "role") {
+      // Update role filter
       setRoleFilter(value);
     } else {
+      // Update Dota hero filters
       setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
     }
   };
 
+  // Function to handle search input change
   const handleSearchChange = (searchTerm) => {
+    // Update Dota hero filters with search term
     setFilters((prevFilters) => ({ ...prevFilters, search: searchTerm }));
   };
 
@@ -53,10 +65,13 @@ const Dota = () => {
       <h1 className="characters-header dota-style">PICK YOUR HERO</h1>
       <div>
         <div className="filter-searchbar-ctn">
+          {/* Filter component for Dota heroes */}
           <FilterComponentDota onFilterChange={handleFilterChange} />{" "}
+          {/* Search bar for filtering heroes by name */}
           <SearchBar onSearchChange={handleSearchChange} />
         </div>
 
+        {/* Dota hero list */}
         <DotaList
           game="Dota"
           filters={dotaFilters}

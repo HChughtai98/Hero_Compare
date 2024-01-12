@@ -13,7 +13,7 @@ function About() {
       {/* About Content */}
       <article className="aboutContent">
         <section>
-          <h1>About Our Heroes Page</h1>
+          <h1>About Our Hero Compare Page</h1>
           <h2>Bringing Together Two Worlds of Strategy and Fantasy</h2>
           <p>
             Welcome to our dedicated space where the exhilarating universes of

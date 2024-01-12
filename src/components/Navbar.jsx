@@ -52,7 +52,7 @@ function Navbar() {
               isActive ? "characterPage characterPageActive" : "characterPage"
             }
           >
-            Heroes
+            Hero Compare
           </NavLink>
           {/* Link to Info Page */}
           <NavLink

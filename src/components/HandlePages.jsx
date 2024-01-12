@@ -1,4 +1,5 @@
 import React from "react";
+// Styling //
 import "../styling/handlePages.css";
 
 const PrevAndNextFunction = ({
