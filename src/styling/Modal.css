@@ -124,9 +124,8 @@
 
 .Add-char-btn {
   border: 1px solid #ffffff;
-  margin-top: 10px;
-  margin-bottom: 80px;
   border-radius: 4px;
+  margin-bottom: 30px;
   height: 4rem;
   width: 20rem;
   background: rgba(0, 0, 0, 0.5) no-repeat 10px center;
@@ -170,6 +169,10 @@
     width: 90%;
     padding: 10px;
     margin-top: 200px;
+  }
+
+  .Add-char-btn {
+    margin-top: 80px;
   }
 
   .input-group {

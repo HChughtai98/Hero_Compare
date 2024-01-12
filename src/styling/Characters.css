@@ -1,19 +1,18 @@
-/* Styling for the main character page */
 .charPage {
   background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  padding: 50px 20px 0px 20px; /* Top, Right, Bottom, Left padding */
+  padding: 50px 0px 0px 0px; /* Top, Right, Bottom, Left padding */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
   position: relative;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
 }
-
 /* Styling for character details within the page */
 .character-details.character-background {
   display: flex;
@@ -25,11 +24,8 @@
   background-size: cover;
   height: 100vw;
   margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 10%;
   padding: 0px; /* Reset padding */
 }
-
 /* Container for characters */
 .charContainer {
   flex: 1;
@@ -41,7 +37,6 @@
   row-gap: 30px;
   padding: 2rem;
 }
-
 /* Overlay with blur effect for characters */
 .character-blur-overlay {
   position: absolute;
@@ -51,7 +46,7 @@
   left: 0;
   backdrop-filter: blur(25px);
   z-index: 1;
-  height: 100vw;
+  height: 120vw;
   width: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -59,7 +54,6 @@
   background-attachment: fixed;
   align-items: center;
 }
-
 /* Non-blur overlay for characters */
 .character-non-blur-overlay {
   height: 500px;
@@ -69,7 +63,6 @@
   border: solid 2px black;
   margin-top: 7rem;
 }
-
 /* Styling for character titles and headers */
 .characters-title {
   display: flex;
@@ -88,33 +81,28 @@
   padding: 0;
   font-size: 6rem;
 }
-
 /* Styling for characters without filters */
 .characters-noFilter {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
 }
-
 /* Styling for character paragraphs */
 .characters p {
   display: block;
   font-weight: bold;
 }
-
 /* Styling for individual character containers */
 .character {
   justify-content: center;
   overflow: hidden;
 }
-
 /* Hover effect for character images */
 .character img:hover {
   transform: scale(0.95);
   z-index: 2;
   transition: ease-in-out 0.25s;
 }
-
 /* Styling for character paragraphs */
 .character p {
   text-align: center;
@@ -122,13 +110,11 @@
   text-transform: uppercase;
   padding: 5px;
 }
-
 /* Hover effect for character paragraphs */
 .character:hover p {
   margin-top: -5%; /* Move the text to the middle on hover */
   color: rgb(255, 209, 156);
 }
-
 /* Styling for character images */
 .character img {
   flex-shrink: 0;
@@ -136,7 +122,6 @@
   height: 282px;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
 /* Styling for the container of character text */
 .character-text-container {
   z-index: 2;
@@ -147,7 +132,6 @@
   text-align: center;
   width: auto;
 }
-
 /* Styling for character names */
 .character-name {
   font-size: 7rem;
@@ -157,7 +141,6 @@
   color: white;
   letter-spacing: 5px;
 }
-
 /* Styling for the description container */
 .description-container {
   display: flex;
@@ -170,7 +153,6 @@
   font-weight: 400;
   margin-bottom: 2rem;
 }
-
 /* Styling for the description title */
 .description-title {
   z-index: 2;
@@ -181,7 +163,6 @@
   margin-right: 30rem;
   margin-bottom: -2rem;
 }
-
 /* Styling for character descriptions */
 .character-description {
   color: white;
@@ -195,7 +176,6 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-
 /* Styling for role and complexity information */
 .roleComplexity-info {
   border: solid 1px rgba(255, 255, 255, 0.096);
@@ -214,26 +194,22 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 1rem;
 }
-
 /* Styling for character role icons */
 .character-role-icon {
   width: 40px;
   height: 40px;
 }
-
 /* Styling for Dota icon */
 .dota-icon {
   position: relative;
   display: inline-block;
   background-color: #d2d2d2;
 }
-
 /* Styling for character complexity */
 .character-complexity {
   margin-left: auto;
   font-size: 1rem;
 }
-
 /* Styling for roles container */
 .roles-container {
   display: flex;
@@ -241,21 +217,18 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
 /* Styling for role text */
 .role-text {
   font-size: 1.2rem;
   font-weight: bold;
   margin-right: 0.5rem;
 }
-
 /* Styling for role with icon */
 .role-with-icon {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 /* Styling for character information container */
 .character-information {
   border: solid 1px rgba(255, 255, 255, 0.096);
@@ -275,14 +248,12 @@
   box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 1rem;
 }
-
 /* Styling for character attack information */
 .character-attack {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
 }
-
 /* Styling for character attack icon */
 .character-attack-icon {
   width: 30px;
@@ -291,7 +262,6 @@
   display: inline-block;
   background-color: #d2d2d2;
 }
-
 /* Styling for character headers */
 .characters-header {
   color: white;
@@ -299,7 +269,6 @@
   padding: 0;
   font-size: 6rem;
 }
-
 /* Styling for character paragraphs */
 .character p {
   color: white;
@@ -308,13 +277,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 /* Styling for hidden characters */
 .character.hide {
   opacity: 0;
   transform: translateY(-20px); /* Adjust as needed */
 }
-
 /* Styling for filter UI container */
 .filters-container {
   border-radius: 1px;
@@ -328,7 +295,6 @@
   align-items: center;
   flex-wrap: wrap;
 }
-
 /* Styling for filter dropdowns and search input */
 .filters-container select,
 .filters-container input {
@@ -342,20 +308,17 @@
   width: 15rem;
   height: 3.9rem;
 }
-
 /* Styling for filter dropdowns */
 .filters-container select {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.6);
   color: white;
 }
-
 /* Hover effect for filter dropdowns */
 .filters-container select:hover {
   border-color: #888; /* Darker border on hover */
   background-color: rgba(0, 0, 0, 0.6);
 }
-
 /* Styling for search input */
 .filters-container input[type="text"] {
   padding: 10px 10px 10px 40px;
@@ -374,14 +337,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: 1rem;
 }
-
 /* Styling for games container */
 .games-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 /* Styling for game characters */
 .game-characters {
   background: rgba(0, 0, 0, 0.5);
@@ -402,14 +363,12 @@
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
-
 /* Styling for game characters header */
 .game-characters h2 {
   text-align: center;
   color: white;
   margin-bottom: 20px;
 }
-
 /* Styling for individual character */
 .character {
   display: flex;
@@ -418,7 +377,6 @@
   height: auto;
   margin-bottom: 220px;
 }
-
 /* Styling for character images */
 .character img {
   width: 150px;
@@ -426,14 +384,12 @@
   object-fit: cover;
   margin-top: 20px;
 }
-
 /* Styling for character paragraphs */
 .character p {
   color: white;
   width: 100%;
   height: 4rem;
 }
-
 /* Styling for Dota and LoL characters */
 .dota-characters,
 .lol-characters {
@@ -445,13 +401,11 @@
   padding: 1%;
   max-width: 44%;
 }
-
 /* Styling for pseudo-elements before characters */
 .dota-characters::before,
 .lol-characters::before {
   display: none;
 }
-
 /* Media queries for tablet-sized screens */
 @media (max-width: 1023px) {
   .games-container {
@@ -468,7 +422,6 @@
     height: auto;
   }
 }
-
 /* Media queries for mobile-sized screens */
 @media (max-width: 767px) {
   .game-characters {
@@ -480,7 +433,6 @@
     gap: 5px;
   }
 }
-
 @media (max-width: 767px) {
   .dota-characters,
   .lol-characters {

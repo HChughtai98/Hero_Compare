@@ -159,7 +159,7 @@ This structure highlights our dedication to a clean and organized codebase, maki
 
 ## Links
 
-- [Slides Link]()
+- [Slides Link](https://slides.com/haris-3/code)
 - [Github repository Link back-end](https://github.com/HChughtai98/Hero_Compare_Backend)
 - [GitHub repository Link front-end](https://github.com/HChughtai98/Hero_Compare)
 - [Netlify page Link](https://main--jolly-tarsier-7fdd00.netlify.app/)
